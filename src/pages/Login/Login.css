@@ -1,0 +1,8 @@
+@media (min-width: 768px) {
+  .login-page-container {
+    display: flex;
+  }
+  .login-page-container section {
+    width: 50vw;
+  }
+}
