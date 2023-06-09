@@ -13,6 +13,7 @@ export const AuthProvider = ({ children }) => {
 
   const navigate = useNavigate();
   const location = useLocation();
+  console.log("location", location?.state?.from?.pathname);
 
   const [auth, setAuth] = useState(
     token && username
@@ -22,14 +23,17 @@ export const AuthProvider = ({ children }) => {
 
   const handleSignup = async (e, formValues) => {
     try {
+      console.log("im here", formValues);
       e.preventDefault();
       const response = await signupService(formValues);
+      console.log(response);
       if (response.status === 201) {
         const token = response.data.encodedToken;
         const username = response.data.createdUser.username;
         localStorage.setItem("token", token);
         localStorage.setItem("username", username);
         setAuth({ isAuth: true, token, username });
+        navigate(location?.state?.from?.pathname || "/");
       }
     } catch (error) {}
   };
@@ -56,6 +60,7 @@ export const AuthProvider = ({ children }) => {
     localStorage.removeItem("username");
     localStorage.removeItem("token");
     setAuth({ isAuth: false, token: "", username: "" });
+    navigate("/");
   };
 
   // const form = {

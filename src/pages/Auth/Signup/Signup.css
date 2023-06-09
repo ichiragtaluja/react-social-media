@@ -1,0 +1,8 @@
+@media (min-width: 768px) {
+  .signup-page-container {
+    display: flex;
+  }
+  .signup-page-container section {
+    width: 50vw;
+  }
+}

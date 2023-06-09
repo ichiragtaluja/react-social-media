@@ -6,9 +6,10 @@ import { Home } from "./pages/Home/Home";
 import { Profile } from "./pages/Profile/Profile";
 import { Explore } from "./pages/Explore/Explore";
 import { Bookmark } from "./pages/Bookmark/Bookmark";
-import { Login } from "./pages/Login/Login";
-import { Signup } from "./pages/Signup/Signup";
+import { Login } from "./pages/Auth/Login/Login";
+import { Signup } from "./pages/Auth/Signup/Signup";
 import { RequiresAuth } from "./components/RequiresAuth";
+import { Logout } from "./pages/Auth/Logout/Logout";
 import { useAuth } from "./contexts/AuthProvider";
 
 function App() {
@@ -29,6 +30,9 @@ function App() {
             </li>
             <li>
               <Link to="/profile">Profile</Link>
+            </li>
+            <li>
+              <Link to="/logout">Logout</Link>
             </li>
           </ul>
         </nav>
@@ -69,6 +73,7 @@ function App() {
         />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/logout" element={<Logout />} />
       </Routes>
     </div>
   );

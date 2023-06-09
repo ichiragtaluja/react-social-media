@@ -3,7 +3,7 @@ import React from "react";
 import { useState } from "react";
 import ReactPlayer from "react-player";
 import { BsEyeSlash, BsEye } from "react-icons/bs";
-import { useAuth } from "../../contexts/AuthProvider";
+import { useAuth } from "../../../contexts/AuthProvider";
 import { Link } from "react-router-dom";
 
 export const Login = () => {
