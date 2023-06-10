@@ -1,7 +1,169 @@
 import "./Home.css";
 import React from "react";
+import { useState } from "react";
+import { AiOutlineFileGif } from "react-icons/ai";
+import { ImFilePicture } from "react-icons/im";
+import { TbAdjustmentsHorizontal } from "react-icons/tb";
+import { usePosts } from "../../contexts/PostsProvider";
+import { FaRegComment } from "react-icons/fa";
+import { RiHeart3Line, RiHeart3Fill } from "react-icons/ri";
+import { FaRegBookmark, FaBookmark } from "react-icons/fa";
+import { BsShare } from "react-icons/bs";
 
 export const Home = () => {
-  return <main className="feed"><p>
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe repudiandae enim dolore maiores vitae reprehenderit beatae ex fugiat sed nobis ad ratione natus culpa earum minima quasi, atque officiis labore. Alias voluptatibus quisquam adipisci vitae vel explicabo velit quia dolores voluptatem nobis, tempore deserunt ab fuga delectus architecto nulla nesciunt nihil doloribus esse eum. Minus excepturi eius fuga cum ratione non laborum facilis, alias voluptatum quis beatae dolores odit recusandae id expedita veritatis doloremque, quas corporis. Iure ratione voluptates, eligendi dolorum illum velit molestiae, id at alias illo dolorem quo laudantium nobis sit cupiditate a tenetur quisquam animi nam ipsum incidunt quaerat autem repellat pariatur. Quo libero tempora corrupti sint illum velit sequi natus similique, quibusdam minima odio perferendis est necessitatibus et rerum non. Minus nesciunt laboriosam totam rerum saepe blanditiis sapiente aut at quos quasi vitae neque ea ratione, cumque ipsa earum qui possimus, hic voluptatem! Repudiandae quia nulla ab nostrum provident impedit? Quo, mollitia! Maiores sint qui libero quos eligendi quibusdam cum dolorum, cumque molestias, aperiam officiis consequuntur voluptas adipisci suscipit eos autem ipsa. Nesciunt quaerat magni, asperiores at sunt provident, quas rem molestiae corrupti ut esse perferendis eos nobis enim veritatis et aliquam! A doloribus quaerat explicabo delectus neque. Sint modi reiciendis in magnam sed quos molestiae similique vel accusantium voluptatem quisquam, eum optio fuga animi dolores natus rerum eos perspiciatis veritatis amet officia sunt et veniam. Sint aspernatur qui impedit sapiente cupiditate labore eius quos corporis porro in eligendi pariatur suscipit voluptas adipisci tenetur sed nulla neque repudiandae eum culpa, assumenda perferendis cumque! Unde officia at necessitatibus odio ipsa quo dolore cupiditate, consectetur et error dignissimos, modi hic eveniet! Laborum quas iste, consequuntur ipsa labore odit aperiam laboriosam nemo neque ipsum sequi in libero cupiditate debitis vitae recusandae, iusto placeat numquam animi, quaerat consectetur similique ducimus sed tempore! Delectus nihil pariatur sapiente perspiciatis beatae aperiam voluptatibus quam officiis nostrum similique nesciunt doloremque aliquam, deserunt tenetur dolore possimus. Facere enim cum sunt nihil, ipsum voluptatibus. Quos, adipisci quod sed officiis numquam nam sequi non doloribus qui odit provident sit alias expedita esse nulla, quasi voluptatem quia at possimus repellat doloremque maiores. Exercitationem aliquid, officiis magnam nisi veniam qui rem dolores, quod ipsum repellendus in consectetur dicta aut iste eveniet esse libero omnis corrupti ab beatae. Quibusdam voluptatibus vel omnis totam rem quas enim, commodi temporibus tempore fugit dolorem, quasi ad voluptas corrupti ratione. Praesentium voluptas, quasi eaque nisi necessitatibus sequi ex ratione expedita cupiditate modi mollitia aliquam vero corrupti recusandae. Voluptatum animi eligendi itaque laborum aliquid laboriosam, omnis atque vitae amet velit accusamus in repellat ex officiis saepe voluptas ab, aspernatur ipsum quos provident? Expedita autem sed ipsum! A mollitia magni soluta, totam dolores placeat consequatur, harum hic ipsa tenetur illo provident quasi officia delectus voluptatem, fugit odio ullam unde impedit alias molestiae dolorum excepturi veritatis? Exercitationem modi, assumenda voluptatum neque cumque ex quos sequi odit tempore harum ea veritatis cupiditate obcaecati ullam quod, accusantium inventore beatae ut aut nisi. Reprehenderit error et, voluptatem enim illum reiciendis delectus distinctio esse quo eligendi nobis quasi modi nisi veritatis commodi. Harum mollitia voluptate fugit iure hic laudantium beatae corporis cumque perspiciatis iusto quas aut, quia excepturi expedita, veritatis similique quaerat sunt, sequi libero. Quibusdam iste reiciendis omnis, eum sit, in voluptate nisi animi molestiae earum possimus ducimus error architecto voluptates aspernatur quas provident fuga? Deserunt, quibusdam ea? Qui molestiae et pariatur quae inventore magnam corrupti cum maxime magni dolore alias sapiente tempora eligendi suscipit at molestias, voluptas rem, quos ipsum eveniet minus excepturi. Debitis nihil beatae illo. Sit consequuntur soluta incidunt, sapiente omnis eos accusamus beatae maiores perferendis voluptas asperiores harum sed neque debitis ut voluptatem laudantium nam quis quaerat aperiam laboriosam accusantium? Ullam illum optio, accusantium quae et ut odit officiis ipsa laborum inventore porro tempora incidunt error expedita cupiditate reprehenderit? Nostrum autem laboriosam modi explicabo illo, repudiandae ipsum libero non consequuntur beatae aperiam mollitia inventore corrupti assumenda, accusantium sunt dolores! Odit maxime at harum autem reprehenderit ratione voluptatum architecto vitae, nam veniam dicta enim molestiae eos cupiditate! Eligendi nesciunt iure, obcaecati excepturi neque nostrum aliquam? Quidem tempore iusto, enim doloribus accusamus maiores quia et cumque corrupti culpa dolores consequuntur, voluptatem repudiandae nulla repellendus veniam suscipit rerum nisi, sapiente neque! Atque temporibus ipsam iure omnis ab consectetur excepturi nam, non voluptate vitae nulla, nihil ipsum! Quasi nesciunt deleniti eum dolor necessitatibus provident hic dolore illo labore distinctio aspernatur, velit laborum. Consequatur inventore, ratione placeat fuga distinctio numquam ipsam tempore quo dolores. Sequi facilis reiciendis accusamus eveniet aut, magnam excepturi ratione alias minus voluptates itaque nisi corrupti voluptatibus, odio amet tempora similique adipisci? Nesciunt, doloribus enim, non magni dignissimos provident ducimus molestiae suscipit delectus minus accusantium ad numquam ipsum reiciendis atque, debitis hic quos excepturi eligendi? Iure a earum optio asperiores provident molestiae facere, obcaecati dolorem animi nihil laudantium ea reprehenderit deleniti numquam quia unde consequatur fuga aperiam, recusandae cupiditate eos eveniet culpa. Eveniet libero quibusdam dolorum consectetur labore quas illo, vel quasi ipsum suscipit temporibus culpa dolores iusto dolor, modi fuga repellendus voluptates! Omnis ex, dicta cum qui ut iste suscipit, ipsam veritatis quis modi vel provident tempora deserunt rem, et facilis distinctio odio laborum nam dolore doloribus reiciendis! Sapiente magnam, excepturi voluptatum, reiciendis dolorum sequi voluptas numquam dolor, optio commodi sint obcaecati. Atque numquam quidem voluptatibus fugiat modi, expedita est eligendi esse quo sapiente neque voluptate quasi soluta necessitatibus ex? Unde vel accusamus alias odio quisquam quaerat officiis ea libero aliquam veritatis eius possimus tempora tenetur, praesentium cupiditate nostrum sapiente numquam ut dolorem! A dicta laborum neque saepe, quasi, numquam delectus corrupti tenetur quidem cumque nam ipsa sint? Et placeat quas, ipsum ipsa veniam obcaecati quisquam at ducimus iusto vitae modi amet aspernatur ex sapiente maxime? Commodi recusandae hic laudantium quos doloribus repellat beatae inventore cumque expedita accusantium, ipsum exercitationem. Dolore vitae ullam omnis, adipisci soluta iure, quasi deleniti temporibus, necessitatibus illum ea voluptatibus et dolorem quibusdam quis obcaecati perspiciatis. Nemo explicabo ducimus consectetur numquam ab, quidem blanditiis perferendis quae rerum aspernatur esse sint necessitatibus incidunt vitae?</p></main>;
+  const { setSortBy, sortBy, allPosts } = usePosts();
+  console.log(allPosts);
+  const [isAjustmentOn, setIsAdjustmentOn] = useState(false);
+  const sortTypes = ["Trending", "Oldest", "Latest"];
+
+  const getTimeDifference = (date) => {
+    const datePosted = new Date(date);
+    const currentTime = new Date();
+    const milliseconds = currentTime - datePosted;
+    const seconds = Math.floor(milliseconds / 1000);
+
+    if (seconds > 59) {
+      const minutes = Math.floor(seconds / 60);
+      if (minutes > 59) {
+        const hours = Math.floor(minutes / 60);
+        if (hours > 23) {
+          const days = Math.floor(hours / 24);
+          if (days > 30) {
+            const months = Math.floor(days / 30);
+            if (months > 11) {
+              const options = {
+                year: "numeric",
+                month: "short",
+                day: "numeric",
+              };
+              return datePosted.toLocaleDateString("en-US", options);
+            } else {
+              return `${months} month${months === 1 ? "" : "s"} ago`;
+            }
+          } else {
+            return `${days} day${days === 1 ? "" : "s"} ago`;
+          }
+        } else {
+          return `${hours} hour${hours === 1 ? "" : "s"} ago`;
+        }
+      } else {
+        return `${minutes} minute${minutes === 1 ? "" : "s"} ago`;
+      }
+    } else {
+      return milliseconds;
+    }
+  };
+
+  return (
+    <main className="feed">
+      <div className="new-post-container">
+        <div className="img-container">
+          <img />
+        </div>
+        <div className="input-container">
+          <input />
+          <div className="input-btn-container">
+            <div className="toolbar-container">
+              <ImFilePicture />
+              <AiOutlineFileGif />
+            </div>
+            <div className="post-btn-container">
+              <button>Post</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="sorting-container">
+        <p>{sortBy} Posts</p>
+        <TbAdjustmentsHorizontal
+          onClick={() => setIsAdjustmentOn(!isAjustmentOn)}
+          className="adjustment-btn"
+        />
+        {isAjustmentOn && (
+          <div className="dropdown-list-container">
+            <ul>
+              {sortTypes.map((type) => (
+                <li
+                  className={type === sortBy ? "isActive" : ""}
+                  onClick={() => {
+                    setSortBy(type);
+                    setIsAdjustmentOn(!isAjustmentOn);
+                  }}
+                  key={type}
+                >
+                  {type}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </div>
+
+      <div className="post-listing-container">
+        {allPosts?.map((post) => {
+          const {
+            _id,
+            avatarURL,
+            firstName,
+            lastName,
+            username,
+            createdAt,
+            content,
+            mediaUrl,
+            comments,
+            likes,
+          } = post;
+          return (
+            <div key={_id} className="post-card">
+              <div className="profile-picture-container">
+                <img src={avatarURL} />
+              </div>
+              <div className="post-card-content">
+                <div className="name-container">
+                  <div>
+                    <span className="name">
+                      {firstName} {lastName}
+                    </span>{" "}
+                    <span className="username">{`@${username}`}</span>{" "}
+                    <span className="date">{getTimeDifference(createdAt)}</span>
+                  </div>
+                  <div>Edit</div>
+                </div>
+
+                <div className="caption-container">
+                  <p>{content}</p>
+                </div>
+
+                <div className="media">
+                  <video autoPlay muted loop>
+                    <source src={mediaUrl} />
+                  </video>
+                </div>
+
+                <div className="post-actions-container">
+                  <div className="comments-container">
+                    <FaRegComment />
+                    <span>{comments?.length}</span>
+                  </div>
+                  <div className="comments-container">
+                    <RiHeart3Line />
+                    <span>{likes?.likeCount}</span>
+                  </div>
+                  <div className="comments-container">
+                    <BsShare />
+                    <span>{}</span>
+                  </div>
+                  <div className="comments-container">
+                    <FaRegBookmark />
+                    <span>{}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </main>
+  );
 };

@@ -40,7 +40,7 @@ a {
     border: 2px solid blue;
     height: 95vh;
     overflow: auto;
-    
+    width: 60%;
   }
 
   .discover {
@@ -52,5 +52,6 @@ a {
     order: 1;
     position: sticky;
     top: 0;
+    width: 20%;
   }
 }
