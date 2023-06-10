@@ -3,3 +3,54 @@
   padding: 0px;
   box-sizing: border-box;
 }
+a {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.app-container {
+  border: 2px solid red;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.feed {
+  border: 2px solid blue;
+  height: 95vh;
+  overflow: auto;
+  order: 2;
+}
+.navbar {
+  order: 3;
+  position: sticky;
+  bottom: 0px;
+}
+
+.discover {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .app-container {
+    border: 5px solid red;
+    flex-flow: row;
+  }
+
+  .feed {
+    border: 2px solid blue;
+    height: 95vh;
+    overflow: auto;
+    
+  }
+
+  .discover {
+    display: flex;
+    order: 3;
+  }
+
+  .navbar {
+    order: 1;
+    position: sticky;
+    top: 0;
+  }
+}

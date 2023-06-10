@@ -43,6 +43,7 @@ export const Signup = () => {
               email: "",
               username: "",
               password: "",
+              confirmPassword: "",
             });
           }}
           className="signup-form-body"
@@ -96,7 +97,7 @@ export const Signup = () => {
           </div>
 
           <div className="password-container">
-            <label htmlFor="username">Password *</label>
+            <label htmlFor="password">Password *</label>
             <div>
               <input
                 type={!hidePassword ? "text" : "password"}
@@ -104,7 +105,7 @@ export const Signup = () => {
                 onChange={(e) => {
                   setSignupForm({ ...signupForm, password: e.target.value });
                 }}
-                id="username"
+                id="password"
               />
               {hidePassword ? (
                 <BsEyeSlash onClick={() => setHidePassword(false)} />
@@ -117,6 +118,35 @@ export const Signup = () => {
               )}
             </div>
           </div>
+
+          <div className="confirm-password-container">
+            <label htmlFor="confirm-password">Confirm Password *</label>
+            <div>
+              <input
+                type={!hidePassword ? "text" : "password"}
+                required
+                onChange={(e) => {
+                  setSignupForm({
+                    ...signupForm,
+                    confirmPassword: e.target.value,
+                  });
+                }}
+                id="confirm-password"
+              />
+              {hidePassword ? (
+                <BsEyeSlash onClick={() => setHidePassword(false)} />
+              ) : (
+                <BsEye
+                  onClick={() => {
+                    setHidePassword(true);
+                  }}
+                />
+              )}
+            </div>
+          </div>
+
+          <input id="confirm" type="checkbox" />
+          <label htmlFor="confirm">I accept all terms and conditions</label>
 
           <div className="btn-container">
             <input value="Sign Up" type="submit" />

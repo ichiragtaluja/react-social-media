@@ -1,0 +1,15 @@
+.navbar {
+  border: 1px solid black;
+}
+
+.navbar ul {
+  display: flex;
+  justify-content: space-around;
+  list-style-type: none;
+}
+
+@media (min-width: 768px) {
+  .navbar ul {
+    flex-flow: column nowrap;
+  }
+}

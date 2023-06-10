@@ -13,7 +13,6 @@ export const AuthProvider = ({ children }) => {
 
   const navigate = useNavigate();
   const location = useLocation();
-  console.log("location", location?.state?.from?.pathname);
 
   const [auth, setAuth] = useState(
     token && username
@@ -48,7 +47,7 @@ export const AuthProvider = ({ children }) => {
         localStorage.setItem("token", token);
         localStorage.setItem("username", username);
         setAuth({ isAuth: true, token, username });
-        navigate(location.state.from.pathname || "/");
+        navigate(location?.state?.from?.pathname || "/");
       }
     } catch (error) {
       console.error(error);
@@ -62,17 +61,6 @@ export const AuthProvider = ({ children }) => {
     setAuth({ isAuth: false, token: "", username: "" });
     navigate("/");
   };
-
-  // const form = {
-  //   firstName: "Chiragg",
-  //   lastName: "Talujaa",
-  //   username: "Chiragg",
-  //   password: "Chiragg",
-  // };
-
-  // useEffect(() => {
-  //   handleSignup(form);
-  // }, []);
 
   return (
     <AuthContext.Provider
