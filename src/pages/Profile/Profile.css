@@ -1,0 +1,48 @@
+.user-info-container .profilepicture-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.user-info-container .profilepicture-container img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+  object-fit: cover;
+}
+
+.username-container .name {
+  font-weight: 800;
+}
+
+.username-container .username {
+  color: grey;
+}
+
+.website-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.website-container a {
+  color: purple;
+}
+.joining-date-container {
+  display: flex;
+  align-items: center;
+  color: grey;
+}
+
+.post-followers-following-container {
+  display: flex;
+}
+
+.post-followers-following-container p {
+  font-weight: 700;
+  margin-right: 1rem;
+}
+
+.post-followers-following-container span {
+  color: grey;
+  font-weight: 400;
+}

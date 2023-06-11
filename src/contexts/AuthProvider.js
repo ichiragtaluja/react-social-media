@@ -22,10 +22,9 @@ export const AuthProvider = ({ children }) => {
 
   const handleSignup = async (e, formValues) => {
     try {
-      console.log("im here", formValues);
       e.preventDefault();
       const response = await signupService(formValues);
-      console.log(response);
+      // console.log(response);
       if (response.status === 201) {
         const token = response.data.encodedToken;
         const username = response.data.createdUser.username;
@@ -42,6 +41,7 @@ export const AuthProvider = ({ children }) => {
       e.preventDefault();
       const response = await loginService(username, password);
       if (response.status === 200) {
+        console.log(response)
         const token = response.data.encodedToken;
         const username = response.data.foundUser.username;
         localStorage.setItem("token", token);

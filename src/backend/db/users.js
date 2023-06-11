@@ -38,6 +38,7 @@ export const users = [
           "https://res.cloudinary.com/darwtgzlk/image/upload/v1686251365/socialMedia/profilePictures/user10_dmlsg2.jpg",
       },
     ],
+
     followers: [
       {
         _id: uuid(),
