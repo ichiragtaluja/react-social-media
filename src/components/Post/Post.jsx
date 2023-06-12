@@ -5,6 +5,8 @@ import { FaRegBookmark, FaBookmark } from "react-icons/fa";
 import { BsShare } from "react-icons/bs";
 
 import React from "react";
+import { useLoggedInUser } from "../../contexts/LoggedInUserProvider";
+import { useAuth } from "../../contexts/AuthProvider";
 
 export const Post = ({ post }) => {
   const {
@@ -19,6 +21,9 @@ export const Post = ({ post }) => {
     comments,
     likes,
   } = post;
+
+  const { addBookmark, removeBookmark } = useLoggedInUser();
+  const { auth } = useAuth();
 
   const getTimeDifference = (date) => {
     const datePosted = new Date(date);
@@ -58,7 +63,7 @@ export const Post = ({ post }) => {
     }
   };
   return (
-    <div  className="post-card">
+    <div className="post-card">
       <div className="profile-picture-container">
         <img src={avatarURL} />
       </div>
@@ -98,7 +103,7 @@ export const Post = ({ post }) => {
             <span>{}</span>
           </div>
           <div className="comments-container">
-            <FaRegBookmark />
+            <FaRegBookmark onClick={() => addBookmark(_id, auth.token)} />
             <span>{}</span>
           </div>
         </div>

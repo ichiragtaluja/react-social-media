@@ -18,7 +18,7 @@ export const users = [
     avatarURL:
       "https://res.cloudinary.com/darwtgzlk/image/upload/v1686251367/socialMedia/profilePictures/user1_wla0x2.jpg",
     bio: "Proud cat lover. Meow aficionado. 🐱😻",
-    bookmarks: "",
+    bookmarks: [],
     website: "https://dadsneakers.netlify.app/",
     following: [
       {
@@ -71,7 +71,7 @@ export const users = [
     avatarURL:
       "https://res.cloudinary.com/darwtgzlk/image/upload/v1686251364/socialMedia/profilePictures/user2_dhebgg.jpg",
     bio: "Makeup enthusiast with a passion for enhancing natural beauty. Let's paint the world with color and confidence! 💄🎨 #MakeupLover",
-    bookmarks: "",
+    bookmarks: [],
     website: "https://dadsneakers.netlify.app/",
     following: [
       {
@@ -123,7 +123,7 @@ export const users = [
     avatarURL:
       "https://res.cloudinary.com/darwtgzlk/image/upload/v1686251368/socialMedia/profilePictures/user3_atvsaj.jpg",
     bio: "Sports fanatic, fueled by adrenaline and a relentless competitive spirit. 🏆⚽🏀",
-    bookmarks: "",
+    bookmarks: [],
     website: "https://dadsneakers.netlify.app/",
     following: [
       {
@@ -189,7 +189,7 @@ export const users = [
     avatarURL:
       "https://res.cloudinary.com/darwtgzlk/image/upload/v1686251365/socialMedia/profilePictures/user4_yobn9s.jpg",
     bio: "Dancing soul with rhythm in my veins. Embracing melodies through movement. 🎶💃 #DanceLover",
-    bookmarks: "",
+    bookmarks: [],
     website: "https://dadsneakers.netlify.app/",
     following: [
       {
@@ -264,7 +264,7 @@ export const users = [
     avatarURL:
       "https://res.cloudinary.com/darwtgzlk/image/upload/v1686251367/socialMedia/profilePictures/user5_jxwms5.jpg",
     bio: "Yoga enthusiast seeking balance and serenity through mindful movement and inner harmony. 🧘‍♀️✨",
-    bookmarks: "",
+    bookmarks: [],
     website: "https://dadsneakers.netlify.app/",
     following: [],
     followers: [
@@ -298,7 +298,7 @@ export const users = [
     avatarURL:
       "https://res.cloudinary.com/darwtgzlk/image/upload/v1686251369/socialMedia/profilePictures/user6_ahdwkm.jpg",
     bio: "Gym addict, fueled by iron and determination. Chasing gains and pushing limits. 💪🏋️‍♀️ #FitnessJunkie",
-    bookmarks: "",
+    bookmarks: [],
     website: "https://dadsneakers.netlify.app/",
     following: [
       {
@@ -349,7 +349,7 @@ export const users = [
     avatarURL:
       "https://res.cloudinary.com/darwtgzlk/image/upload/v1686251369/socialMedia/profilePictures/user7_eubrrf.jpg",
     bio: "Nature lover, finding solace in the wilderness. Exploring, preserving, and cherishing Earth's beauty. 🌿🌍 #NatureEnthusiast",
-    bookmarks: "",
+    bookmarks: [],
     website: "https://dadsneakers.netlify.app/",
     following: [
       {
@@ -408,7 +408,7 @@ export const users = [
     avatarURL:
       "https://res.cloudinary.com/darwtgzlk/image/upload/v1686251368/socialMedia/profilePictures/user8_mndclq.jpg",
     bio: "Foodie at heart, savoring flavors from around the world. Culinary adventures and gastronomic delights. 🍽️🌍 #FoodLover",
-    bookmarks: "",
+    bookmarks: [],
     website: "https://dadsneakers.netlify.app/",
     following: [
       {
@@ -443,7 +443,7 @@ export const users = [
     avatarURL:
       "https://res.cloudinary.com/darwtgzlk/image/upload/v1686251366/socialMedia/profilePictures/user9_txopcr.jpg",
     bio: "Soulful seeker, spreading light and love.",
-    bookmarks: "",
+    bookmarks: [],
     website: "https://dadsneakers.netlify.app/",
     following: [
       {
@@ -486,7 +486,7 @@ export const users = [
     avatarURL:
       "https://res.cloudinary.com/darwtgzlk/image/upload/v1686251365/socialMedia/profilePictures/user10_dmlsg2.jpg",
     bio: "Adventurer. Risk-taker. Embracing life's wild journey.",
-    bookmarks: "",
+    bookmarks: [],
     website: "https://dadsneakers.netlify.app/",
     following: [
       {

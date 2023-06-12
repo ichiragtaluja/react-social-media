@@ -5,6 +5,9 @@ import {
   followUserService,
   unfollowUserService,
   getUserService,
+  getAllBookmarksService,
+  addBookmarkService,
+  removeBookmarkService,
 } from "../services/UserService";
 import { useAuth } from "./AuthProvider";
 import { useReducer } from "react";
@@ -22,6 +25,8 @@ export const LoggedInUserProvider = ({ children }) => {
     loggedInUserReducer,
     initial
   );
+
+  console.log("finally", loggedInUserState);
 
   const getUser = async (user) => {
     try {
@@ -86,6 +91,30 @@ export const LoggedInUserProvider = ({ children }) => {
     } catch (error) {}
   };
 
+  const getAllBookmarks = async (token) => {
+    const response = await getAllBookmarksService(token);
+    // console.log("bookmark", response);
+  };
+
+  const addBookmark = async (postId, token) => {
+    try {
+      const response = await addBookmarkService(postId, token);
+      if (response.status === 200) {
+        loggedInUserDispatch({ type: "SET_USER", payload: response.data });
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const removeBookmark = async (postId, token) => {
+    try {
+      const response = await removeBookmarkService(postId, token);
+
+      console.log(response);
+    } catch (error) {}
+  };
+
   useEffect(() => {
     if (token) {
       getUser(username);
@@ -100,6 +129,8 @@ export const LoggedInUserProvider = ({ children }) => {
         editUser,
         followUser,
         unfollowUser,
+        addBookmark,
+        removeBookmark,
       }}
     >
       {children}

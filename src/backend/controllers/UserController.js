@@ -58,11 +58,8 @@ export const getUserHandler = function (schema, request) {
  * */
 
 export const editUserHandler = function (schema, request) {
-
-
   let user = requiresAuth.call(this, request);
 
-  
   try {
     if (!user) {
       return new Response(
@@ -140,8 +137,15 @@ export const getBookmarkPostsHandler = function (schema, request) {
 
 export const bookmarkPostHandler = function (schema, request) {
   const { postId } = request.params;
+
+
+
   const post = schema.posts.findBy({ _id: postId }).attrs;
+
+
+
   const user = requiresAuth.call(this, request);
+  
   try {
     if (!user) {
       return new Response(
@@ -180,6 +184,8 @@ export const bookmarkPostHandler = function (schema, request) {
     );
   }
 };
+
+
 
 /**
  * This handler handles adding a post to user's bookmarks in the db.
