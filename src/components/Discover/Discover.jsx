@@ -3,21 +3,21 @@ import React from "react";
 import { useUser } from "../../contexts/UserProvider";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthProvider";
+import { useLoggedInUser } from "../../contexts/LoggedInUserProvider";
 
 export const Discover = () => {
   const { auth } = useAuth();
+  const { loggedInUserState } = useLoggedInUser();
 
   const { userState } = useUser();
 
   const navigate = useNavigate();
   const whoToFollow = userState.allUsers?.filter((user) =>
-    auth?.user?.following?.every(
+    loggedInUserState?.following?.every(
       (following) =>
         following.username !== user.username && user.username !== auth.username
     )
   );
-
-  console.log("who", whoToFollow);
 
   return (
     <div className="discover">

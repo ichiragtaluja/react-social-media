@@ -3,21 +3,22 @@ import React, { createContext, useContext, useEffect, useState } from "react";
 import { loginService, signupService } from "../services/AuthService";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
-import { getUserService } from "../services/UserService";
+import { useLoggedInUser } from "./LoggedInUserProvider";
+// import { getUserService } from "../services/UserService";
 
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const getUser = async (user) => {
-    try {
-      const response = await getUserService(user);
-      if (response.status === 200) {
-        setAuth({ ...auth, user: { ...response.data.user } });
-      }
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  // const getUser = async (user) => {
+  //   try {
+  //     const response = await getUserService(user);
+  //     if (response.status === 200) {
+  //       setAuth({ ...auth, user: { ...response.data.user } });
+  //     }
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
 
   const token = localStorage.getItem("token");
   const username = localStorage.getItem("username");
@@ -28,16 +29,18 @@ export const AuthProvider = ({ children }) => {
 
   const [auth, setAuth] = useState(
     token && username
-      ? { isAuth: true, token, username, user: {} }
-      : { isAuth: false, token: "", username: "", user: {} }
+      ? { isAuth: true, token, username }
+      : { isAuth: false, token: "", username: "" }
   );
 
-  useEffect(() => {
-    if (auth.isAuth) {
-      console.log("yes i was here");
-      getUser(auth.username);
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (auth.isAuth) {
+  //     console.log("yes i was here");
+  //     getUser(auth.username);
+  //   }
+  // }, []);
+
+  const { dispatch } = useLoggedInUser();
 
   const handleSignup = async (e, formValues) => {
     try {
@@ -53,8 +56,10 @@ export const AuthProvider = ({ children }) => {
           isAuth: true,
           token,
           username: response.data.createdUser.username,
-          user: { ...response.data.createdUser },
+          // user: { ...response.data.createdUser },
         });
+
+        dispatch({ type: "SET_USER", payload: response.data.createdUser });
         navigate(location?.state?.from?.pathname || "/");
       }
     } catch (error) {}
@@ -74,8 +79,9 @@ export const AuthProvider = ({ children }) => {
           isAuth: true,
           token,
           username: response.data.foundUser.username,
-          user: response.data.foundUser,
+          // user: response.data.foundUser,
         });
+        dispatch({ type: "SET_USER", payload: response.data.foundUser });
         navigate(location?.state?.from?.pathname || "/");
       }
     } catch (error) {
@@ -88,6 +94,7 @@ export const AuthProvider = ({ children }) => {
     localStorage.removeItem("username");
     localStorage.removeItem("token");
     setAuth({ isAuth: false, token: "", username: "", user: {} });
+    dispatch({ type: "REMOVE_USER", payload: {} });
     navigate("/");
   };
 

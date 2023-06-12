@@ -8,13 +8,16 @@ import { usePosts } from "../../contexts/PostsProvider";
 
 import { Post } from "../../components/Post/Post";
 import { useAuth } from "../../contexts/AuthProvider";
+import { useLoggedInUser } from "../../contexts/LoggedInUserProvider";
 
 export const Home = () => {
   const { setSortBy, sortBy, allPosts } = usePosts();
   const { auth } = useAuth();
 
+  const { loggedInUserState } = useLoggedInUser();
+
   const allPostFromFollowers = allPosts.filter((post) =>
-    auth.user?.following?.some(
+    loggedInUserState?.following?.some(
       (following) => following.username === post.username
     )
   );

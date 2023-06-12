@@ -6,12 +6,13 @@ import { Post } from "../../components/Post/Post";
 import { useUser } from "../../contexts/UserProvider";
 import { CgCalendarDates } from "react-icons/cg";
 import { useParams } from "react-router-dom";
+import { useLoggedInUser } from "../../contexts/LoggedInUserProvider";
 
 export const Profile = () => {
-  const { auth } = useAuth();
   const { username } = useParams();
+  const { loggedInUserState } = useLoggedInUser();
 
-  const isOwnProfile = username === auth.username;
+  const isOwnProfile = username === loggedInUserState?.username;
 
   const { userState } = useUser();
   const { allPosts } = usePosts();
