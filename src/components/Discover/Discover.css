@@ -18,10 +18,19 @@
 }
 
 .user-name-username-container .name {
+  /* display: inline-block; */
   font-weight: 600;
+  border: 1px solid black;
   text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 80px;
+  overflow: hidden;
 }
 
 .user-name-username-container .username {
   color: grey;
+  text-overflow: ellipsis;
+  border: 1px solid black;
+  width: 80px;
+  overflow: hidden;
 }
