@@ -19,10 +19,27 @@ export const getAllUsersHandler = function () {
  * send GET Request at /api/users/:userId
  * */
 
+// export const getUserHandler = function (schema, request) {
+//   const userId = request.params.userId;
+//   try {
+//     const user = schema.users.findBy({ _id: userId }).attrs;
+//     return new Response(200, {}, { user });
+//   } catch (error) {
+//     return new Response(
+//       500,
+//       {},
+//       {
+//         error,
+//       }
+//     );
+//   }
+// };
+
+
 export const getUserHandler = function (schema, request) {
-  const userId = request.params.userId;
+  const usernameCurr = request.params.userId;
   try {
-    const user = schema.users.findBy({ _id: userId }).attrs;
+    const user = schema.users.findBy({ username: usernameCurr }).attrs;
     return new Response(200, {}, { user });
   } catch (error) {
     return new Response(

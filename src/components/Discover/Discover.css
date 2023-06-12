@@ -1,13 +1,16 @@
 .discover-container {
   display: flex;
   flex-flow: column nowrap;
+  border: 1px solid black;
+  width: 100%;
 }
 
 .discover-user-card {
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
-  justify-content: space-between;
+
+  border: 1px solid black;
 }
 
 .discover-user-img-container img {
@@ -20,10 +23,10 @@
 .user-name-username-container .name {
   /* display: inline-block; */
   font-weight: 600;
-  border: 1px solid black;
+  /* border: 1px solid black;
   text-overflow: ellipsis;
   white-space: nowrap;
-  width: 80px;
+  /* width: 80px; */
   overflow: hidden;
 }
 
@@ -31,6 +34,15 @@
   color: grey;
   text-overflow: ellipsis;
   border: 1px solid black;
-  width: 80px;
-  overflow: hidden;
+  /* width: 80px;
+  overflow: hidden; */
+}
+
+.follow-container {
+  flex-grow: 1;
+  border: 1px solid black;
+  text-align: right;
+}
+.follow-container button {
+  margin-right: auto;
 }

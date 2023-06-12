@@ -62,7 +62,7 @@ export const Home = () => {
 
       <div className="post-listing-container">
         {allPosts?.map((post) => {
-          return <Post post={post} />;
+          return <Post key={post?._id} post={post} />;
         })}
       </div>
     </main>

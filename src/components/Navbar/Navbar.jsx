@@ -2,8 +2,10 @@ import "./Navbar.css";
 import { Link } from "react-router-dom";
 
 import React from "react";
+import { useAuth } from "../../contexts/AuthProvider";
 
 export const Navbar = () => {
+  const { auth } = useAuth();
   return (
     <nav className="navbar">
       <ul>
@@ -20,7 +22,7 @@ export const Navbar = () => {
           <Link to="/bookmark">Bookmark</Link>
         </li>
         <li>
-          <Link to="/profile">Profile</Link>
+          <Link to={`/profile/${auth.username}`}>Profile</Link>
         </li>
         <li>
           <Link to="/logout">Logout</Link>

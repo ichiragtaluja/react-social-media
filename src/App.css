@@ -46,6 +46,8 @@ a {
   .discover {
     display: flex;
     order: 3;
+    border: 1px solid blue;
+    width: 20%;
   }
 
   .navbar {

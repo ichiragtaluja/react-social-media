@@ -1,12 +1,24 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 
 import { loginService, signupService } from "../services/AuthService";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
+import { getUserService } from "../services/UserService";
 
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
+  const getUser = async (user) => {
+    try {
+      const response = await getUserService(user);
+      if (response.status === 200) {
+        setAuth({ ...auth, user: { ...response.data.user } });
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   const token = localStorage.getItem("token");
   const username = localStorage.getItem("username");
   const [authError, setAuthError] = useState("");
@@ -16,9 +28,16 @@ export const AuthProvider = ({ children }) => {
 
   const [auth, setAuth] = useState(
     token && username
-      ? { isAuth: true, token, username }
-      : { isAuth: false, token: "", username: "" }
+      ? { isAuth: true, token, username, user: {} }
+      : { isAuth: false, token: "", username: "", user: {} }
   );
+
+  useEffect(() => {
+    if (auth.isAuth) {
+      console.log("yes i was here");
+      getUser(auth.username);
+    }
+  }, []);
 
   const handleSignup = async (e, formValues) => {
     try {
@@ -30,7 +49,12 @@ export const AuthProvider = ({ children }) => {
         const username = response.data.createdUser.username;
         localStorage.setItem("token", token);
         localStorage.setItem("username", username);
-        setAuth({ isAuth: true, token, username });
+        setAuth({
+          isAuth: true,
+          token,
+          username,
+          user: { ...response.data.createdUser },
+        });
         navigate(location?.state?.from?.pathname || "/");
       }
     } catch (error) {}
@@ -41,12 +65,17 @@ export const AuthProvider = ({ children }) => {
       e.preventDefault();
       const response = await loginService(username, password);
       if (response.status === 200) {
-        console.log(response)
+        console.log("login", response);
         const token = response.data.encodedToken;
         const username = response.data.foundUser.username;
         localStorage.setItem("token", token);
         localStorage.setItem("username", username);
-        setAuth({ isAuth: true, token, username });
+        setAuth({
+          isAuth: true,
+          token,
+          username,
+          user: response.data.foundUser,
+        });
         navigate(location?.state?.from?.pathname || "/");
       }
     } catch (error) {

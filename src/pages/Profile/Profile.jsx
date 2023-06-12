@@ -5,18 +5,20 @@ import { useAuth } from "../../contexts/AuthProvider";
 import { Post } from "../../components/Post/Post";
 import { useUser } from "../../contexts/UserProvider";
 import { CgCalendarDates } from "react-icons/cg";
+import { useParams } from "react-router-dom";
 
 export const Profile = () => {
   const { auth } = useAuth();
+  const { username } = useParams();
+
+  const isOwnProfile = username === auth.username;
 
   const { userState } = useUser();
   const { allPosts } = usePosts();
-  const postsByUser = allPosts?.filter(
-    (post) => post.username === auth.username
-  );
+  const postsByUser = allPosts?.filter((post) => post.username === username);
 
   const user = userState.allUsers?.find(
-    ({ username }) => username === auth.username
+    ({ username: user }) => user === username
   );
 
   const createdOnDate = () => {
@@ -29,14 +31,16 @@ export const Profile = () => {
     return createdOn.toLocaleDateString("en-US", options);
   };
 
-  console.log(user);
-
   return (
     <main className="feed">
       <div className="user-info-container">
         <div className="profilepicture-container">
           <img src={user?.avatarURL} alt={user?.firstName} />
-          <button>Edit Profile</button>
+          {isOwnProfile ? (
+            <button>Edit Profile</button>
+          ) : (
+            <button>Follow</button>
+          )}
         </div>
         <div className="username-container">
           <p className="name">
@@ -56,7 +60,7 @@ export const Profile = () => {
           </div>
         </div>
         <div className="post-followers-following-container">
-        <p>
+          <p>
             {postsByUser.length}
             <span>Posts</span>
           </p>

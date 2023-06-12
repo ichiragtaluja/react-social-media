@@ -13,18 +13,22 @@ export const UserProvider = ({ children }) => {
     dispatch({ type: "SET_ALL_USERS", payload: response.data.users });
   };
 
-  const getUser = async (user) => {
-    try {
-      const response = await getUserService(user);
-    } catch (error) {}
-  };
+  // const getUser = async (user) => {
+  //   try {
+  //     const response = await getUserService(user);
+  //     console.log("neha wala", response);
+  //   } catch (error) {
+  //     console.log("i lost");
+  //   }
+  // };
 
   useEffect(() => {
     getAllUsers();
+    // getUser("Neha");
   }, []);
 
   return (
-    <UserContext.Provider value={{ userState }}>
+    <UserContext.Provider value={{ userState, }}>
       {children}
     </UserContext.Provider>
   );
