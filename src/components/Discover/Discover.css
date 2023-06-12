@@ -1,0 +1,27 @@
+.discover-container {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.discover-user-card {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.discover-user-img-container img {
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  object-fit: cover;
+}
+
+.user-name-username-container .name {
+  font-weight: 600;
+  text-overflow: ellipsis;
+}
+
+.user-name-username-container .username {
+  color: grey;
+}
