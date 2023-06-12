@@ -7,9 +7,17 @@ import { TbAdjustmentsHorizontal } from "react-icons/tb";
 import { usePosts } from "../../contexts/PostsProvider";
 
 import { Post } from "../../components/Post/Post";
+import { useAuth } from "../../contexts/AuthProvider";
 
 export const Home = () => {
   const { setSortBy, sortBy, allPosts } = usePosts();
+  const { auth } = useAuth();
+
+  const allPostFromFollowers = allPosts.filter((post) =>
+    auth.user?.following?.some(
+      (following) => following.username === post.username
+    )
+  );
 
   const [isAjustmentOn, setIsAdjustmentOn] = useState(false);
   const sortTypes = ["Trending", "Oldest", "Latest"];
@@ -61,7 +69,7 @@ export const Home = () => {
       </div>
 
       <div className="post-listing-container">
-        {allPosts?.map((post) => {
+        {allPostFromFollowers?.map((post) => {
           return <Post key={post?._id} post={post} />;
         })}
       </div>
