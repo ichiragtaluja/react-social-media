@@ -2,12 +2,22 @@ import "./Discover.css";
 import React from "react";
 import { useUser } from "../../contexts/UserProvider";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../contexts/AuthProvider";
 
 export const Discover = () => {
+  const { auth } = useAuth();
+
   const { userState } = useUser();
+
   const navigate = useNavigate();
-  const whoToFollow = userState?.allUsers;
-  // console.log(whoToFollow);
+  const whoToFollow = userState.allUsers?.filter((user) =>
+    auth?.user?.following?.every(
+      (following) =>
+        following.username !== user.username && user.username !== auth.username
+    )
+  );
+
+  console.log("who", whoToFollow);
 
   return (
     <div className="discover">
@@ -20,8 +30,6 @@ export const Discover = () => {
             <div key={user?._id} className="discover-user-card">
               <div
                 onClick={() => {
-                  console.log("Yessss");
-                  // navigate(`/profile/${user?.username}`);
                   navigate(`/profile/${user.username}`);
                 }}
                 className="discover-user-img-container"

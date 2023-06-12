@@ -9,7 +9,9 @@ import { Login } from "../pages/Auth/Login/Login";
 import { Signup } from "../pages/Auth/Signup/Signup";
 import { Logout } from "../pages/Auth/Logout/Logout";
 
+
 export const NavRoutes = () => {
+
   return (
     <Routes>
       <Route

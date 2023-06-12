@@ -52,7 +52,7 @@ export const AuthProvider = ({ children }) => {
         setAuth({
           isAuth: true,
           token,
-          username,
+          username: response.data.createdUser.username,
           user: { ...response.data.createdUser },
         });
         navigate(location?.state?.from?.pathname || "/");
@@ -73,7 +73,7 @@ export const AuthProvider = ({ children }) => {
         setAuth({
           isAuth: true,
           token,
-          username,
+          username: response.data.foundUser.username,
           user: response.data.foundUser,
         });
         navigate(location?.state?.from?.pathname || "/");
@@ -87,7 +87,7 @@ export const AuthProvider = ({ children }) => {
   const handleLogout = () => {
     localStorage.removeItem("username");
     localStorage.removeItem("token");
-    setAuth({ isAuth: false, token: "", username: "" });
+    setAuth({ isAuth: false, token: "", username: "", user: {} });
     navigate("/");
   };
 
