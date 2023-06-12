@@ -7,7 +7,7 @@ import { useLoggedInUser } from "../../contexts/LoggedInUserProvider";
 
 export const Discover = () => {
   const { auth } = useAuth();
-  const { loggedInUserState } = useLoggedInUser();
+  const { loggedInUserState, followUser } = useLoggedInUser();
 
   const { userState } = useUser();
 
@@ -43,7 +43,13 @@ export const Discover = () => {
                 <p className="username">@{user?.username}</p>
               </div>
               <div className="follow-container">
-                <button>Follow</button>
+                <button
+                  onClick={() => {
+                    followUser(user?._id, auth.token);
+                  }}
+                >
+                  Follow
+                </button>
               </div>
             </div>
           ))}

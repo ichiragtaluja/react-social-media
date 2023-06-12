@@ -8,6 +8,7 @@ const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
   const [userState, dispatch] = useReducer(userReducer, initial);
+
   const getAllUsers = async () => {
     const response = await getAllUserService();
     dispatch({ type: "SET_ALL_USERS", payload: response.data.users });
@@ -28,7 +29,7 @@ export const UserProvider = ({ children }) => {
   }, []);
 
   return (
-    <UserContext.Provider value={{ userState }}>
+    <UserContext.Provider value={{ userState, dispatch }}>
       {children}
     </UserContext.Provider>
   );

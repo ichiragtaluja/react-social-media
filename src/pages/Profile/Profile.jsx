@@ -9,8 +9,9 @@ import { useParams } from "react-router-dom";
 import { useLoggedInUser } from "../../contexts/LoggedInUserProvider";
 
 export const Profile = () => {
+  const { auth } = useAuth();
   const { username } = useParams();
-  const { loggedInUserState } = useLoggedInUser();
+  const { loggedInUserState, followUser, unfollowUser } = useLoggedInUser();
 
   const isOwnProfile = username === loggedInUserState?.username;
 
@@ -39,8 +40,16 @@ export const Profile = () => {
           <img src={user?.avatarURL} alt={user?.firstName} />
           {isOwnProfile ? (
             <button>Edit Profile</button>
+          ) : !loggedInUserState.following?.find(
+              (user) => user.username === username
+            ) ? (
+            <button onClick={() => followUser(user?._id, auth.token)}>
+              Follow
+            </button>
           ) : (
-            <button>Follow</button>
+            <button onClick={() => unfollowUser(user?._id, auth.token)}>
+              Following
+            </button>
           )}
         </div>
         <div className="username-container">

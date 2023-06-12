@@ -16,15 +16,15 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <Router>
-      <LoggedInUserProvider>
-        <AuthProvider>
-          <UserProvider>
+      <UserProvider>
+        <LoggedInUserProvider>
+          <AuthProvider>
             <PostsProvider>
               <App />
             </PostsProvider>
-          </UserProvider>
-        </AuthProvider>
-      </LoggedInUserProvider>
+          </AuthProvider>
+        </LoggedInUserProvider>
+      </UserProvider>
     </Router>
   </React.StrictMode>
 );
