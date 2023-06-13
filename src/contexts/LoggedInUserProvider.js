@@ -26,8 +26,6 @@ export const LoggedInUserProvider = ({ children }) => {
     initial
   );
 
-  console.log("finally", loggedInUserState);
-
   const getUser = async (user) => {
     try {
       const response = await getUserService(user);
@@ -110,8 +108,7 @@ export const LoggedInUserProvider = ({ children }) => {
   const removeBookmark = async (postId, token) => {
     try {
       const response = await removeBookmarkService(postId, token);
-
-      console.log(response);
+      loggedInUserDispatch({ type: "SET_USER", payload: response.data });
     } catch (error) {}
   };
 

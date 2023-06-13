@@ -18,7 +18,9 @@ export const Home = () => {
 
   const allPostFromFollowers = allPosts.filter((post) =>
     loggedInUserState?.following?.some(
-      (following) => following.username === post.username
+      (following) =>
+        following.username === post.username ||
+        post.username === loggedInUserState.username
     )
   );
 

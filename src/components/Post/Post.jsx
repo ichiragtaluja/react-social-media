@@ -22,8 +22,12 @@ export const Post = ({ post }) => {
     likes,
   } = post;
 
-  const { addBookmark, removeBookmark } = useLoggedInUser();
+  const { addBookmark, removeBookmark, loggedInUserState } = useLoggedInUser();
   const { auth } = useAuth();
+
+  const isBookmarkedAlready = loggedInUserState.bookmarks.find(
+    (bookmarkedPost) => bookmarkedPost?._id === _id
+  );
 
   const getTimeDifference = (date) => {
     const datePosted = new Date(date);
@@ -103,7 +107,11 @@ export const Post = ({ post }) => {
             <span>{}</span>
           </div>
           <div className="comments-container">
-            <FaRegBookmark onClick={() => addBookmark(_id, auth.token)} />
+            {!isBookmarkedAlready ? (
+              <FaRegBookmark onClick={() => addBookmark(_id, auth.token)} />
+            ) : (
+              <FaBookmark onClick={() => removeBookmark(_id, auth.token)}/>
+            )}
             <span>{}</span>
           </div>
         </div>
