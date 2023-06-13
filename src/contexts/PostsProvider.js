@@ -15,6 +15,8 @@ const PostsContext = createContext();
 
 export const PostsProvider = ({ children }) => {
   const [allPosts, setAllPosts] = useState([]);
+
+  console.log("all posts", allPosts);
   const getAllPosts = async () => {
     try {
       const response = await getAllPostService();

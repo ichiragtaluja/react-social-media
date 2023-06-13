@@ -7,7 +7,6 @@ import { BsShare } from "react-icons/bs";
 import React from "react";
 import { useLoggedInUser } from "../../contexts/LoggedInUserProvider";
 import { useAuth } from "../../contexts/AuthProvider";
-import { likePostHandler } from "../../backend/controllers/PostController";
 import { usePosts } from "../../contexts/PostsProvider";
 import { useNavigate } from "react-router-dom";
 
@@ -32,7 +31,7 @@ export const Post = ({ post }) => {
   const { auth } = useAuth();
 
   const isBookmarkedAlready = loggedInUserState.bookmarks.find(
-    (bookmarkedPost) => bookmarkedPost?._id === _id
+    (postId) => postId === _id
   );
 
   const isLikedAlready = likes.likedBy.find(

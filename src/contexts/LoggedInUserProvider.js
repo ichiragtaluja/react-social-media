@@ -63,6 +63,8 @@ export const LoggedInUserProvider = ({ children }) => {
             : individualUser
         );
 
+        
+
         dispatch({ type: "SET_ALL_USERS", payload: [...updatedAllUser] });
         loggedInUserDispatch({ type: "SET_USER", payload: user });
       }
@@ -98,6 +100,7 @@ export const LoggedInUserProvider = ({ children }) => {
     try {
       const response = await addBookmarkService(postId, token);
       if (response.status === 200) {
+        console.log("bookmark",response.data);
         loggedInUserDispatch({ type: "SET_USER", payload: response.data });
       }
     } catch (error) {
@@ -111,8 +114,6 @@ export const LoggedInUserProvider = ({ children }) => {
       loggedInUserDispatch({ type: "SET_USER", payload: response.data });
     } catch (error) {}
   };
-
-  
 
   useEffect(() => {
     if (token) {
