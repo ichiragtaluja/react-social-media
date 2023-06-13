@@ -72,7 +72,7 @@ export const Post = ({ post }) => {
         return `${minutes} minute${minutes === 1 ? "" : "s"} ago`;
       }
     } else {
-      return milliseconds;
+      return `${seconds} second${seconds === 1 ? "" : "s"} ago`;
     }
   };
   return (

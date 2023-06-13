@@ -5,7 +5,6 @@ export const getAllPostService = async () => {
 };
 
 export const likePostService = async (postId, token) => {
-
   return await axios.post(
     `/api/posts/like/${postId}`,
     {},
@@ -19,6 +18,18 @@ export const dislikePostService = async (postId, token) => {
   return await axios.post(
     `/api/posts/dislike/${postId}`,
     {},
+    {
+      headers: { authorization: token },
+    }
+  );
+};
+
+export const createPostService = async (post, token) => {
+  return await axios.post(
+    "/api/posts",
+    {
+      postData: post,
+    },
     {
       headers: { authorization: token },
     }

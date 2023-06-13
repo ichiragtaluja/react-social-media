@@ -9,6 +9,7 @@ import {
   getAllPostService,
   likePostService,
   dislikePostService,
+  createPostService,
 } from "../services/PostService";
 
 const PostsContext = createContext();
@@ -46,12 +47,20 @@ export const PostsProvider = ({ children }) => {
 
   const [sortBy, setSortBy] = useState("Latest");
 
+  const createPost = async (e, post, token) => {
+    try {
+      e.preventDefault();
+      const response = await createPostService(post, token);
+      setAllPosts(response.data.posts);
+    } catch (error) {}
+  };
+
   useEffect(() => {
     getAllPosts();
   }, []);
   return (
     <PostsContext.Provider
-      value={{ setSortBy, sortBy, allPosts, likePost, dislikePost }}
+      value={{ setSortBy, sortBy, allPosts, likePost, dislikePost, createPost }}
     >
       {children}
     </PostsContext.Provider>

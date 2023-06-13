@@ -86,3 +86,14 @@
 .dropdown-list-container li {
   cursor: pointer;
 }
+
+.new-post-container img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 25px;
+}
+
+.toolbar-container input{
+  display: none;
+}

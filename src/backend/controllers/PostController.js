@@ -64,6 +64,8 @@ export const getAllUserPostsHandler = function (schema, request) {
  * */
 
 export const createPostHandler = function (schema, request) {
+
+  console.log("abe")
   const user = requiresAuth.call(this, request);
   try {
     if (!user) {
