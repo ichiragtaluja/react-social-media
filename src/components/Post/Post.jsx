@@ -7,6 +7,9 @@ import { BsShare } from "react-icons/bs";
 import React from "react";
 import { useLoggedInUser } from "../../contexts/LoggedInUserProvider";
 import { useAuth } from "../../contexts/AuthProvider";
+import { likePostHandler } from "../../backend/controllers/PostController";
+import { usePosts } from "../../contexts/PostsProvider";
+import { useNavigate } from "react-router-dom";
 
 export const Post = ({ post }) => {
   const {
@@ -22,11 +25,18 @@ export const Post = ({ post }) => {
     likes,
   } = post;
 
+  const navigate = useNavigate();
+  const { likePost, dislikePost } = usePosts();
+
   const { addBookmark, removeBookmark, loggedInUserState } = useLoggedInUser();
   const { auth } = useAuth();
 
   const isBookmarkedAlready = loggedInUserState.bookmarks.find(
     (bookmarkedPost) => bookmarkedPost?._id === _id
+  );
+
+  const isLikedAlready = likes.likedBy.find(
+    (user) => user.username === loggedInUserState.username
   );
 
   const getTimeDifference = (date) => {
@@ -69,10 +79,20 @@ export const Post = ({ post }) => {
   return (
     <div className="post-card">
       <div className="profile-picture-container">
-        <img src={avatarURL} />
+        <img
+          onClick={() => {
+            navigate(`/profile/${username}`);
+          }}
+          src={avatarURL}
+        />
       </div>
       <div className="post-card-content">
-        <div className="name-container">
+        <div
+          onClick={() => {
+            navigate(`/profile/${username}`);
+          }}
+          className="name-container"
+        >
           <div>
             <span className="name">
               {firstName} {lastName}
@@ -99,7 +119,11 @@ export const Post = ({ post }) => {
             <span>{comments?.length}</span>
           </div>
           <div className="comments-container">
-            <RiHeart3Line />
+            {!isLikedAlready ? (
+              <RiHeart3Line onClick={() => likePost(_id, auth.token)} />
+            ) : (
+              <RiHeart3Fill onClick={() => dislikePost(_id, auth.token)} />
+            )}
             <span>{likes?.likeCount}</span>
           </div>
           <div className="comments-container">
@@ -110,7 +134,7 @@ export const Post = ({ post }) => {
             {!isBookmarkedAlready ? (
               <FaRegBookmark onClick={() => addBookmark(_id, auth.token)} />
             ) : (
-              <FaBookmark onClick={() => removeBookmark(_id, auth.token)}/>
+              <FaBookmark onClick={() => removeBookmark(_id, auth.token)} />
             )}
             <span>{}</span>
           </div>

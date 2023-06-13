@@ -44,12 +44,14 @@
   height: 50px;
   object-fit: cover;
   border-radius: 25px;
+  cursor: pointer;
 }
 
 .name-container {
   border: 1px solid black;
   display: flex;
   justify-content: space-between;
+  cursor: pointer;
 }
 .name-container .name {
   font-weight: 700;

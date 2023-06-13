@@ -112,6 +112,8 @@ export const LoggedInUserProvider = ({ children }) => {
     } catch (error) {}
   };
 
+  
+
   useEffect(() => {
     if (token) {
       getUser(username);

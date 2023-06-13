@@ -40,7 +40,7 @@ export const AuthProvider = ({ children }) => {
   //   }
   // }, []);
 
-  const { dispatch } = useLoggedInUser();
+  const { loggedInUserDispatch } = useLoggedInUser();
 
   const handleSignup = async (e, formValues) => {
     try {
@@ -59,7 +59,10 @@ export const AuthProvider = ({ children }) => {
           // user: { ...response.data.createdUser },
         });
 
-        dispatch({ type: "SET_USER", payload: response.data.createdUser });
+        loggedInUserDispatch({
+          type: "SET_USER",
+          payload: response.data.createdUser,
+        });
         navigate(location?.state?.from?.pathname || "/");
       }
     } catch (error) {}
@@ -81,7 +84,10 @@ export const AuthProvider = ({ children }) => {
           username: response.data.foundUser.username,
           // user: response.data.foundUser,
         });
-        dispatch({ type: "SET_USER", payload: response.data.foundUser });
+        loggedInUserDispatch({
+          type: "SET_USER",
+          payload: response.data.foundUser,
+        });
         navigate(location?.state?.from?.pathname || "/");
       }
     } catch (error) {
@@ -94,7 +100,7 @@ export const AuthProvider = ({ children }) => {
     localStorage.removeItem("username");
     localStorage.removeItem("token");
     setAuth({ isAuth: false, token: "", username: "", user: {} });
-    dispatch({ type: "REMOVE_USER", payload: {} });
+    loggedInUserDispatch({ type: "REMOVE_USER", payload: {} });
     navigate("/");
   };
 
