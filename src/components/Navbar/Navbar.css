@@ -1,5 +1,6 @@
 .navbar {
   border: 1px solid black;
+  z-index: 1;
 }
 
 .navbar ul {

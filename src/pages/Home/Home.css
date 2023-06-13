@@ -72,13 +72,17 @@
   border: 1px solid black;
 }
 
-.post-card .media video{
-    width: 50%;
-   /* object-fit: cover; */
-    border: 3px solid green;
+.post-card .media video {
+  width: 50%;
+  /* object-fit: cover; */
+  border: 3px solid green;
 }
 
-.post-actions-container{
+.post-actions-container {
   display: flex;
   justify-content: space-around;
+}
+
+.dropdown-list-container li {
+  cursor: pointer;
 }

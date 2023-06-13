@@ -24,6 +24,26 @@ export const Home = () => {
     )
   );
 
+  const sortedPosts = (sortBy, allPosts) => {
+    if (sortBy === "Latest") {
+      const sortedPosts = allPosts.sort(
+        (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+      );
+      return sortedPosts;
+    }
+    if (sortBy === "Oldest") {
+      const sortedPosts = allPosts.sort(
+        (a, b) => new Date(a.createdAt) - new Date(b.createdAt)
+      );
+      return sortedPosts;
+    } else {
+      const sortedPosts = allPosts.sort(
+        (a, b) => b.likes.likeCount - a.likes.likeCount
+      );
+      return sortedPosts;
+    }
+  };
+
   const [isAjustmentOn, setIsAdjustmentOn] = useState(false);
   const sortTypes = ["Trending", "Oldest", "Latest"];
 
@@ -74,7 +94,7 @@ export const Home = () => {
       </div>
 
       <div className="post-listing-container">
-        {allPostFromFollowers?.map((post) => {
+        {sortedPosts(sortBy, allPostFromFollowers)?.map((post) => {
           return <Post key={post?._id} post={post} />;
         })}
       </div>
