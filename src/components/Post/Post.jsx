@@ -92,14 +92,14 @@ export const Post = ({ post }) => {
           }}
           className="name-container"
         >
-          <div>
+          <div className="username-container">
             <span className="name">
               {firstName} {lastName}
             </span>{" "}
             <span className="username">{`@${username}`}</span>{" "}
             <span className="date">{getTimeDifference(createdAt)}</span>
           </div>
-          <div>Edit</div>
+          <div className="edit">Edit</div>
         </div>
 
         <div className="caption-container">
@@ -107,9 +107,12 @@ export const Post = ({ post }) => {
         </div>
 
         <div className="media">
-          <video muted loop>
-            <source src={mediaUrl} />
-          </video>
+          {mediaUrl && post.type !== "image" && (
+            <video muted loop>
+              <source src={mediaUrl} />
+            </video>
+          )}
+          {mediaUrl && post.type === "image" && <img src={mediaUrl} />}
         </div>
 
         <div className="post-actions-container">

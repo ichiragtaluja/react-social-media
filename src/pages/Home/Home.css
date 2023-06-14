@@ -1,7 +1,4 @@
-.new-post-container {
-  border: 1px solid black;
-  display: flex;
-}
+
 
 .sorting-container {
   border: 1px solid black;
@@ -25,75 +22,11 @@
   list-style: none;
 }
 
-.post-card {
-  display: flex;
-  border: 1px solid black;
-  width: 100%;
-}
-.post-card-content {
+.input-container {
   display: flex;
   flex-flow: column nowrap;
 }
 
-.profile-picture-container {
-  border: 1px solid black;
-}
 
-.profile-picture-container img {
-  width: 50px;
-  height: 50px;
-  object-fit: cover;
-  border-radius: 25px;
-  cursor: pointer;
-}
 
-.name-container {
-  border: 1px solid black;
-  display: flex;
-  justify-content: space-between;
-  cursor: pointer;
-}
-.name-container .name {
-  font-weight: 700;
-  border: 1px solid black;
-}
 
-.name-container .date {
-  color: grey;
-  border: 1px solid black;
-}
-
-.name-container .username {
-  color: grey;
-  border: 1px solid black;
-}
-.caption-container {
-  width: 100%;
-  border: 1px solid black;
-}
-
-.post-card .media video {
-  width: 50%;
-  /* object-fit: cover; */
-  border: 3px solid green;
-}
-
-.post-actions-container {
-  display: flex;
-  justify-content: space-around;
-}
-
-.dropdown-list-container li {
-  cursor: pointer;
-}
-
-.new-post-container img {
-  width: 50px;
-  height: 50px;
-  object-fit: cover;
-  border-radius: 25px;
-}
-
-.toolbar-container input{
-  display: none;
-}

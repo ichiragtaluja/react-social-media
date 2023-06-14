@@ -9,8 +9,49 @@
   list-style-type: none;
 }
 
+.navbar button {
+  position: absolute;
+  bottom: 200%;
+  right: 5%;
+}
+.navbar button span {
+  display: none;
+}
+
+.create-post-modal {
+  z-index: 10;
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  background-color: rgb(0, 0, 0, 0.7);
+  margin: auto;
+
+}
+
+.modal-content {
+  width: 40%;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10%;
+  position: fixed;
+  z-index: 11;
+  background-color: white;
+  
+}
+
 @media (min-width: 768px) {
   .navbar ul {
     flex-flow: column nowrap;
+  }
+
+  .navbar button {
+    position: relative;
+    bottom: 0;
+    right: 0;
+  }
+  .navbar button span {
+    display: inline;
   }
 }

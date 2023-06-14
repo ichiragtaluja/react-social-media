@@ -15,8 +15,11 @@ a {
 }
 
 .feed {
+  /* position: relative;
+  z-index: 3; */
+
   border: 2px solid blue;
-  height: 95vh;
+  height: 93.5vh;
   overflow: auto;
   order: 2;
 }
@@ -27,6 +30,8 @@ a {
 }
 
 .discover {
+  /* position: relative;
+  z-index: 4; */
   display: none;
 }
 

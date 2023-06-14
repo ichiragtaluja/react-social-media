@@ -1,0 +1,86 @@
+.new-post-container {
+  border: 1px solid rgb(125, 125, 125);
+  display: flex;
+  align-items: flex-start;
+  opacity: 1;
+}
+
+.new-post-container .input-container {
+  flex-grow: 1;
+  justify-content: flex-start;
+}
+
+.new-post-container .media-container video {
+  width: 50%;
+  /* object-fit: cover; */
+  border: 3px solid green;
+}
+
+.new-post-container .media-container img {
+  width: 50%;
+
+  /* object-fit: cover; */
+  border: 3px solid green;
+}
+
+.new-post-container .media-container {
+  position: relative;
+}
+
+.new-post-container .close-media {
+  position: absolute;
+  right: 50%;
+  top: 0;
+  cursor: pointer;
+}
+
+.text-content-container {
+  border: 1px solid black;
+  flex-grow: 1;
+  display: flex;
+  justify-content: space-between;
+}
+.close-create-post-modal {
+  cursor: pointer;
+}
+
+.emoji-modal-container {
+  z-index: 13;
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  background-color: rgb(0, 0, 0, 0.5);
+  margin: auto;
+}
+
+.modal-emoji-body {
+  width: 10%;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10%;
+  position: fixed;
+  z-index: 15;
+  background-color: white;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.modal-emoji-body span {
+  cursor: pointer;
+}
+.close-emoji-model {
+  align-self: flex-end;
+  cursor: pointer;
+}
+
+.emoji-body-container {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.modal-emoji-body .emojis {
+  display: flex;
+  flex-flow: row wrap;
+}

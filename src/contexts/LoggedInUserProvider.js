@@ -9,7 +9,6 @@ import {
   addBookmarkService,
   removeBookmarkService,
 } from "../services/UserService";
-import { useAuth } from "./AuthProvider";
 import { useReducer } from "react";
 import { useEffect } from "react";
 import { useUser } from "./UserProvider";
@@ -30,8 +29,10 @@ export const LoggedInUserProvider = ({ children }) => {
     try {
       const response = await getUserService(user);
       if (response.status === 200) {
-        // setAuth({ ...auth, user: { ...response.data.user } });
-        loggedInUserDispatch({ type: "SET_USER", payload: response.data.user });
+        loggedInUserDispatch({
+          type: "SET_USER",
+          payload: { ...response.data.user },
+        });
       }
     } catch (error) {
       console.error(error);
@@ -116,7 +117,7 @@ export const LoggedInUserProvider = ({ children }) => {
     if (token) {
       getUser(username);
     }
-  }, []);
+  }, [token, username]);
 
   return (
     <LoggedInUserContext.Provider
