@@ -8,7 +8,7 @@
   flex-flow: column nowrap;
   align-items: stretch;
   border: 1px solid orange;
-  justify-self:stretch;
+  justify-self: stretch;
   flex-grow: 1;
 }
 
@@ -29,7 +29,7 @@
   display: flex;
   justify-content: space-between;
   cursor: pointer;
-
+  position: relative;
 }
 .name-container .name {
   font-weight: 700;
@@ -87,5 +87,14 @@
 }
 
 .name-container .edit {
-    border: 1px solid blue;
+  border: 1px solid blue;
+}
+
+.action-menu-container {
+  border: 1px solid black;
+  position: absolute;
+  top: 100%;
+  right: 2%;
+  display: flex;
+  flex-flow: column nowrap;
 }

@@ -3,6 +3,7 @@ import { FaRegComment } from "react-icons/fa";
 import { RiHeart3Line, RiHeart3Fill } from "react-icons/ri";
 import { FaRegBookmark, FaBookmark } from "react-icons/fa";
 import { BsShare } from "react-icons/bs";
+import { useState } from "react";
 
 import React from "react";
 import { useLoggedInUser } from "../../contexts/LoggedInUserProvider";
@@ -25,6 +26,8 @@ export const Post = ({ post }) => {
   } = post;
 
   const navigate = useNavigate();
+
+  const [actionMenu, setActionMenu] = useState(false);
   const { likePost, dislikePost } = usePosts();
 
   const { addBookmark, removeBookmark, loggedInUserState } = useLoggedInUser();
@@ -99,7 +102,23 @@ export const Post = ({ post }) => {
             <span className="username">{`@${username}`}</span>{" "}
             <span className="date">{getTimeDifference(createdAt)}</span>
           </div>
-          <div className="edit">Edit</div>
+          {loggedInUserState.username === username && (
+            <div
+              className="edit"
+              onClick={() => {
+                setActionMenu(!actionMenu);
+              }}
+            >
+              Edit
+            </div>
+          )}
+
+          {actionMenu && (
+            <div className="action-menu-container">
+              <p>Edit Post</p>
+              <p>Delete Post</p>
+            </div>
+          )}
         </div>
 
         <div className="caption-container">
