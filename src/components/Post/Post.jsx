@@ -10,6 +10,7 @@ import { useLoggedInUser } from "../../contexts/LoggedInUserProvider";
 import { useAuth } from "../../contexts/AuthProvider";
 import { usePosts } from "../../contexts/PostsProvider";
 import { useNavigate } from "react-router-dom";
+import { EditPostForm } from "../EditPostForm/EditPostForm";
 
 export const Post = ({ post }) => {
   const {
@@ -26,9 +27,10 @@ export const Post = ({ post }) => {
   } = post;
 
   const navigate = useNavigate();
+  const [isEditPostClicked, setIsEditPostClicked] = useState(false);
 
   const [actionMenu, setActionMenu] = useState(false);
-  const { likePost, dislikePost } = usePosts();
+  const { likePost, dislikePost, deletePost } = usePosts();
 
   const { addBookmark, removeBookmark, loggedInUserState } = useLoggedInUser();
   const { auth } = useAuth();
@@ -89,18 +91,35 @@ export const Post = ({ post }) => {
         />
       </div>
       <div className="post-card-content">
-        <div
-          onClick={() => {
-            navigate(`/profile/${username}`);
-          }}
-          className="name-container"
-        >
-          <div className="username-container">
-            <span className="name">
+        <div className="name-container">
+          <div
+            onClick={() => {
+              navigate(`/profile/${username}`);
+            }}
+            className="username-container"
+          >
+            <span
+              onClick={() => {
+                navigate(`/profile/${username}`);
+              }}
+              className="name"
+            >
               {firstName} {lastName}
             </span>{" "}
-            <span className="username">{`@${username}`}</span>{" "}
-            <span className="date">{getTimeDifference(createdAt)}</span>
+            <span
+              onClick={() => {
+                navigate(`/profile/${username}`);
+              }}
+              className="username"
+            >{`@${username}`}</span>{" "}
+            <span
+              onClick={() => {
+                navigate(`/profile/${username}`);
+              }}
+              className="date"
+            >
+              {getTimeDifference(createdAt)}
+            </span>
           </div>
           {loggedInUserState.username === username && (
             <div
@@ -115,11 +134,33 @@ export const Post = ({ post }) => {
 
           {actionMenu && (
             <div className="action-menu-container">
-              <p>Edit Post</p>
-              <p>Delete Post</p>
+              <p
+                onClick={() => {
+                  setIsEditPostClicked(!isEditPostClicked);
+                }}
+              >
+                Edit Post
+              </p>
+              <p
+                onClick={() => {
+                  deletePost(_id, auth.token);
+                }}
+              >
+                Delete Post
+              </p>
             </div>
           )}
         </div>
+        {isEditPostClicked && (
+          <div className="create-post-modal">
+            <EditPostForm
+              className="modal-content"
+              setIsEditPostClicked={setIsEditPostClicked}
+              post={post}
+              setActionMenu={setActionMenu}
+            />
+          </div>
+        )}
 
         <div className="caption-container">
           <p>{content}</p>

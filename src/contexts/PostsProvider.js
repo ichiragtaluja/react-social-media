@@ -10,6 +10,8 @@ import {
   likePostService,
   dislikePostService,
   createPostService,
+  deletePostService,
+  editPostService,
 } from "../services/PostService";
 
 const PostsContext = createContext();
@@ -45,14 +47,38 @@ export const PostsProvider = ({ children }) => {
     } catch (error) {}
   };
 
+  const deletePost = async (postId, token) => {
+    try {
+      const response = await deletePostService(postId, token);
+      if (response.status === 201) {
+        setAllPosts([...response.data.posts]);
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   const [sortBy, setSortBy] = useState("Latest");
 
   const createPost = async (e, post, token) => {
     try {
       e.preventDefault();
       const response = await createPostService(post, token);
-      setAllPosts(response.data.posts);
-    } catch (error) {}
+      setAllPosts([...response.data.posts]);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const editPost = async (e, postId, post, token) => {
+    try {
+      e.preventDefault();
+      const response = await editPostService(postId, post, token);
+      console.log(response);
+      setAllPosts([...response.data.posts]);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   useEffect(() => {
@@ -60,7 +86,16 @@ export const PostsProvider = ({ children }) => {
   }, []);
   return (
     <PostsContext.Provider
-      value={{ setSortBy, sortBy, allPosts, likePost, dislikePost, createPost }}
+      value={{
+        setSortBy,
+        sortBy,
+        allPosts,
+        likePost,
+        dislikePost,
+        createPost,
+        deletePost,
+        editPost,
+      }}
     >
       {children}
     </PostsContext.Provider>

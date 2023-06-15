@@ -28,22 +28,26 @@
   border: 1px solid black;
   display: flex;
   justify-content: space-between;
-  cursor: pointer;
+
   position: relative;
+  z-index: 2;
 }
 .name-container .name {
   font-weight: 700;
   border: 1px solid black;
+  cursor: pointer;
 }
 
 .name-container .date {
   color: grey;
   border: 1px solid black;
+  cursor: pointer;
 }
 
 .name-container .username {
   color: grey;
   border: 1px solid black;
+  cursor: pointer;
 }
 .caption-container {
   width: 100%;
@@ -88,6 +92,9 @@
 
 .name-container .edit {
   border: 1px solid blue;
+  z-index: 3;
+  cursor: pointer;
+  /* position : relative */
 }
 
 .action-menu-container {
@@ -97,4 +104,19 @@
   right: 2%;
   display: flex;
   flex-flow: column nowrap;
+}
+.action-menu-container p {
+  cursor: pointer;
+}
+
+.modal-content {
+  width: 40%;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10%;
+  position: fixed;
+  z-index: 11;
+  background-color: white;
 }
