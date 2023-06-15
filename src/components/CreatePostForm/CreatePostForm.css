@@ -84,3 +84,7 @@
   display: flex;
   flex-flow: row wrap;
 }
+
+.img-container {
+  cursor: pointer;
+}

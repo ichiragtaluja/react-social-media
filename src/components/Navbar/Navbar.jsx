@@ -9,7 +9,6 @@ import { CreatePostForm } from "../CreatePostForm/CreatePostForm";
 export const Navbar = () => {
   const [isCreateNewPostClicked, setIsCreateNewPostClicked] = useState(false);
 
-
   const { auth } = useAuth();
   return (
     <nav className="navbar">
@@ -47,7 +46,6 @@ export const Navbar = () => {
           />
         </div>
       )}
-     
     </nav>
   );
 };

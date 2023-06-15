@@ -12,6 +12,7 @@ import { usePosts } from "../../contexts/PostsProvider";
 import { useNavigate } from "react-router-dom";
 import { EditPostForm } from "../EditPostForm/EditPostForm";
 import { useUser } from "../../contexts/UserProvider";
+import { RxCross2 } from "react-icons/rx";
 
 export const Post = ({ post }) => {
   // const {
@@ -30,11 +31,18 @@ export const Post = ({ post }) => {
 
   const navigate = useNavigate();
   const [isEditPostClicked, setIsEditPostClicked] = useState(false);
+  const [showLikesModal, setShowLikesModal] = useState(false);
 
   const [actionMenu, setActionMenu] = useState(false);
   const { likePost, dislikePost, deletePost } = usePosts();
 
-  const { addBookmark, removeBookmark, loggedInUserState } = useLoggedInUser();
+  const {
+    addBookmark,
+    removeBookmark,
+    loggedInUserState,
+    followUser,
+    unfollowUser,
+  } = useLoggedInUser();
   const { auth } = useAuth();
 
   const { userState } = useUser();
@@ -44,8 +52,19 @@ export const Post = ({ post }) => {
   );
 
   const userDetails = userState?.allUsers?.find(
-    (user) => user?.username === post?.username
+    (user) => user?.username === auth?.username
   );
+  const isFollowing = (user) =>
+    userDetails?.following?.find(({ username }) => username === user?.username);
+
+  const followUnfollowHandler = (user) => {
+    const userFromAllUsers = userState?.allUsers?.find(
+      ({ username }) => username === user?.username
+    );
+    !isFollowing(user)
+      ? followUser(userFromAllUsers?._id, auth.token)
+      : unfollowUser(userFromAllUsers?._id, auth.token);
+  };
 
   const isLikedAlready = post?.likes.likedBy.find(
     (user) => user.username === loggedInUserState.username
@@ -223,6 +242,55 @@ export const Post = ({ post }) => {
             )}
             <span>{}</span>
           </div>
+        </div>
+        <div className="likes-details-container">
+          <p
+            onClick={() => {
+              setShowLikesModal(true);
+            }}
+          >
+            {post?.likes?.likeCount}{" "}
+            <span>{`Like${post?.likes?.likeCount === 1 ? "" : "s"}`}</span>
+          </p>
+          {showLikesModal && (
+            <div className="like-modal">
+              <div className="likes-content">
+                <div className="likes-header">
+                  <h2>Liked By</h2>
+                  <RxCross2
+                    onClick={() => {
+                      setShowLikesModal(false);
+                    }}
+                  />
+                </div>
+                {post?.likes?.likedBy.map((user) => (
+                  <div key={user?._id} className="discover-user-card">
+                    <div
+                      onClick={() => {
+                        navigate(`/profile/${user.username}`);
+                      }}
+                      className="discover-user-img-container"
+                    >
+                      <img src={user?.avatarURL} />
+                    </div>
+                    <div className="user-name-username-container">
+                      <p className="name">
+                        {user?.firstName} {user?.lastName}
+                      </p>
+                      <p className="username">@{user?.username}</p>
+                    </div>
+                    <div className="follow-container">
+                      {user?.username !== auth?.username && (
+                        <button onClick={() => followUnfollowHandler(user)}>
+                          {!isFollowing(user) ? "Follow" : "Following"}
+                        </button>
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>

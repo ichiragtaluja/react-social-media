@@ -6,18 +6,26 @@ import { useAuth } from "../../contexts/AuthProvider";
 import { Post } from "../../components/Post/Post";
 import { useUser } from "../../contexts/UserProvider";
 import { CgCalendarDates } from "react-icons/cg";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useLoggedInUser } from "../../contexts/LoggedInUserProvider";
 import { EditProfileModal } from "./components/EditProfileModal/EditProfileModal";
+import { RxCross2 } from "react-icons/rx";
 
 export const Profile = () => {
+  const [showFollowers, setShowFollowers] = useState(false);
+  const [showFollowing, setShowFollowing] = useState(false);
+  const navigate = useNavigate();
+  const { userState } = useUser();
+
   const { auth } = useAuth();
   const { username } = useParams();
   const { loggedInUserState, followUser, unfollowUser } = useLoggedInUser();
 
   const isOwnProfile = username === loggedInUserState?.username;
+  const userDetails = userState?.allUsers?.find(
+    (user) => user?.username === auth?.username
+  );
 
-  const { userState } = useUser();
   const { allPosts } = usePosts();
   const postsByUser = allPosts?.filter((post) => post.username === username);
 
@@ -33,6 +41,18 @@ export const Profile = () => {
       day: "numeric",
     };
     return createdOn.toLocaleDateString("en-US", options);
+  };
+
+  const isFollowing = (user) =>
+    userDetails?.following?.find(({ username }) => username === user?.username);
+
+  const followUnfollowHandler = (user) => {
+    const userFromAllUsers = userState?.allUsers?.find(
+      ({ username }) => username === user?.username
+    );
+    !isFollowing(user)
+      ? followUser(userFromAllUsers?._id, auth.token)
+      : unfollowUser(userFromAllUsers?._id, auth.token);
   };
 
   const [isEditProfile, setIsEditProfile] = useState(false);
@@ -78,14 +98,104 @@ export const Profile = () => {
             {postsByUser.length}
             <span>Posts</span>
           </p>
-          <p>
+          <p
+            className="post-following-count"
+            onClick={() => {
+              setShowFollowing(true);
+            }}
+          >
             {user?.following.length}
             <span>Following</span>
           </p>
-          <p>
+          {showFollowing && (
+            <div className="like-modal">
+              <div className="likes-content">
+                {" "}
+                <div className="likes-header">
+                  <h2>Following</h2>
+                  <RxCross2
+                    onClick={() => {
+                      setShowFollowing(false);
+                    }}
+                  />
+                </div>
+                {user?.following?.map((user) => (
+                  <div key={user?._id} className="discover-user-card">
+                    <div
+                      onClick={() => {
+                        navigate(`/profile/${user.username}`);
+                      }}
+                      className="discover-user-img-container"
+                    >
+                      <img src={user?.avatarURL} />
+                    </div>
+                    <div className="user-name-username-container">
+                      <p className="name">
+                        {user?.firstName} {user?.lastName}
+                      </p>
+                      <p className="username">@{user?.username}</p>
+                    </div>
+                    <div className="follow-container">
+                      {user?.username !== auth?.username && (
+                        <button onClick={() => followUnfollowHandler(user)}>
+                          {!isFollowing(user) ? "Follow" : "Following"}
+                        </button>
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+          <p
+            className="post-follower-count"
+            onClick={() => {
+              setShowFollowers(true);
+            }}
+          >
             {user?.followers.length}
             <span>Followers</span>
           </p>
+          {showFollowers && (
+            <div className="like-modal">
+              <div className="likes-content">
+                {" "}
+                <div className="likes-header">
+                  <h2>Followers</h2>
+                  <RxCross2
+                    onClick={() => {
+                      setShowFollowers(false);
+                    }}
+                  />
+                </div>
+                {user?.followers?.map((user) => (
+                  <div key={user?._id} className="discover-user-card">
+                    <div
+                      onClick={() => {
+                        navigate(`/profile/${user.username}`);
+                      }}
+                      className="discover-user-img-container"
+                    >
+                      <img src={user?.avatarURL} />
+                    </div>
+                    <div className="user-name-username-container">
+                      <p className="name">
+                        {user?.firstName} {user?.lastName}
+                      </p>
+                      <p className="username">@{user?.username}</p>
+                    </div>
+                    <div className="follow-container">
+                      {user?.username !== auth?.username && (
+                        <button onClick={() => followUnfollowHandler(user)}>
+                          {!isFollowing(user) ? "Follow" : "Following"}
+                        </button>
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </div>
 

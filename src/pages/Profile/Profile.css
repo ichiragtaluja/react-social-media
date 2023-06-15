@@ -58,3 +58,8 @@
   z-index: 11;
   background-color: white;
 }
+
+.post-follower-count,
+.post-following-count {
+  cursor: pointer;
+}

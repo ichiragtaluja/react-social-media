@@ -8,11 +8,13 @@ import React from "react";
 import { useAuth } from "../../contexts/AuthProvider";
 import { usePosts } from "../../contexts/PostsProvider";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const CreatePostForm = ({ setIsCreateNewPostClicked, className }) => {
   const { createPost } = usePosts();
   const { auth } = useAuth();
   const { loggedInUserState } = useLoggedInUser();
+  const navigate = useNavigate();
 
   const firstName = loggedInUserState?.firstName;
   const lastName = loggedInUserState?.lastName;
@@ -85,7 +87,10 @@ export const CreatePostForm = ({ setIsCreateNewPostClicked, className }) => {
         }}
         className={`new-post-container ${className}`}
       >
-        <div className="img-container">
+        <div
+          onClick={() => navigate(`/profile/${loggedInUserState?.username}`)}
+          className="img-container"
+        >
           <img src={loggedInUserState.avatarURL} />
         </div>
         <div className="input-container">

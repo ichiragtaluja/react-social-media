@@ -17,6 +17,7 @@
   right: 1%;
   position: absolute;
   border: 1px solid black;
+  z-index: 4;
 }
 .dropdown-list-container ul {
   list-style: none;

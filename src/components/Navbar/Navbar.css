@@ -25,7 +25,6 @@
   width: 100%;
   background-color: rgb(0, 0, 0, 0.7);
   margin: auto;
-
 }
 
 .modal-content {
@@ -38,7 +37,6 @@
   position: fixed;
   z-index: 11;
   background-color: white;
-  
 }
 
 @media (min-width: 768px) {

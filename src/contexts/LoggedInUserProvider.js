@@ -94,7 +94,9 @@ export const LoggedInUserProvider = ({ children }) => {
         dispatch({ type: "SET_ALL_USERS", payload: [...updatedAllUser] });
         loggedInUserDispatch({ type: "SET_USER", payload: user });
       }
-    } catch (error) {}
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   const getAllBookmarks = async (token) => {

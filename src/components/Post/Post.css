@@ -43,7 +43,7 @@
   border: 1px solid black;
   cursor: pointer;
 }
-.comments-container{
+.comments-container {
   cursor: pointer;
 }
 
@@ -116,6 +116,24 @@
   cursor: pointer;
 }
 
+.like-modal {
+  z-index: 10;
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  background-color: rgb(0, 0, 0, 0.8);
+  margin: auto;
+}
+
+.create-post-modal {
+  z-index: 10;
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  background-color: rgb(0, 0, 0, 0.8);
+  margin: auto;
+}
+
 .modal-content {
   width: 40%;
   left: 0;
@@ -126,4 +144,30 @@
   position: fixed;
   z-index: 11;
   background-color: white;
+}
+.likes-content {
+  width: 40%;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10%;
+  position: fixed;
+  z-index: 11;
+  background-color: white;
+}
+
+.user-img-container img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 25px;
+}
+
+.likes-header {
+  display: flex;
+  justify-content: space-between;
+}
+.likes-details-container {
+  cursor: pointer;
 }
