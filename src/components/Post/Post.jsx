@@ -14,18 +14,19 @@ import { EditPostForm } from "../EditPostForm/EditPostForm";
 import { useUser } from "../../contexts/UserProvider";
 
 export const Post = ({ post }) => {
-  const {
-    _id,
-    avatarURL,
-    firstName,
-    lastName,
-    username,
-    createdAt,
-    content,
-    mediaUrl,
-    comments,
-    likes,
-  } = post;
+  // const {
+  //   _id,
+  //   avatarURL,
+  //   firstName,
+  //   lastName,
+  //   username,
+  //   createdAt,
+  //   content,
+  //   mediaUrl,
+  //   comments,
+  //   likes,
+  //   id,
+  // } = post;
 
   const navigate = useNavigate();
   const [isEditPostClicked, setIsEditPostClicked] = useState(false);
@@ -39,16 +40,20 @@ export const Post = ({ post }) => {
   const { userState } = useUser();
 
   const isBookmarkedAlready = loggedInUserState.bookmarks?.find(
-    (postId) => postId === _id
+    (postId) => postId === post?._id
   );
 
   const userDetails = userState?.allUsers?.find(
-    (user) => user?.username === username
+    (user) => user?.username === post?.username
   );
 
-  const isLikedAlready = likes.likedBy.find(
+  const isLikedAlready = post?.likes.likedBy.find(
     (user) => user.username === loggedInUserState.username
   );
+  //to be done aftr site is hosted
+  const copyHandler = (link) => {
+    navigator.clipboard.writeText(link);
+  };
 
   const getTimeDifference = (date) => {
     const datePosted = new Date(date);
@@ -92,43 +97,43 @@ export const Post = ({ post }) => {
       <div className="profile-picture-container">
         <img
           onClick={() => {
-            navigate(`/profile/${username}`);
+            navigate(`/profile/${post?.username}`);
           }}
-          src={userDetails.avatarURL}
+          src={userDetails?.avatarURL}
         />
       </div>
       <div className="post-card-content">
         <div className="name-container">
           <div
             onClick={() => {
-              navigate(`/profile/${username}`);
+              navigate(`/profile/${post?.username}`);
             }}
             className="username-container"
           >
             <span
               onClick={() => {
-                navigate(`/profile/${username}`);
+                navigate(`/profile/${post?.username}`);
               }}
               className="name"
             >
-              {firstName} {lastName}
+              {post?.firstName} {post?.lastName}
             </span>{" "}
             <span
               onClick={() => {
-                navigate(`/profile/${username}`);
+                navigate(`/profile/${post?.username}`);
               }}
               className="username"
-            >{`@${username}`}</span>{" "}
+            >{`@${post?.username}`}</span>{" "}
             <span
               onClick={() => {
-                navigate(`/profile/${username}`);
+                navigate(`/profile/${post?.username}`);
               }}
               className="date"
             >
-              {getTimeDifference(createdAt)}
+              {getTimeDifference(post?.createdAt)}
             </span>
           </div>
-          {loggedInUserState.username === username && (
+          {loggedInUserState.username === post?.username && (
             <div
               className="edit"
               onClick={() => {
@@ -150,7 +155,7 @@ export const Post = ({ post }) => {
               </p>
               <p
                 onClick={() => {
-                  deletePost(_id, auth.token);
+                  deletePost(post?._id, auth.token);
                 }}
               >
                 Delete Post
@@ -170,40 +175,51 @@ export const Post = ({ post }) => {
         )}
 
         <div className="caption-container">
-          <p>{content}</p>
+          <p>{post?.content}</p>
         </div>
 
-        <div className="media">
-          {mediaUrl && post.type !== "image" && (
+        <div
+          onClick={() => navigate(`/post-detail/${post?.id}`)}
+          className="media"
+        >
+          {post?.mediaUrl && post.type !== "image" && (
             <video muted loop>
-              <source src={mediaUrl} />
+              <source src={post?.mediaUrl} />
             </video>
           )}
-          {mediaUrl && post.type === "image" && <img src={mediaUrl} />}
+          {post?.mediaUrl && post?.type === "image" && (
+            <img src={post?.mediaUrl} />
+          )}
         </div>
 
         <div className="post-actions-container">
           <div className="comments-container">
             <FaRegComment />
-            <span>{comments?.length}</span>
+            <span>{post?.comments?.length}</span>
           </div>
           <div className="comments-container">
             {!isLikedAlready ? (
-              <RiHeart3Line onClick={() => likePost(_id, auth.token)} />
+              <RiHeart3Line onClick={() => likePost(post?._id, auth.token)} />
             ) : (
-              <RiHeart3Fill onClick={() => dislikePost(_id, auth.token)} />
+              <RiHeart3Fill
+                onClick={() => dislikePost(post?._id, auth.token)}
+              />
             )}
-            <span>{likes?.likeCount}</span>
+            <span>{post?.likes?.likeCount}</span>
           </div>
           <div className="comments-container">
-            <BsShare />
+            <BsShare onClick={() => {}} />
             <span>{}</span>
           </div>
           <div className="comments-container">
             {!isBookmarkedAlready ? (
-              <FaRegBookmark onClick={() => addBookmark(_id, auth.token)} />
+              <FaRegBookmark
+                onClick={() => addBookmark(post?._id, auth.token)}
+              />
             ) : (
-              <FaBookmark onClick={() => removeBookmark(_id, auth.token)} />
+              <FaBookmark
+                onClick={() => removeBookmark(post?._id, auth.token)}
+              />
             )}
             <span>{}</span>
           </div>

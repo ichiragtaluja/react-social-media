@@ -43,6 +43,9 @@
   border: 1px solid black;
   cursor: pointer;
 }
+.comments-container{
+  cursor: pointer;
+}
 
 .name-container .username {
   color: grey;
@@ -52,6 +55,10 @@
 .caption-container {
   width: 100%;
   border: 1px solid black;
+}
+
+.post-card .media {
+  cursor: pointer;
 }
 
 .post-card .media video {

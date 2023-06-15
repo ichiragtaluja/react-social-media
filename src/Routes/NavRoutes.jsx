@@ -8,10 +8,9 @@ import { Profile } from "../pages/Profile/Profile";
 import { Login } from "../pages/Auth/Login/Login";
 import { Signup } from "../pages/Auth/Signup/Signup";
 import { Logout } from "../pages/Auth/Logout/Logout";
-
+import { PostDetail } from "../pages/PostDetail/PostDetail";
 
 export const NavRoutes = () => {
-
   return (
     <Routes>
       <Route
@@ -43,6 +42,14 @@ export const NavRoutes = () => {
         element={
           <RequiresAuth>
             <Profile />
+          </RequiresAuth>
+        }
+      />
+      <Route
+        path="/post-detail/:postId"
+        element={
+          <RequiresAuth>
+            <PostDetail />
           </RequiresAuth>
         }
       />
