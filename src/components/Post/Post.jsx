@@ -11,6 +11,7 @@ import { useAuth } from "../../contexts/AuthProvider";
 import { usePosts } from "../../contexts/PostsProvider";
 import { useNavigate } from "react-router-dom";
 import { EditPostForm } from "../EditPostForm/EditPostForm";
+import { useUser } from "../../contexts/UserProvider";
 
 export const Post = ({ post }) => {
   const {
@@ -35,8 +36,14 @@ export const Post = ({ post }) => {
   const { addBookmark, removeBookmark, loggedInUserState } = useLoggedInUser();
   const { auth } = useAuth();
 
-  const isBookmarkedAlready = loggedInUserState.bookmarks.find(
+  const { userState } = useUser();
+
+  const isBookmarkedAlready = loggedInUserState.bookmarks?.find(
     (postId) => postId === _id
+  );
+
+  const userDetails = userState?.allUsers?.find(
+    (user) => user?.username === username
   );
 
   const isLikedAlready = likes.likedBy.find(
@@ -87,7 +94,7 @@ export const Post = ({ post }) => {
           onClick={() => {
             navigate(`/profile/${username}`);
           }}
-          src={avatarURL}
+          src={userDetails.avatarURL}
         />
       </div>
       <div className="post-card-content">

@@ -59,6 +59,7 @@ export const getUserHandler = function (schema, request) {
 
 export const editUserHandler = function (schema, request) {
   let user = requiresAuth.call(this, request);
+  console.log("reached", user);
 
   try {
     if (!user) {
@@ -73,9 +74,9 @@ export const editUserHandler = function (schema, request) {
       );
     }
     const { userData } = JSON.parse(request.requestBody);
-    console.log(
-      userData && userData.username && userData.username !== user.username
-    );
+    // console.log(
+    //   userData && userData.username && userData.username !== user.username
+    // );
     if (userData && userData.username && userData.username !== user.username) {
       return new Response(
         404,
@@ -87,6 +88,8 @@ export const editUserHandler = function (schema, request) {
     }
 
     user = { ...user, ...userData, updatedAt: formatDate() };
+
+  
     this.db.users.update({ _id: user._id }, user);
     return new Response(201, {}, { user });
   } catch (error) {
@@ -138,14 +141,10 @@ export const getBookmarkPostsHandler = function (schema, request) {
 // export const bookmarkPostHandler = function (schema, request) {
 //   const { postId } = request.params;
 
-
-
 //   const post = schema.posts.findBy({ _id: postId }).attrs;
 
-
-
 //   const user = requiresAuth.call(this, request);
-  
+
 //   try {
 //     if (!user) {
 //       return new Response(
@@ -185,18 +184,13 @@ export const getBookmarkPostsHandler = function (schema, request) {
 //   }
 // };
 
-
 export const bookmarkPostHandler = function (schema, request) {
   const { postId } = request.params;
 
-
-
   const post = schema.posts.findBy({ _id: postId }).attrs;
 
-
-
   const user = requiresAuth.call(this, request);
-  
+
   try {
     if (!user) {
       return new Response(
@@ -235,8 +229,6 @@ export const bookmarkPostHandler = function (schema, request) {
     );
   }
 };
-
-
 
 /**
  * This handler handles adding a post to user's bookmarks in the db.
@@ -283,7 +275,6 @@ export const bookmarkPostHandler = function (schema, request) {
 //     );
 //   }
 // };
-
 
 export const removePostFromBookmarkHandler = function (schema, request) {
   const { postId } = request.params;

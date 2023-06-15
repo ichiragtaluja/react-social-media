@@ -12,6 +12,7 @@ import {
 import { useReducer } from "react";
 import { useEffect } from "react";
 import { useUser } from "./UserProvider";
+import { ImCoinDollar } from "react-icons/im";
 
 const LoggedInUserContext = createContext();
 
@@ -39,11 +40,17 @@ export const LoggedInUserProvider = ({ children }) => {
     }
   };
 
-  const editUser = async (userData) => {
+  const editUser = async (userData, token) => {
     try {
       const response = await editUserService(userData, token);
       if (response.status === 201) {
-        loggedInUserDispatch({ type: "SET_USER", payload: response.data.user });
+        console.log("res", response);
+        const updatedUser = response.data.user;
+        loggedInUserDispatch({ type: "SET_USER", payload: updatedUser });
+        const updatedUsers = userState.allUsers.map((user) =>
+          user.username === updatedUser.username ? updatedUser : user
+        );
+        dispatch({ type: "SET_ALL_USERS", payload: [...updatedUsers] });
       }
     } catch (error) {
       console.error(error);

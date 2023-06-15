@@ -1,4 +1,5 @@
 import "./Profile.css";
+import { useState } from "react";
 import React from "react";
 import { usePosts } from "../../contexts/PostsProvider";
 import { useAuth } from "../../contexts/AuthProvider";
@@ -7,6 +8,7 @@ import { useUser } from "../../contexts/UserProvider";
 import { CgCalendarDates } from "react-icons/cg";
 import { useParams } from "react-router-dom";
 import { useLoggedInUser } from "../../contexts/LoggedInUserProvider";
+import { EditProfileModal } from "./components/EditProfileModal/EditProfileModal";
 
 export const Profile = () => {
   const { auth } = useAuth();
@@ -33,13 +35,15 @@ export const Profile = () => {
     return createdOn.toLocaleDateString("en-US", options);
   };
 
+  const [isEditProfile, setIsEditProfile] = useState(false);
+
   return (
     <main className="feed">
       <div className="user-info-container">
         <div className="profilepicture-container">
           <img src={user?.avatarURL} alt={user?.firstName} />
           {isOwnProfile ? (
-            <button>Edit Profile</button>
+            <button onClick={() => setIsEditProfile(true)}>Edit Profile</button>
           ) : !loggedInUserState.following?.find(
               (user) => user.username === username
             ) ? (
@@ -90,6 +94,14 @@ export const Profile = () => {
           <Post key={post._id} post={post} />
         ))}
       </div>
+      {isEditProfile && (
+        <div className="create-post-modal">
+          <EditProfileModal
+            className="modal-content"
+            setIsEditProfile={setIsEditProfile}
+          />
+        </div>
+      )}
     </main>
   );
 };
