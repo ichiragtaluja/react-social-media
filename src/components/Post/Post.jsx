@@ -13,28 +13,19 @@ import { useNavigate } from "react-router-dom";
 import { EditPostForm } from "../EditPostForm/EditPostForm";
 import { useUser } from "../../contexts/UserProvider";
 import { RxCross2 } from "react-icons/rx";
+import { Comment } from "./components/Comment/Comment";
 
 export const Post = ({ post }) => {
-  // const {
-  //   _id,
-  //   avatarURL,
-  //   firstName,
-  //   lastName,
-  //   username,
-  //   createdAt,
-  //   content,
-  //   mediaUrl,
-  //   comments,
-  //   likes,
-  //   id,
-  // } = post;
-
   const navigate = useNavigate();
   const [isEditPostClicked, setIsEditPostClicked] = useState(false);
   const [showLikesModal, setShowLikesModal] = useState(false);
 
   const [actionMenu, setActionMenu] = useState(false);
   const { likePost, dislikePost, deletePost } = usePosts();
+
+  const [commentData, setCommentData] = useState({ text: "" });
+
+  const [showComments, setShowComments] = useState(false);
 
   const {
     addBookmark,
@@ -44,6 +35,8 @@ export const Post = ({ post }) => {
     unfollowUser,
   } = useLoggedInUser();
   const { auth } = useAuth();
+
+  const { getComments, addComment, deleteComment, editComment } = usePosts();
 
   const { userState } = useUser();
 
@@ -118,7 +111,7 @@ export const Post = ({ post }) => {
           onClick={() => {
             navigate(`/profile/${post?.username}`);
           }}
-          src={userDetails?.avatarURL}
+          src={post?.avatarURL}
         />
       </div>
       <div className="post-card-content">
@@ -202,7 +195,7 @@ export const Post = ({ post }) => {
           className="media"
         >
           {post?.mediaUrl && post.type !== "image" && (
-            <video autoPlay muted loop>
+            <video muted loop>
               <source src={post?.mediaUrl} />
             </video>
           )}
@@ -212,7 +205,10 @@ export const Post = ({ post }) => {
         </div>
 
         <div className="post-actions-container">
-          <div className="comments-container">
+          <div
+            onClick={() => setShowComments(!showComments)}
+            className="comments-container"
+          >
             <FaRegComment />
             <span>{post?.comments?.length}</span>
           </div>
@@ -292,6 +288,36 @@ export const Post = ({ post }) => {
             </div>
           )}
         </div>
+        {showComments && (
+          <div className="comments-section-container">
+            <div className="comments-input-section-container">
+              <img src={userDetails?.avatarURL} />
+              <input
+                onChange={(e) => setCommentData({ text: e.target.value })}
+                value={commentData?.text}
+                type="text"
+              />
+              <div className="comment-button-container">
+                <button
+                  onClick={() => {
+                    addComment(post._id, commentData, auth.token);
+                    setCommentData({ text: "" });
+                  }}
+                >
+                  Reply
+                </button>
+              </div>
+            </div>
+
+            <div className="all-comments-container">
+              {post?.comments
+                .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+                ?.map((comment) => (
+                  <Comment key={comment?._id} comment={comment} post={post} />
+                ))}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

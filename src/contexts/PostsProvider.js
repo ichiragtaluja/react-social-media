@@ -5,6 +5,7 @@ import React, {
   useReducer,
   useState,
 } from "react";
+import { TbTopologyFullHierarchy } from "react-icons/tb";
 import {
   getAllPostService,
   likePostService,
@@ -12,6 +13,10 @@ import {
   createPostService,
   deletePostService,
   editPostService,
+  getCommentsService,
+  addCommentsService,
+  deleteCommentService,
+  editCommentService,
 } from "../services/PostService";
 
 const PostsContext = createContext();
@@ -81,6 +86,46 @@ export const PostsProvider = ({ children }) => {
     }
   };
 
+  const getComments = async (postId) => {
+    try {
+      const response = getCommentsService(postId);
+      console.log(response);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  const addComment = async (postId, commentData, token) => {
+    try {
+      const response = await addCommentsService(postId, commentData, token);
+      console.log("yes", response.data);
+      setAllPosts(response.data.posts);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  const deleteComment = async (postId, commentId, token) => {
+    try {
+      const response = await deleteCommentService(postId, commentId, token);
+      setAllPosts(response.data.posts);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  const editComment = async (postId, commentId, commentData, token) => {
+    try {
+      const response = await editCommentService(
+        postId,
+        commentId,
+        commentData,
+        token
+      );
+      console.log(response);
+      setAllPosts(response.data.posts);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   useEffect(() => {
     getAllPosts();
   }, []);
@@ -95,6 +140,10 @@ export const PostsProvider = ({ children }) => {
         createPost,
         deletePost,
         editPost,
+        addComment,
+        editComment,
+        deleteComment,
+        getComments,
       }}
     >
       {children}

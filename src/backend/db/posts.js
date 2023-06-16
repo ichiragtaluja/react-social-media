@@ -295,7 +295,7 @@ export const posts = [
         lastName: "Williams",
         username: "Malik",
         avatarURL:
-          "https://res.cloudinary.com/darwtgzlk/image/upload/v1686251365/socialMedia/profilePictures/user4_yobn9s.jpg",
+          "https://res.cloudinary.com/darwtgzlk/image/upload/v1686251368/socialMedia/profilePictures/user3_atvsaj.jpg",
         text: "Your makeup game is on point! Flawless and fierce, you're slaying the beauty game.",
         votes: {
           upvotedBy: [
@@ -388,7 +388,7 @@ export const posts = [
         lastName: "Williams",
         username: "Malik",
         avatarURL:
-          "https://res.cloudinary.com/darwtgzlk/image/upload/v1686251365/socialMedia/profilePictures/user4_yobn9s.jpg",
+          "https://res.cloudinary.com/darwtgzlk/image/upload/v1686251368/socialMedia/profilePictures/user3_atvsaj.jpg",
         text: "Flawless face, fierce vibes! Makeup game strong, you look amazing.",
         votes: {
           upvotedBy: [
@@ -465,7 +465,7 @@ export const posts = [
         lastName: "Williams",
         username: "Malik",
         avatarURL:
-          "https://res.cloudinary.com/darwtgzlk/image/upload/v1686251365/socialMedia/profilePictures/user4_yobn9s.jpg",
+          "https://res.cloudinary.com/darwtgzlk/image/upload/v1686251368/socialMedia/profilePictures/user3_atvsaj.jpg",
         text: "Albsolutely gorgeous!",
         votes: {
           upvotedBy: [

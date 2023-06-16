@@ -1,0 +1,4 @@
+.edit-comment-container {
+  display: flex;
+  justify-content: space-between;
+}

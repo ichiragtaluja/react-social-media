@@ -28,7 +28,6 @@ export const AuthProvider = ({ children }) => {
   const navigate = useNavigate();
   const location = useLocation();
   const { userState, dispatch } = useUser();
-  console.log("total users", userState.allUsers);
 
   const [auth, setAuth] = useState(
     token && username
