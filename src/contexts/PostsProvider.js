@@ -18,6 +18,7 @@ const PostsContext = createContext();
 
 export const PostsProvider = ({ children }) => {
   const [allPosts, setAllPosts] = useState([]);
+  console.log("all Posts", allPosts);
 
   const getAllPosts = async () => {
     try {
@@ -74,7 +75,6 @@ export const PostsProvider = ({ children }) => {
     try {
       e.preventDefault();
       const response = await editPostService(postId, post, token);
-      console.log(response);
       setAllPosts([...response.data.posts]);
     } catch (error) {
       console.log(error);

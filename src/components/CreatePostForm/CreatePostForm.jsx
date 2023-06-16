@@ -165,7 +165,7 @@ export const CreatePostForm = ({ setIsCreateNewPostClicked, className }) => {
                 }}
                 className="close-emoji-model"
               />
-              <div clasName="emojis">
+              <div className="emojis">
                 {emojis.map((emoji) => (
                   <span
                     onClick={(e) => {

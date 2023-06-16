@@ -202,7 +202,7 @@ export const Post = ({ post }) => {
           className="media"
         >
           {post?.mediaUrl && post.type !== "image" && (
-            <video muted loop>
+            <video autoPlay muted loop>
               <source src={post?.mediaUrl} />
             </video>
           )}

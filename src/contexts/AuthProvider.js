@@ -4,6 +4,7 @@ import { loginService, signupService } from "../services/AuthService";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import { useLoggedInUser } from "./LoggedInUserProvider";
+import { useUser } from "./UserProvider";
 // import { getUserService } from "../services/UserService";
 
 const AuthContext = createContext();
@@ -26,6 +27,8 @@ export const AuthProvider = ({ children }) => {
 
   const navigate = useNavigate();
   const location = useLocation();
+  const { userState, dispatch } = useUser();
+  console.log("total users", userState.allUsers);
 
   const [auth, setAuth] = useState(
     token && username
@@ -59,10 +62,15 @@ export const AuthProvider = ({ children }) => {
           // user: { ...response.data.createdUser },
         });
 
+        dispatch({
+          type: "SET_ALL_USERS",
+          payload: [...userState.allUsers, { ...response.data.createdUser }],
+        });
         loggedInUserDispatch({
           type: "SET_USER",
-          payload: response.data.createdUser,
+          payload: { ...response.data.createdUser },
         });
+
         navigate(location?.state?.from?.pathname || "/");
       }
     } catch (error) {}
@@ -73,7 +81,6 @@ export const AuthProvider = ({ children }) => {
       e.preventDefault();
       const response = await loginService(username, password);
       if (response.status === 200) {
-        console.log("login", response);
         const token = response.data.encodedToken;
         const username = response.data.foundUser.username;
         localStorage.setItem("token", token);

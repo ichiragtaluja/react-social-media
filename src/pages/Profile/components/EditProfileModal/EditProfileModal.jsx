@@ -12,7 +12,6 @@ export const EditProfileModal = ({ setIsEditProfile, className }) => {
   const { loggedInUserState, editUser } = useLoggedInUser();
   const { userState } = useUser();
 
-  console.log("all user", userState.allUsers);
   const { auth } = useAuth();
   const [formValues, setFormValues] = useState({
     bio: loggedInUserState?.bio,
@@ -35,8 +34,6 @@ export const EditProfileModal = ({ setIsEditProfile, className }) => {
       alert("file must be an Image (JPEG/PNG)");
     }
   };
-
-  console.log(formValues);
 
   useEffect(() => {
     setFormValues({
