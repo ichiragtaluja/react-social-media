@@ -7,7 +7,7 @@ import { useAuth } from "../../../../contexts/AuthProvider";
 
 export const Comment = ({ comment, post }) => {
   const { _id, avatarURL, username, firstName, lastName, text } = comment;
-  const { getComments, addComment, deleteComment, editComment } = usePosts();
+  const { deleteComment, editComment } = usePosts();
   const [showCommentToolbar, setShowCommentToolbar] = useState(false);
 
   const [isEditComment, setIsEditComment] = useState(false);

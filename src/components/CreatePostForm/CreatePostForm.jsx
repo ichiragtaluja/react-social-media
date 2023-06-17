@@ -1,14 +1,14 @@
 import "./CreatePostForm.css";
+import React from "react";
+import { useState, useEffect } from "react";
 import { IoMdClose } from "react-icons/io";
 import { AiOutlineFileGif } from "react-icons/ai";
 import { ImFilePicture } from "react-icons/im";
-import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 import { useLoggedInUser } from "../../contexts/LoggedInUserProvider";
-import React from "react";
 import { useAuth } from "../../contexts/AuthProvider";
 import { usePosts } from "../../contexts/PostsProvider";
-import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 
 export const CreatePostForm = ({ setIsCreateNewPostClicked, className }) => {
   const { createPost } = usePosts();
@@ -26,6 +26,7 @@ export const CreatePostForm = ({ setIsCreateNewPostClicked, className }) => {
     content: "",
     mediaUrl: "",
   });
+
   const emojis = [
     "😀",
     "😁",
@@ -91,8 +92,12 @@ export const CreatePostForm = ({ setIsCreateNewPostClicked, className }) => {
           onClick={() => navigate(`/profile/${loggedInUserState?.username}`)}
           className="img-container"
         >
-          <img src={loggedInUserState.avatarURL} />
+          <img
+            src={loggedInUserState.avatarURL}
+            alt={loggedInUserState.firstName}
+          />
         </div>
+
         <div className="input-container">
           <div className="text-content-container">
             <input
@@ -111,6 +116,7 @@ export const CreatePostForm = ({ setIsCreateNewPostClicked, className }) => {
               />
             )}
           </div>
+
           {postForm?.mediaUrl && postForm.type !== "image" && (
             <div className="media-container">
               <video muted loop>
@@ -124,9 +130,10 @@ export const CreatePostForm = ({ setIsCreateNewPostClicked, className }) => {
               />
             </div>
           )}
+
           {postForm?.mediaUrl && postForm.type === "image" && (
             <div className="media-container">
-              <img src={postForm?.mediaUrl} />
+              <img src={postForm?.mediaUrl} alt="" />
               <IoMdClose
                 onClick={() => {
                   setPostForm({ ...postForm, mediaUrl: "" });
@@ -135,6 +142,7 @@ export const CreatePostForm = ({ setIsCreateNewPostClicked, className }) => {
               />
             </div>
           )}
+
           <div className="input-btn-container">
             <div className="toolbar-container">
               <label htmlFor="media">

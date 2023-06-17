@@ -1,10 +1,4 @@
-import React, {
-  createContext,
-  useContext,
-  useEffect,
-  useReducer,
-  useState,
-} from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 import { TbTopologyFullHierarchy } from "react-icons/tb";
 import {
   getAllPostService,
@@ -23,12 +17,12 @@ const PostsContext = createContext();
 
 export const PostsProvider = ({ children }) => {
   const [allPosts, setAllPosts] = useState([]);
-  console.log("all Posts", allPosts);
+
+  const [sortBy, setSortBy] = useState("Latest");
 
   const getAllPosts = async () => {
     try {
       const response = await getAllPostService();
-
       if (response.status === 200) {
         setAllPosts(response.data.posts);
       }
@@ -40,7 +34,9 @@ export const PostsProvider = ({ children }) => {
   const likePost = async (postId, token) => {
     try {
       const response = await likePostService(postId, token);
-      setAllPosts([...response.data.posts]);
+      if (response.status === 201) {
+        setAllPosts([...response.data.posts]);
+      }
     } catch (error) {
       console.error(error);
     }
@@ -49,8 +45,12 @@ export const PostsProvider = ({ children }) => {
   const dislikePost = async (postId, token) => {
     try {
       const response = await dislikePostService(postId, token);
-      setAllPosts([...response.data.posts]);
-    } catch (error) {}
+      if (response.status === 201) {
+        setAllPosts([...response.data.posts]);
+      }
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   const deletePost = async (postId, token) => {
@@ -64,13 +64,13 @@ export const PostsProvider = ({ children }) => {
     }
   };
 
-  const [sortBy, setSortBy] = useState("Latest");
-
   const createPost = async (e, post, token) => {
     try {
       e.preventDefault();
       const response = await createPostService(post, token);
-      setAllPosts([...response.data.posts]);
+      if (response.status === 201) {
+        setAllPosts([...response.data.posts]);
+      }
     } catch (error) {
       console.error(error);
     }
@@ -80,33 +80,42 @@ export const PostsProvider = ({ children }) => {
     try {
       e.preventDefault();
       const response = await editPostService(postId, post, token);
-      setAllPosts([...response.data.posts]);
+      if (response.status === 201) {
+        setAllPosts([...response.data.posts]);
+      }
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
 
   const getComments = async (postId) => {
     try {
       const response = getCommentsService(postId);
-      console.log(response);
+      if (response.status === 200) {
+        console.log(response);
+      }
     } catch (error) {
       console.error(error);
     }
   };
+
   const addComment = async (postId, commentData, token) => {
     try {
       const response = await addCommentsService(postId, commentData, token);
-      console.log("yes", response.data);
-      setAllPosts(response.data.posts);
+      if (response.status === 201) {
+        setAllPosts(response.data.posts);
+      }
     } catch (error) {
       console.error(error);
     }
   };
+
   const deleteComment = async (postId, commentId, token) => {
     try {
       const response = await deleteCommentService(postId, commentId, token);
-      setAllPosts(response.data.posts);
+      if (response.status === 201) {
+        setAllPosts(response.data.posts);
+      }
     } catch (error) {
       console.error(error);
     }
@@ -119,8 +128,9 @@ export const PostsProvider = ({ children }) => {
         commentData,
         token
       );
-      console.log(response);
-      setAllPosts(response.data.posts);
+      if (response.status === 201) {
+        setAllPosts(response.data.posts);
+      }
     } catch (error) {
       console.error(error);
     }

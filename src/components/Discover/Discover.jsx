@@ -1,5 +1,6 @@
 import "./Discover.css";
 import React from "react";
+
 import { useUser } from "../../contexts/UserProvider";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthProvider";
@@ -7,11 +8,13 @@ import { useLoggedInUser } from "../../contexts/LoggedInUserProvider";
 
 export const Discover = () => {
   const { auth } = useAuth();
+
   const { loggedInUserState, followUser } = useLoggedInUser();
 
   const { userState } = useUser();
 
   const navigate = useNavigate();
+
   const whoToFollow = userState.allUsers?.filter((user) =>
     loggedInUserState?.following?.every(
       (following) =>
@@ -34,7 +37,7 @@ export const Discover = () => {
                 }}
                 className="discover-user-img-container"
               >
-                <img src={user?.avatarURL} />
+                <img src={user?.avatarURL} alt={user.firstName} />
               </div>
               <div className="user-name-username-container">
                 <p className="name">

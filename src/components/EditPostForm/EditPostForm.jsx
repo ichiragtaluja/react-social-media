@@ -1,14 +1,15 @@
 import "./EditPostForm.css";
-import "../CreatePostForm/CreatePostForm.css";
+import React from "react";
+
 import { IoMdClose } from "react-icons/io";
 import { AiOutlineFileGif } from "react-icons/ai";
 import { ImFilePicture } from "react-icons/im";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+
+import "../CreatePostForm/CreatePostForm.css";
 import { useLoggedInUser } from "../../contexts/LoggedInUserProvider";
-import React from "react";
 import { useAuth } from "../../contexts/AuthProvider";
 import { usePosts } from "../../contexts/PostsProvider";
-import { useEffect } from "react";
 
 export const EditPostForm = ({
   setIsEditPostClicked,
@@ -80,6 +81,7 @@ export const EditPostForm = ({
       type: post.type || "video",
     }));
   }, [loggedInUserState]);
+
   return (
     <>
       <form
@@ -95,7 +97,10 @@ export const EditPostForm = ({
         className={`new-post-container ${className}`}
       >
         <div className="img-container">
-          <img src={loggedInUserState.avatarURL} />
+          <img
+            src={loggedInUserState.avatarURL}
+            alt={loggedInUserState.firstName}
+          />
         </div>
         <div className="input-container">
           <div className="text-content-container">
@@ -130,7 +135,7 @@ export const EditPostForm = ({
           )}
           {postForm?.mediaUrl && postForm.type === "image" && (
             <div className="media-container">
-              <img src={postForm?.mediaUrl} />
+              <img src={postForm?.mediaUrl} alt="" />
               <IoMdClose
                 onClick={() => {
                   setPostForm({ ...postForm, mediaUrl: "" });

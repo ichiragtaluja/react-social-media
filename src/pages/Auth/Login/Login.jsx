@@ -2,12 +2,14 @@ import "./Login.css";
 import React from "react";
 import { useState } from "react";
 import ReactPlayer from "react-player";
-import { BsEyeSlash, BsEye } from "react-icons/bs";
-import { useAuth } from "../../../contexts/AuthProvider";
 import { Link } from "react-router-dom";
+import { BsEyeSlash, BsEye } from "react-icons/bs";
+
+import { useAuth } from "../../../contexts/AuthProvider";
 
 export const Login = () => {
   const [hidePassword, setHidePassword] = useState(true);
+
   const { handleLogin, authError } = useAuth();
 
   const [loginForm, setLoginForm] = useState({ username: "", password: "" });

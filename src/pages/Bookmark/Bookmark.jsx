@@ -6,7 +6,9 @@ import { usePosts } from "../../contexts/PostsProvider";
 
 export const Bookmark = () => {
   const { allPosts } = usePosts();
+
   const { loggedInUserState } = useLoggedInUser();
+
   const allBookmarkedPosts = allPosts?.filter((post) =>
     loggedInUserState?.bookmarks?.find((postId) => postId === post?._id)
   );

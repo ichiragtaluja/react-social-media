@@ -13,20 +13,29 @@ import { RxCross2 } from "react-icons/rx";
 
 export const Profile = () => {
   const [showFollowers, setShowFollowers] = useState(false);
+
   const [showFollowing, setShowFollowing] = useState(false);
+
+  const [isEditProfile, setIsEditProfile] = useState(false);
+
   const navigate = useNavigate();
+
   const { userState } = useUser();
 
   const { auth } = useAuth();
+
   const { username } = useParams();
+
   const { loggedInUserState, followUser, unfollowUser } = useLoggedInUser();
 
   const isOwnProfile = username === loggedInUserState?.username;
+
   const userDetails = userState?.allUsers?.find(
     (user) => user?.username === auth?.username
   );
 
   const { allPosts } = usePosts();
+
   const postsByUser = allPosts?.filter((post) => post.username === username);
 
   const user = userState.allUsers?.find(
@@ -54,8 +63,6 @@ export const Profile = () => {
       ? followUser(userFromAllUsers?._id, auth.token)
       : unfollowUser(userFromAllUsers?._id, auth.token);
   };
-
-  const [isEditProfile, setIsEditProfile] = useState(false);
 
   return (
     <main className="feed">
@@ -87,7 +94,7 @@ export const Profile = () => {
         </div>
 
         <div className="website-container">
-          <a>{user?.website}</a>
+          <a href={user?.website}>{user?.website}</a>
           <div className="joining-date-container">
             <CgCalendarDates />
             <span>Joined {createdOnDate()}</span>
@@ -127,7 +134,7 @@ export const Profile = () => {
                       }}
                       className="discover-user-img-container"
                     >
-                      <img src={user?.avatarURL} />
+                      <img src={user?.avatarURL} alt={user?.firstName} />
                     </div>
                     <div className="user-name-username-container">
                       <p className="name">
@@ -176,7 +183,7 @@ export const Profile = () => {
                       }}
                       className="discover-user-img-container"
                     >
-                      <img src={user?.avatarURL} />
+                      <img src={user?.avatarURL} alt={user?.firstName} />
                     </div>
                     <div className="user-name-username-container">
                       <p className="name">

@@ -5,28 +5,20 @@ import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import { useLoggedInUser } from "./LoggedInUserProvider";
 import { useUser } from "./UserProvider";
-// import { getUserService } from "../services/UserService";
 
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  // const getUser = async (user) => {
-  //   try {
-  //     const response = await getUserService(user);
-  //     if (response.status === 200) {
-  //       setAuth({ ...auth, user: { ...response.data.user } });
-  //     }
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // };
-
   const token = localStorage.getItem("token");
+
   const username = localStorage.getItem("username");
+
   const [authError, setAuthError] = useState("");
 
   const navigate = useNavigate();
+
   const location = useLocation();
+
   const { userState, dispatch } = useUser();
 
   const [auth, setAuth] = useState(
@@ -35,20 +27,12 @@ export const AuthProvider = ({ children }) => {
       : { isAuth: false, token: "", username: "" }
   );
 
-  // useEffect(() => {
-  //   if (auth.isAuth) {
-  //     console.log("yes i was here");
-  //     getUser(auth.username);
-  //   }
-  // }, []);
-
   const { loggedInUserDispatch } = useLoggedInUser();
 
   const handleSignup = async (e, formValues) => {
     try {
       e.preventDefault();
       const response = await signupService(formValues);
-      // console.log(response);
       if (response.status === 201) {
         const token = response.data.encodedToken;
         const username = response.data.createdUser.username;
@@ -58,7 +42,6 @@ export const AuthProvider = ({ children }) => {
           isAuth: true,
           token,
           username: response.data.createdUser.username,
-          // user: { ...response.data.createdUser },
         });
 
         dispatch({
@@ -69,10 +52,11 @@ export const AuthProvider = ({ children }) => {
           type: "SET_USER",
           payload: { ...response.data.createdUser },
         });
-
         navigate(location?.state?.from?.pathname || "/");
       }
-    } catch (error) {}
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   const handleLogin = async (e, username, password) => {
@@ -88,7 +72,6 @@ export const AuthProvider = ({ children }) => {
           isAuth: true,
           token,
           username: response.data.foundUser.username,
-          // user: response.data.foundUser,
         });
         loggedInUserDispatch({
           type: "SET_USER",

@@ -4,8 +4,8 @@ import { RiHeart3Line, RiHeart3Fill } from "react-icons/ri";
 import { FaRegBookmark, FaBookmark } from "react-icons/fa";
 import { BsShare } from "react-icons/bs";
 import { useState } from "react";
-
 import React from "react";
+
 import { useLoggedInUser } from "../../contexts/LoggedInUserProvider";
 import { useAuth } from "../../contexts/AuthProvider";
 import { usePosts } from "../../contexts/PostsProvider";
@@ -17,10 +17,13 @@ import { Comment } from "./components/Comment/Comment";
 
 export const Post = ({ post }) => {
   const navigate = useNavigate();
+
   const [isEditPostClicked, setIsEditPostClicked] = useState(false);
+
   const [showLikesModal, setShowLikesModal] = useState(false);
 
   const [actionMenu, setActionMenu] = useState(false);
+
   const { likePost, dislikePost, deletePost } = usePosts();
 
   const [commentData, setCommentData] = useState({ text: "" });
@@ -34,9 +37,10 @@ export const Post = ({ post }) => {
     followUser,
     unfollowUser,
   } = useLoggedInUser();
+
   const { auth } = useAuth();
 
-  const { getComments, addComment, deleteComment, editComment } = usePosts();
+  const { addComment } = usePosts();
 
   const { userState } = useUser();
 
@@ -47,6 +51,7 @@ export const Post = ({ post }) => {
   const userDetails = userState?.allUsers?.find(
     (user) => user?.username === auth?.username
   );
+
   const isFollowing = (user) =>
     userDetails?.following?.find(({ username }) => username === user?.username);
 
@@ -104,6 +109,7 @@ export const Post = ({ post }) => {
       return `${seconds} second${seconds === 1 ? "" : "s"} ago`;
     }
   };
+
   return (
     <div className="post-card">
       <div className="profile-picture-container">
@@ -112,6 +118,7 @@ export const Post = ({ post }) => {
             navigate(`/profile/${post?.username}`);
           }}
           src={post?.avatarURL}
+          alt={post?.firstName}
         />
       </div>
       <div className="post-card-content">
@@ -200,7 +207,7 @@ export const Post = ({ post }) => {
             </video>
           )}
           {post?.mediaUrl && post?.type === "image" && (
-            <img src={post?.mediaUrl} />
+            <img src={post?.mediaUrl} alt="" />
           )}
         </div>
 
@@ -267,7 +274,7 @@ export const Post = ({ post }) => {
                       }}
                       className="discover-user-img-container"
                     >
-                      <img src={user?.avatarURL} />
+                      <img src={user?.avatarURL} alt={user?.firstName} />
                     </div>
                     <div className="user-name-username-container">
                       <p className="name">
@@ -291,7 +298,7 @@ export const Post = ({ post }) => {
         {showComments && (
           <div className="comments-section-container">
             <div className="comments-input-section-container">
-              <img src={userDetails?.avatarURL} />
+              <img src={userDetails?.avatarURL} alt={userDetails?.firstName} />
               <input
                 onChange={(e) => setCommentData({ text: e.target.value })}
                 value={commentData?.text}

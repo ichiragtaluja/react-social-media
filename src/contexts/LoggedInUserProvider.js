@@ -18,7 +18,9 @@ const LoggedInUserContext = createContext();
 
 export const LoggedInUserProvider = ({ children }) => {
   const token = localStorage.getItem("token");
+
   const username = localStorage.getItem("username");
+
   const { userState, dispatch } = useUser();
 
   const [loggedInUserState, loggedInUserDispatch] = useReducer(
@@ -44,7 +46,6 @@ export const LoggedInUserProvider = ({ children }) => {
     try {
       const response = await editUserService(userData, token);
       if (response.status === 201) {
-        console.log("res", response);
         const updatedUser = response.data.user;
         loggedInUserDispatch({ type: "SET_USER", payload: updatedUser });
         const updatedUsers = userState.allUsers.map((user) =>
@@ -62,7 +63,6 @@ export const LoggedInUserProvider = ({ children }) => {
       const response = await followUserService(userId, token);
       if (response.status === 200) {
         const { user, followUser } = response.data;
-
         const updatedAllUser = userState?.allUsers.map((individualUser) =>
           individualUser.username === user.username
             ? { ...user }
@@ -74,7 +74,9 @@ export const LoggedInUserProvider = ({ children }) => {
         dispatch({ type: "SET_ALL_USERS", payload: [...updatedAllUser] });
         loggedInUserDispatch({ type: "SET_USER", payload: user });
       }
-    } catch (error) {}
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   const unfollowUser = async (userId, token) => {
@@ -118,8 +120,12 @@ export const LoggedInUserProvider = ({ children }) => {
   const removeBookmark = async (postId, token) => {
     try {
       const response = await removeBookmarkService(postId, token);
-      loggedInUserDispatch({ type: "SET_USER", payload: response.data });
-    } catch (error) {}
+      if (response.status === 200) {
+        loggedInUserDispatch({ type: "SET_USER", payload: response.data });
+      }
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   useEffect(() => {

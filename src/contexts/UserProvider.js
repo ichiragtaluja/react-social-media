@@ -25,7 +25,6 @@ export const UserProvider = ({ children }) => {
 
   useEffect(() => {
     getAllUsers();
-    // getUser("Neha");
   }, []);
 
   return (

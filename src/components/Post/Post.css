@@ -28,9 +28,8 @@
   border: 1px solid black;
   display: flex;
   justify-content: space-between;
-
   position: relative;
-  z-index: 2;
+  /* z-index: 2; */
 }
 .name-container .name {
   font-weight: 700;
