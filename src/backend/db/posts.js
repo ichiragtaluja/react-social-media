@@ -443,7 +443,7 @@ export const posts = [
         username: "Neha",
         avatarURL:
           "https://res.cloudinary.com/darwtgzlk/image/upload/v1686251365/socialMedia/profilePictures/user4_yobn9s.jpg",
-        text: "You are a true beauty artist! Your makeup skills are absolutely captivating, enhancing your natural beauty flawlessly.",
+        text: "You are a true beauty artist!.",
         votes: {
           upvotedBy: [
             {
