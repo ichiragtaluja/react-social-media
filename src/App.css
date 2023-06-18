@@ -3,23 +3,25 @@
   padding: 0px;
   box-sizing: border-box;
 }
+
+:root {
+  --primary-color: rgb(29, 155, 240);
+  --white: #ffffff;
+  --hover-background: rgb(41, 41, 41);
+}
 a {
   cursor: pointer;
   text-decoration: none;
 }
 
 .app-container {
-  border: 2px solid red;
   display: flex;
   flex-flow: column nowrap;
 }
 
 .feed {
-  /* position: relative;
-  z-index: 3; */
-
   border: 2px solid blue;
-  height: 93.5vh;
+  height: 88.5vh;
   overflow: auto;
   order: 2;
 }
@@ -30,20 +32,28 @@ a {
 }
 
 .discover {
-  /* position: relative;
-  z-index: 4; */
   display: none;
+}
+
+.profile-picture {
+  height: 50px;
+  width: 50px;
+  border-radius: 25px;
+  object-fit: cover;
+}
+
+.username {
+  color: grey;
 }
 
 @media (min-width: 768px) {
   .app-container {
-    border: 5px solid red;
     flex-flow: row;
   }
 
   .feed {
     border: 2px solid blue;
-    height: 95vh;
+    height: 85vh;
     overflow: auto;
     width: 60%;
   }
