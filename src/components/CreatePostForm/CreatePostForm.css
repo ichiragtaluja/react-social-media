@@ -7,7 +7,7 @@
   background-color: black;
   color: white;
   border-radius: 1rem;
-  margin: 1rem;
+  /* margin: 1rem; */
 }
 
 .new-post-container .input-container {
@@ -210,10 +210,10 @@
   }
   .text-content-container > textarea{
     resize: none;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
   }
 
   .text-content-container > textarea::placeholder{
-    font-size: 1.5rem;
+    font-size: 1.3rem;
   }
 }

@@ -2,9 +2,10 @@ import "./Post.css";
 import { FaRegComment } from "react-icons/fa";
 import { RiHeart3Line, RiHeart3Fill } from "react-icons/ri";
 import { FaRegBookmark, FaBookmark } from "react-icons/fa";
-import { FiShare2} from "react-icons/fi";
+import { FiShare2 } from "react-icons/fi";
 import { useState } from "react";
 import React from "react";
+import {RxDotsHorizontal} from "react-icons/rx"
 
 import { useLoggedInUser } from "../../contexts/LoggedInUserProvider";
 import { useAuth } from "../../contexts/AuthProvider";
@@ -159,7 +160,7 @@ export const Post = ({ post }) => {
                 setActionMenu(!actionMenu);
               }}
             >
-              Edit
+              <RxDotsHorizontal className="three-dots-icon"/>
             </div>
           )}
 
@@ -227,6 +228,7 @@ export const Post = ({ post }) => {
               />
             ) : (
               <RiHeart3Fill
+                className="like-icon like-done-icon"
                 onClick={() => dislikePost(post?._id, auth.token)}
               />
             )}
@@ -244,6 +246,7 @@ export const Post = ({ post }) => {
               />
             ) : (
               <FaBookmark
+              className="bookmark-icon bookmark-done-icon"
                 onClick={() => removeBookmark(post?._id, auth.token)}
               />
             )}

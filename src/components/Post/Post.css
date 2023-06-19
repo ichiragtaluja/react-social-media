@@ -4,11 +4,20 @@
   padding: 1rem;
   border: 1px solid var(--border-color);
 }
+
+.post-card:first-child {
+  border-radius: 1rem 1rem 0 0;
+}
+
+.post-card:last-child {
+  border-radius: 0 0 1rem 1rem;
+  margin-bottom: 1rem;
+}
+
 .post-card-content {
   display: flex;
   flex-flow: column nowrap;
   align-items: stretch;
-  border: 1px solid orange;
   justify-self: stretch;
   flex-grow: 1;
 }
@@ -27,45 +36,76 @@
 }
 
 .name-container {
-  border: 1px solid black;
   display: flex;
   justify-content: space-between;
   position: relative;
-  /* z-index: 2; */
+  align-items: center;
 }
 .name-container .name {
   font-weight: 700;
-  border: 1px solid black;
   cursor: pointer;
+  display: inline-block;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100px;
+  overflow: hidden;
 }
 
 .name-container .date {
   color: grey;
-  border: 1px solid black;
   cursor: pointer;
+  display: inline-block;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 80px;
+  overflow: hidden;
 }
 .comments-container {
   cursor: pointer;
   color: grey;
-  padding: .5rem 0;
-  margin-right: 3rem;
+  padding: 0.5rem 0;
+  margin-right: 2rem;
+  display: flex;
+  align-items: center;
+}
+
+.comments-container:hover {
+  color: var(--primary-color);
+}
+.comments-container > span {
+  margin-left: 0.3rem;
+  font-weight: 500;
+  font-size: 0.95rem;
 }
 
 .comments-container .comment-icon,
 .comments-container .like-icon,
 .comments-container .share-icon,
 .comments-container .bookmark-icon {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 }
 
-.comments-container .like-icon{
+.comments-container .like-icon {
   font-size: 1.3rem;
+}
+.comments-container .bookmark-icon {
+  font-size: 1rem;
+}
+
+.bookmark-done-icon,
+.like-done-icon {
+  color: var(--primary-color);
 }
 
 .name-container .username {
   color: grey;
-  border: 1px solid black;
   cursor: pointer;
+
+  display: inline-block;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100px;
+  overflow: hidden;
 }
 .caption-container {
   width: 100%;
@@ -77,6 +117,15 @@
   cursor: pointer;
 }
 
+.three-dots-icon {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: grey;
+}
+.three-dots-icon:hover {
+  color: var(--primary-color);
+}
+
 .post-card .media video {
   width: 50%;
   border-radius: 1rem;
@@ -86,8 +135,8 @@
 
 .post-actions-container {
   display: flex;
-  
-  border: 1px solid white;
+
+  /* border: 1px solid white; */
 }
 
 .dropdown-list-container li {
@@ -108,7 +157,7 @@
 .media > img {
   width: 50%;
   /* object-fit: cover; */
-  border: 3px solid green;
+
   border-radius: 1rem;
 }
 
@@ -116,10 +165,10 @@
 }
 
 .name-container .edit {
-  border: 1px solid blue;
+  position: absolute;
+  right: 0;
   z-index: 3;
   cursor: pointer;
-  /* position : relative */
 }
 
 .action-menu-container {
@@ -244,4 +293,40 @@
 
 .comment-toolbar-menu-container p {
   cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .comments-container {
+    cursor: pointer;
+    color: grey;
+    padding: 0.5rem 0;
+    margin-right: 4rem;
+    display: flex;
+    align-items: center;
+  }
+
+  .comments-container > span {
+    margin-left: 0.5rem;
+    font-weight: 500;
+  }
+
+  .comments-container .comment-icon,
+  .comments-container .like-icon,
+  .comments-container .share-icon,
+  .comments-container .bookmark-icon {
+    font-size: 1.2rem;
+  }
+
+  .comments-container .like-icon {
+    font-size: 1.4rem;
+  }
+  .comments-container .bookmark-icon {
+    font-size: 1.1rem;
+  }
+
+  .name-container .name,
+  .name-container .date,
+  .name-container .username {
+    max-width: 200px;
+  }
 }
