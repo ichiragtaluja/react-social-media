@@ -1,7 +1,8 @@
 .post-card {
   display: flex;
-  border: 1px solid black;
   width: 100%;
+  padding: 1rem;
+  border: 1px solid var(--border-color);
 }
 .post-card-content {
   display: flex;
@@ -14,6 +15,7 @@
 
 .profile-picture-container {
   border: 1px solid black;
+  margin-right: 0.5rem;
 }
 
 .profile-picture-container img {
@@ -44,6 +46,20 @@
 }
 .comments-container {
   cursor: pointer;
+  color: grey;
+  padding: .5rem 0;
+  margin-right: 3rem;
+}
+
+.comments-container .comment-icon,
+.comments-container .like-icon,
+.comments-container .share-icon,
+.comments-container .bookmark-icon {
+  font-size: 1.2rem;
+}
+
+.comments-container .like-icon{
+  font-size: 1.3rem;
 }
 
 .name-container .username {
@@ -53,7 +69,8 @@
 }
 .caption-container {
   width: 100%;
-  border: 1px solid black;
+  /* border: 1px solid rgb(119, 119, 119); */
+  padding: 0.2rem 0 0.6rem 0;
 }
 
 .post-card .media {
@@ -62,13 +79,15 @@
 
 .post-card .media video {
   width: 50%;
+  border-radius: 1rem;
   /* object-fit: cover; */
-  border: 3px solid green;
+  /* border: 3px solid green; */
 }
 
 .post-actions-container {
   display: flex;
-  justify-content: space-around;
+  
+  border: 1px solid white;
 }
 
 .dropdown-list-container li {
@@ -90,10 +109,10 @@
   width: 50%;
   /* object-fit: cover; */
   border: 3px solid green;
+  border-radius: 1rem;
 }
 
 .username-container {
-  border: 1px solid green;
 }
 
 .name-container .edit {

@@ -2,7 +2,7 @@ import "./Post.css";
 import { FaRegComment } from "react-icons/fa";
 import { RiHeart3Line, RiHeart3Fill } from "react-icons/ri";
 import { FaRegBookmark, FaBookmark } from "react-icons/fa";
-import { BsShare } from "react-icons/bs";
+import { FiShare2} from "react-icons/fi";
 import { useState } from "react";
 import React from "react";
 
@@ -216,12 +216,15 @@ export const Post = ({ post }) => {
             onClick={() => setShowComments(!showComments)}
             className="comments-container"
           >
-            <FaRegComment />
+            <FaRegComment className="comment-icon" />
             <span>{post?.comments?.length}</span>
           </div>
           <div className="comments-container">
             {!isLikedAlready ? (
-              <RiHeart3Line onClick={() => likePost(post?._id, auth.token)} />
+              <RiHeart3Line
+                className="like-icon"
+                onClick={() => likePost(post?._id, auth.token)}
+              />
             ) : (
               <RiHeart3Fill
                 onClick={() => dislikePost(post?._id, auth.token)}
@@ -230,12 +233,13 @@ export const Post = ({ post }) => {
             <span>{post?.likes?.likeCount}</span>
           </div>
           <div className="comments-container">
-            <BsShare onClick={() => {}} />
+            <FiShare2 className="share-icon" onClick={() => {}} />
             <span>{}</span>
           </div>
           <div className="comments-container">
             {!isBookmarkedAlready ? (
               <FaRegBookmark
+                className="bookmark-icon"
                 onClick={() => addBookmark(post?._id, auth.token)}
               />
             ) : (
