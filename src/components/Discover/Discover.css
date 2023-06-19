@@ -6,11 +6,11 @@
   background-color: rgb(22, 24, 28);
   color: white;
   border-radius: 1rem;
-  padding: 1.2rem;
+  padding: 1.2rem 0rem;
 }
 
 .discover-header {
-  padding-bottom: 1rem;
+  padding: .5rem 1rem 1rem 1rem;
   font-weight: 800;
   font-size: 1.4rem;
 }
@@ -19,7 +19,13 @@
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
-  padding: 0.5rem 0;
+  padding: 0.5rem 1.2rem;
+  cursor: pointer;
+}
+
+.discover-user-card:hover {
+  background-color: rgb(34, 34, 34);
+  cursor: pointer;
 }
 .discover-user-img-container {
   margin-right: 0.7rem;
@@ -35,8 +41,6 @@
 .user-name-username-container .name {
   font-weight: 700;
   display: inline-block;
-
-  border: 1px solid black;
   text-overflow: ellipsis;
   white-space: nowrap;
   width: 80px;
@@ -46,11 +50,6 @@
 .user-name-username-container .username {
   color: grey;
   text-overflow: ellipsis;
-  border: 1px solid black;
-  /* width: 80px;
-  overflow: hidden; */
-
-  border: 1px solid black;
   text-overflow: ellipsis;
   white-space: nowrap;
   width: 80px;
@@ -59,7 +58,6 @@
 
 .follow-container {
   flex-grow: 1;
-  border: 1px solid black;
   text-align: right;
 }
 .follow-container button {
@@ -69,15 +67,19 @@
   border: none;
   font-weight: 800;
   font-size: 0.9rem;
+  cursor: pointer;
+}
+.follow-container button:hover {
+  background-color: rgb(199, 199, 199);
 }
 
 @media (min-width: 900px) {
   .user-name-username-container .name {
-    width: 8vw;
+    width: 9vw;
   }
 
   .user-name-username-container .username {
-    width: 8vw;
+    width: 9vw;
   }
 }
 

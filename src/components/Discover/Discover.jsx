@@ -30,7 +30,13 @@ export const Discover = () => {
         </div>
         <div className="discover-body">
           {whoToFollow?.map((user) => (
-            <div key={user?._id} className="discover-user-card">
+            <div
+              onClick={() => {
+                navigate(`/profile/${user.username}`);
+              }}
+              key={user?._id}
+              className="discover-user-card"
+            >
               <div
                 onClick={() => {
                   navigate(`/profile/${user.username}`);
