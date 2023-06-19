@@ -6,6 +6,7 @@
 
 :root {
   --primary-color: rgb(29, 155, 240);
+  --primary-color-hover: rgb(57, 176, 255);
   --white: #ffffff;
   --hover-background: rgb(41, 41, 41);
 }
@@ -20,7 +21,8 @@ a {
 }
 
 .feed {
-  border: 2px solid blue;
+  background-color: black;
+  color: white;
   height: 88.5vh;
   overflow: auto;
   order: 2;
@@ -52,7 +54,6 @@ a {
   }
 
   .feed {
-    border: 2px solid blue;
     height: 85vh;
     overflow: auto;
     width: 50%;
@@ -68,7 +69,6 @@ a {
 
 @media (min-width: 900px) {
   .feed {
-    border: 2px solid blue;
     height: 85vh;
     overflow: auto;
     width: 50%;
@@ -91,7 +91,6 @@ a {
 
 @media (min-width: 1200px) {
   .feed {
-    border: 2px solid blue;
     height: 85vh;
     overflow: auto;
     width: 50%;

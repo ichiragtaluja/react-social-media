@@ -1,8 +1,12 @@
 .new-post-container {
-  border: 1px solid rgb(125, 125, 125);
+  border: 1px solid rgb(41, 41, 41);
   display: flex;
   align-items: flex-start;
   opacity: 1;
+  padding: 1rem;
+  background-color: black;
+  color: white;
+  border-radius: 1rem;
 }
 
 .new-post-container .input-container {
@@ -39,9 +43,40 @@
   flex-grow: 1;
   display: flex;
   justify-content: space-between;
+  background-color: black;
 }
+
+.text-content-container > textarea {
+  flex-grow: 1;
+  height: 100px;
+  display: flex;
+  padding: 0.5rem;
+  background-color: black;
+  color: white;
+  border: none;
+  resize: none;
+  font-size: 1.5rem;
+  font-family: inherit;
+
+}
+
+.text-content-container > textarea:focus {
+  outline: none;
+}
+
+.text-content-container > textarea::placeholder {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  font-size: 1.5rem;
+}
+
 .close-create-post-modal {
   cursor: pointer;
+  background-color: black;
+  color: white;
+  align-self: stretch;
+  margin: 0.5rem;
 }
 
 .emoji-modal-container {
@@ -86,5 +121,37 @@
 }
 
 .img-container {
+  cursor: pointer;
+  margin-right: 0.5rem;
+}
+
+.toolbar-container {
+  color: var(--primary-color);
+  font-size: 1.3rem;
+  flex-grow: 1;
+  display: flex;
+  align-items: stretch;
+}
+.smily-emoji {
+  font-size: 1.5rem;
+  margin-left: 0.5rem;
+  margin-top: -0.1rem;
+}
+
+.input-btn-container {
+  display: flex;
+  align-items: center;
+  padding:  0rem .5rem;
+}
+
+.post-btn-container button {
+  border: none;
+  padding: 0.7rem 1.5rem;
+  border-radius: 2rem;
+  background-color: var(--primary-color);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--white);
+
   cursor: pointer;
 }

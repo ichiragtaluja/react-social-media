@@ -2,7 +2,7 @@ import "./CreatePostForm.css";
 import React from "react";
 import { useState, useEffect } from "react";
 import { IoMdClose } from "react-icons/io";
-import { AiOutlineFileGif } from "react-icons/ai";
+import { VscSmiley } from "react-icons/vsc";
 import { ImFilePicture } from "react-icons/im";
 import { useNavigate } from "react-router-dom";
 
@@ -100,7 +100,7 @@ export const CreatePostForm = ({ setIsCreateNewPostClicked, className }) => {
 
         <div className="input-container">
           <div className="text-content-container">
-            <input
+            <textarea
               onChange={(e) =>
                 setPostForm((prev) => ({ ...prev, content: e.target.value }))
               }
@@ -151,14 +151,18 @@ export const CreatePostForm = ({ setIsCreateNewPostClicked, className }) => {
               </label>
               <input onChange={handleMediaInput} type="file" id="media" />
 
-              <AiOutlineFileGif onClick={() => setShowEmojiModal(true)} />
+              <VscSmiley
+                className="smily-emoji"
+                onClick={() => setShowEmojiModal(true)}
+              />
             </div>
             <div className="post-btn-container">
-              <input
+              <button
                 disabled={!postForm.content && !postForm.mediaUrl}
                 type="submit"
-                value="Post"
-              />
+              >
+                Quack
+              </button>
             </div>
           </div>
         </div>
