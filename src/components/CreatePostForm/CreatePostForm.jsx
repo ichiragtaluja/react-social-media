@@ -147,7 +147,7 @@ export const CreatePostForm = ({ setIsCreateNewPostClicked, className }) => {
             <div className="toolbar-container">
               <label htmlFor="media">
                 {" "}
-                <ImFilePicture />
+                <ImFilePicture className="file-icon"/>
               </label>
               <input onChange={handleMediaInput} type="file" id="media" />
 

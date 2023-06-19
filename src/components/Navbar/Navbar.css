@@ -37,12 +37,12 @@
   align-items: center;
 }
 
-.navbar button {
+.navbar .create-new-post-btn {
   position: absolute;
   bottom: 150%;
   right: 6%;
 }
-.navbar button span {
+.navbar .create-new-post-btn span {
   display: none;
 }
 
@@ -56,7 +56,7 @@
 }
 
 .modal-content {
-  width: 40%;
+  width: 80%;
   left: 0;
   right: 0;
   margin-left: auto;
@@ -95,7 +95,7 @@
     font-size: 30px;
   }
 
-  .navbar button {
+  .navbar .create-new-post-btn {
     position: relative;
     bottom: 0;
     right: 0;
@@ -106,6 +106,10 @@
   }
   .navbar li {
     margin-bottom: 15px;
+  }
+
+  .modal-content{
+    width: 80%;
   }
 
   .create-new-post-btn {
@@ -157,8 +161,12 @@
     margin-bottom: 15px;
   }
 
-  .navbar button span {
+  .navbar .create-new-post-btn span {
     display: inline;
+  }
+
+  .modal-content{
+    width: 80%;
   }
 
   .create-new-post-btn {

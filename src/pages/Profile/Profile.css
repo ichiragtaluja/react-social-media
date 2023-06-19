@@ -48,7 +48,7 @@
 }
 
 .modal-content {
-  width: 40%;
+  width: 70%;
   left: 0;
   right: 0;
   margin-left: auto;
@@ -56,10 +56,18 @@
   margin-top: 10%;
   position: fixed;
   z-index: 11;
-  background-color: white;
+  background-color: rgb(0, 0, 0);
+  color: white;
+  box-shadow: 0px 0px 19px -1px rgb(89, 89, 89);
 }
 
 .post-follower-count,
 .post-following-count {
   cursor: pointer;
+}
+
+@media (min-width: 1000px) {
+  .modal-content {
+    width: 40%;
+  }
 }
