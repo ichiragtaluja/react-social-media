@@ -1,5 +1,5 @@
 .navbar {
-  border: 1px solid rgb(223, 223, 223);
+
   z-index: 1;
   background-color: rgb(0, 0, 0);
   padding: 0.5rem;
@@ -40,8 +40,8 @@
 
 .navbar button {
   position: absolute;
-  bottom: 200%;
-  right: 5%;
+  bottom: 150%;
+  right: 6%;
 }
 .navbar button span {
   display: none;
@@ -68,6 +68,18 @@
   background-color: white;
 }
 
+
+.create-new-post-btn {
+  border: none;
+  padding: 1.5rem 1.5rem 1.2rem 1.5rem;
+  border-radius: 2rem;
+  background-color: var(--primary-color);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--white);
+  align-self: center;
+}
+
 @media (min-width: 768px) {
   .navbar {
     padding: 0.5rem 1rem;
@@ -75,7 +87,7 @@
   .navbar ul {
     flex-flow: column nowrap;
     align-items: center;
-    margin-top: 30px;
+    margin-top: 10px;
   }
   .navlink-icon {
     font-size: 30px;
@@ -132,7 +144,7 @@
   .navbar ul {
     flex-flow: column nowrap;
     align-items: stretch;
-    margin-top: 30px;
+    margin-top: 10px;
   }
   .navlink-icon {
     margin-left: 1vw;

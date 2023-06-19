@@ -23,7 +23,7 @@ export const Discover = () => {
   );
 
   return (
-    <div className="discover">
+    <main className="discover">
       <div className="discover-container">
         <div className="discover-header">
           <p>Who to follow?</p>
@@ -58,6 +58,6 @@ export const Discover = () => {
           ))}
         </div>
       </div>
-    </div>
+    </main>
   );
 };
