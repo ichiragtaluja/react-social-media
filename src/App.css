@@ -9,6 +9,7 @@
   --primary-color-hover: rgb(57, 176, 255);
   --white: #ffffff;
   --hover-background: rgb(41, 41, 41);
+  --border-color: rgb(41, 41, 41);
 }
 a {
   cursor: pointer;
