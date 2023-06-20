@@ -1,6 +1,7 @@
 import "./Comment.css";
 
 import React from "react";
+import { RxDotsHorizontal } from "react-icons/rx";
 import { usePosts } from "../../../../contexts/PostsProvider";
 import { useState } from "react";
 import { useAuth } from "../../../../contexts/AuthProvider";
@@ -17,7 +18,10 @@ export const Comment = ({ comment, post }) => {
 
   return (
     <div className="comment-card">
-      <img src={avatarURL} alt={firstName} />
+      <div>
+        <img className="comment-user-image" src={avatarURL} alt={firstName} />
+      </div>
+
       <div className="comment-main-section">
         <div className="username-container">
           <p className="name">
@@ -26,11 +30,11 @@ export const Comment = ({ comment, post }) => {
           <span className="username">@{username}</span>
           {username === auth.username && (
             <div className="comment-toolbar">
-              <button
+              <div className="edit"
                 onClick={() => setShowCommentToolbar(!showCommentToolbar)}
               >
-                Edit
-              </button>
+                <RxDotsHorizontal className="three-dots-icon" />
+              </div>
               {showCommentToolbar && (
                 <div className="comment-toolbar-menu-container">
                   <p
@@ -54,7 +58,7 @@ export const Comment = ({ comment, post }) => {
           )}
         </div>
         {!isEditComment ? (
-          <div>{text}</div>
+          <div className="user-comment">{text}</div>
         ) : (
           <div className="edit-comment-container">
             <input

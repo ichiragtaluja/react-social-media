@@ -5,7 +5,7 @@ import { FaRegBookmark, FaBookmark } from "react-icons/fa";
 import { FiShare2 } from "react-icons/fi";
 import { useState } from "react";
 import React from "react";
-import {RxDotsHorizontal} from "react-icons/rx"
+import { RxDotsHorizontal } from "react-icons/rx";
 
 import { useLoggedInUser } from "../../contexts/LoggedInUserProvider";
 import { useAuth } from "../../contexts/AuthProvider";
@@ -160,7 +160,7 @@ export const Post = ({ post }) => {
                 setActionMenu(!actionMenu);
               }}
             >
-              <RxDotsHorizontal className="three-dots-icon"/>
+              <RxDotsHorizontal className="three-dots-icon" />
             </div>
           )}
 
@@ -232,7 +232,13 @@ export const Post = ({ post }) => {
                 onClick={() => dislikePost(post?._id, auth.token)}
               />
             )}
-            <span>{post?.likes?.likeCount}</span>
+            <span
+              onClick={() => {
+                setShowLikesModal(true);
+              }}
+            >
+              {post?.likes?.likeCount}
+            </span>
           </div>
           <div className="comments-container">
             <FiShare2 className="share-icon" onClick={() => {}} />
@@ -246,7 +252,7 @@ export const Post = ({ post }) => {
               />
             ) : (
               <FaBookmark
-              className="bookmark-icon bookmark-done-icon"
+                className="bookmark-icon bookmark-done-icon"
                 onClick={() => removeBookmark(post?._id, auth.token)}
               />
             )}
@@ -254,27 +260,35 @@ export const Post = ({ post }) => {
           </div>
         </div>
         <div className="likes-details-container">
-          <p
+          {/* <p
+            className="number-of-likes"
             onClick={() => {
               setShowLikesModal(true);
             }}
           >
             {post?.likes?.likeCount}{" "}
             <span>{`Like${post?.likes?.likeCount === 1 ? "" : "s"}`}</span>
-          </p>
+          </p> */}
           {showLikesModal && (
             <div className="like-modal">
               <div className="likes-content">
                 <div className="likes-header">
                   <h2>Liked By</h2>
                   <RxCross2
+                    className="close-likes-icon"
                     onClick={() => {
                       setShowLikesModal(false);
                     }}
                   />
                 </div>
                 {post?.likes?.likedBy.map((user) => (
-                  <div key={user?._id} className="discover-user-card">
+                  <div
+                    onClick={() => {
+                      navigate(`/profile/${user.username}`);
+                    }}
+                    key={user?._id}
+                    className="discover-user-card"
+                  >
                     <div
                       onClick={() => {
                         navigate(`/profile/${user.username}`);
@@ -305,21 +319,31 @@ export const Post = ({ post }) => {
         {showComments && (
           <div className="comments-section-container">
             <div className="comments-input-section-container">
-              <img src={userDetails?.avatarURL} alt={userDetails?.firstName} />
-              <input
-                onChange={(e) => setCommentData({ text: e.target.value })}
-                value={commentData?.text}
-                type="text"
-              />
-              <div className="comment-button-container">
-                <button
-                  onClick={() => {
-                    addComment(post._id, commentData, auth.token);
-                    setCommentData({ text: "" });
-                  }}
-                >
-                  Reply
-                </button>
+              <div className="user-profile-img-container">
+                <img
+                  src={userDetails?.avatarURL}
+                  alt={userDetails?.firstName}
+                />
+              </div>
+
+              <div className="comments-textarea-btn-container">
+                <textarea
+                  placeholder="Quack your reply!"
+                  onChange={(e) => setCommentData({ text: e.target.value })}
+                  value={commentData?.text}
+                  type="text"
+                />
+                <div className="comment-button-container">
+                  <button
+                    disabled={!commentData?.text}
+                    onClick={() => {
+                      addComment(post._id, commentData, auth.token);
+                      setCommentData({ text: "" });
+                    }}
+                  >
+                    Reply
+                  </button>
+                </div>
               </div>
             </div>
 

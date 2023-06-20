@@ -2,3 +2,69 @@
   display: flex;
   justify-content: space-between;
 }
+
+.comment-card {
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.user-comment {
+}
+.comment-card .comment-user-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  object-fit: cover;
+  margin-right: 0.5rem;
+  /* border: 1px solid var(--primary-color); */
+}
+
+.comment-toolbar .edit {
+  top: -5px;
+}
+
+.username-container .edit {
+  position: absolute;
+  right: 0;
+  z-index: 3;
+  cursor: pointer;
+}
+
+.comment-toolbar-menu-container {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: start;
+  border-radius: 1rem;
+  box-shadow: 0px 0px 19px -1px rgb(69, 69, 69);
+  width: 150px;
+}
+
+.comment-toolbar-menu-container p {
+  cursor: pointer;
+  padding: 1rem 1.5rem;
+  background-color: black;
+  text-align: left;
+}
+
+.comment-toolbar-menu-container p:hover {
+  background-color: var(--hover-background);
+}
+
+.comment-toolbar-menu-container p:first-child {
+  border-radius: 1rem 1rem 0rem 0rem;
+}
+
+.comment-toolbar-menu-container p:last-child {
+  border-radius: 0 0 1rem 1rem;
+}
+
+.user-profile-img-container {
+  margin-right: 0.5rem;
+}
+
+.comments-input-section-container {
+  display: flex;
+}

@@ -70,6 +70,8 @@
   width: 20px;
 }
 
+
+
 .text-content-container > textarea:focus {
   outline: none;
 }
@@ -168,7 +170,7 @@
   padding: 0rem 0.5rem;
 }
 
-.post-btn-container>button {
+.post-btn-container > button {
   border: none;
   padding: 0.6rem 1.5rem;
   border-radius: 3rem;
@@ -208,12 +210,12 @@
     width: 30%;
     margin-top: 10%;
   }
-  .text-content-container > textarea{
+  .text-content-container > textarea {
     resize: none;
     font-size: 1.3rem;
   }
 
-  .text-content-container > textarea::placeholder{
+  .text-content-container > textarea::placeholder {
     font-size: 1.3rem;
   }
 }
