@@ -1,5 +1,34 @@
+.edit-profile-modal-body {
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
 .edit-modal-header-container {
   display: flex;
+}
+
+.edit-profile-modal-body .close-icon {
+  cursor: pointer;
+  margin-right: 2rem;
+  font-size: 1.3rem;
+}
+
+.edit-profile-modal-body .edit-page-heading {
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.edit-profile-modal-body .edit-profile-btn {
+  padding: 0.5rem 1.2rem;
+  border-radius: 1.5rem;
+  border: none;
+  font-weight: 800;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.edit-profile-modal-body .edit-profile-btn:hover {
+  background-color: rgb(199, 199, 199);
 }
 
 .edit-modal-header-container span:last-child {
@@ -7,20 +36,37 @@
   border: 1px solid black;
   text-align: right;
 }
+.edit-profile-img-container {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
 
 .edit-profile-img-container img {
-  width: 50px;
-  height: 50px;
-  border-radius: 25px;
+  width: 70px;
+  height: 70px;
+  border-radius: 35px;
   object-fit: cover;
+  background-color: black;
+  opacity: 0.7;
+}
+
+.edit-profile-img-container > label {
+  position: relative;
+  right: 1rem;
+  cursor: pointer;
+  font-size: 1.3rem;
 }
 
 .edit-profile-img-container input {
   display: none;
 }
 
+.edit-profile-modal-body .username-container {
+  margin-bottom: 1rem;
+}
+
 .edit-profile-modal-body .username-container p {
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .edit-profile-modal-body .username-container span {
@@ -31,4 +77,33 @@
 .user-website-container {
   display: flex;
   flex-direction: column;
+}
+
+.bio-container textarea,
+.user-website-container textarea {
+  border: none;
+  border-radius: 0.5rem;
+  background-color: rgb(29, 29, 29);
+  padding: 0.5rem;
+  color: white;
+  resize: none;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  margin-top: 0.2rem;
+}
+
+.bio-container textarea:focus,
+.user-website-container textarea:focus {
+  outline: none;
+}
+
+.bio-container textarea::placeholder,
+.user-website-container textarea::placeholder {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  font-size: 1rem;
 }

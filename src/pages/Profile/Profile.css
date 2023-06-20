@@ -1,3 +1,7 @@
+.modal-content{
+  border-radius: 1rem;
+}
+
 .user-info-container {
   padding: 1rem;
 }
@@ -96,7 +100,14 @@
   cursor: pointer;
 }
 
-@media (min-width: 1000px) {
+@media (min-width: 768px) {
+  .modal-content {
+    width: 60%;
+  }
+}
+
+
+@media (min-width: 1024px) {
   .modal-content {
     width: 40%;
   }

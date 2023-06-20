@@ -55,14 +55,15 @@ export const EditProfileModal = ({ setIsEditProfile, className }) => {
         <div className="edit-modal-header-container">
           <span>
             <RxCross2
+              className="close-icon"
               onClick={() => {
                 setIsEditProfile(false);
               }}
             />
           </span>
-          <span>Edit Profile</span>
+          <span className="edit-page-heading">Edit Profile</span>
           <span>
-            <input type="submit" value="Save" />
+            <input className="edit-profile-btn" type="submit" value="Save" />
           </span>
         </div>
 
@@ -81,7 +82,7 @@ export const EditProfileModal = ({ setIsEditProfile, className }) => {
         </div>
         <div className="bio-container">
           <label htmlFor="bio">Bio:</label>
-          <input
+          <textarea
             onChange={(e) => {
               setFormValues({ ...formValues, bio: e.target.value });
             }}
@@ -91,7 +92,7 @@ export const EditProfileModal = ({ setIsEditProfile, className }) => {
         </div>
         <div className="user-website-container">
           <label htmlFor="user-website">Website:</label>
-          <input
+          <textarea
             onChange={(e) => {
               setFormValues({ ...formValues, website: e.target.value });
             }}
