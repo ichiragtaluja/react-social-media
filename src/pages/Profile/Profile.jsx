@@ -127,10 +127,18 @@ export const Profile = () => {
                   />
                 </div>
                 {user?.following?.map((user) => (
-                  <div key={user?._id} className="discover-user-card">
+                  <div
+                    onClick={() => {
+                      navigate(`/profile/${user.username}`);
+                      setShowFollowing(false);
+                    }}
+                    key={user?._id}
+                    className="discover-user-card"
+                  >
                     <div
                       onClick={() => {
                         navigate(`/profile/${user.username}`);
+                        setShowFollowing(false);
                       }}
                       className="discover-user-img-container"
                     >
@@ -176,10 +184,18 @@ export const Profile = () => {
                   />
                 </div>
                 {user?.followers?.map((user) => (
-                  <div key={user?._id} className="discover-user-card">
+                  <div
+                    onClick={() => {
+                      navigate(`/profile/${user.username}`);
+                      setShowFollowers(false);
+                    }}
+                    key={user?._id}
+                    className="discover-user-card"
+                  >
                     <div
                       onClick={() => {
                         navigate(`/profile/${user.username}`);
+                        setShowFollowers(false);
                       }}
                       className="discover-user-img-container"
                     >

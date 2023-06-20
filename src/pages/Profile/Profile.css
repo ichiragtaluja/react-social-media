@@ -1,18 +1,46 @@
+.user-info-container {
+  padding: 1rem;
+}
+
 .user-info-container .profilepicture-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 1rem;
 }
 
 .user-info-container .profilepicture-container img {
-  width: 100px;
-  height: 100px;
-  border-radius: 50px;
+  width: 120px;
+  height: 120px;
+  border-radius: 60px;
   object-fit: cover;
 }
 
-.username-container .name {
+.user-info-container .profilepicture-container > button {
+  padding: 0.6rem 1.2rem;
+  border-radius: 1.5rem;
+  border: none;
   font-weight: 800;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.user-info-container .profilepicture-container > button:hover {
+  background-color: rgb(199, 199, 199);
+}
+
+.user-info-container .username-container,
+.user-info-container .bio-container,
+.user-info-container .website-container {
+  margin-bottom: 1rem;
+}
+.post-followers-following-container {
+  margin-bottom: 1.5rem;
+}
+
+.user-info-container .username-container .name {
+  font-weight: 800;
+  font-size: 1.4rem;
 }
 
 .username-container .username {
@@ -21,11 +49,12 @@
 
 .website-container {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
 }
 .website-container a {
-  color: purple;
+  color: var(--primary-color);
 }
 .joining-date-container {
   display: flex;
@@ -45,6 +74,7 @@
 .post-followers-following-container span {
   color: grey;
   font-weight: 400;
+  margin-left: 0.2rem;
 }
 
 .modal-content {
