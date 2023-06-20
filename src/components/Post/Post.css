@@ -172,7 +172,6 @@
 }
 
 .action-menu-container {
-  border: 1px solid black;
   position: absolute;
   top: 100%;
   right: 2%;
@@ -306,7 +305,6 @@
 }
 
 .comment-toolbar {
-  border: 1px solid black;
   text-align: right;
   flex-grow: 1;
   position: relative;
@@ -319,7 +317,7 @@
 .comments-textarea-btn-container {
   display: flex;
   flex-grow: 1;
-  padding: 0.5rem;
+
   border-radius: 1rem;
 }
 
@@ -331,7 +329,7 @@
   color: white;
   border: none;
   resize: none;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   font-family: inherit;
   width: 20px;
 }
