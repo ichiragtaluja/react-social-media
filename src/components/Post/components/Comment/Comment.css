@@ -1,14 +1,25 @@
 .edit-comment-container {
   display: flex;
+  align-items: flex-start;
   justify-content: space-between;
+  margin-top: 1rem;
 }
 
 .comment-card {
   display: flex;
   margin-bottom: 1rem;
+  flex-flow: row nowrap;
+}
+
+.comment-main-section {
+  width: 100%;
 }
 
 .user-comment {
+  max-width: 400px;
+  height: auto;
+  word-break: break-word;
+  margin-top: .2rem;
 }
 .comment-card .comment-user-image {
   width: 50px;
@@ -28,8 +39,40 @@
   right: 0;
   z-index: 3;
   cursor: pointer;
+  display: flex;
 }
 
+.edit-comment-container textarea {
+  margin: 0 0.5rem;
+  flex-grow: 1;
+  height: 60px;
+  display: flex;
+  color: white;
+  border: none;
+  resize: none;
+  font-size: 1rem;
+  font-family: inherit;
+  width: 20px;
+  background-color: rgb(26, 26, 26);
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+
+.edit-comment-container textarea:focus {
+  outline: none;
+}
+
+.edit-comment-container button {
+  border: none;
+  padding: 0.4rem 1rem;
+  border-radius: 3rem;
+  background-color: var(--primary-color);
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--white);
+  cursor: pointer;
+  margin-left: 0.5rem;
+}
 .comment-toolbar-menu-container {
   position: absolute;
   right: 20px;
@@ -67,4 +110,18 @@
 
 .comments-input-section-container {
   display: flex;
+}
+
+@media (min-width: 768px) {
+  .user-comment {
+    max-width: 200px;
+    height: auto;
+  }
+}
+
+@media (min-width: 900px) {
+  .user-comment {
+    max-width: 500px;
+    height: auto;
+  }
 }

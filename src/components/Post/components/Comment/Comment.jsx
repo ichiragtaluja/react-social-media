@@ -61,7 +61,7 @@ export const Comment = ({ comment, post }) => {
           <div className="user-comment">{text}</div>
         ) : (
           <div className="edit-comment-container">
-            <input
+            <textarea
               onChange={(e) => setUserComment({ text: e.target.value })}
               value={userComment.text}
             />

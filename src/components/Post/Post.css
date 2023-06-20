@@ -323,7 +323,7 @@
 
 .comments-input-section-container textarea {
   flex-grow: 1;
-  height: 75px;
+  height: 65px;
   display: flex;
   background-color: black;
   color: white;
