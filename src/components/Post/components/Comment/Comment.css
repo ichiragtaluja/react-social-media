@@ -10,6 +10,9 @@
   margin-bottom: 1rem;
   flex-flow: row nowrap;
 }
+.comment-card:last-child {
+  margin-bottom: 0;
+}
 
 .comment-main-section {
   width: 100%;
@@ -19,7 +22,7 @@
   max-width: 400px;
   height: auto;
   word-break: break-word;
-  margin-top: .2rem;
+  margin-top: 0.2rem;
 }
 .comment-card .comment-user-image {
   width: 50px;
@@ -114,7 +117,7 @@
 
 @media (min-width: 768px) {
   .user-comment {
-    max-width: 200px;
+    max-width: 400px;
     height: auto;
   }
 }

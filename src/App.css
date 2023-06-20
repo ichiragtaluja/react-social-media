@@ -3,6 +3,9 @@
   padding: 0px;
   box-sizing: border-box;
 }
+.App {
+  background-color: black;
+}
 
 :root {
   --primary-color: rgb(29, 155, 240);
@@ -55,9 +58,9 @@ a {
   }
 
   .feed {
-    height: 85vh;
+    height: 92vh;
     overflow: auto;
-    width: 50%;
+    width: 70%;
   }
 
   .navbar {
@@ -70,7 +73,7 @@ a {
 
 @media (min-width: 900px) {
   .feed {
-    height: 85vh;
+    height: 92vh;
     overflow: auto;
     width: 50%;
   }
@@ -92,7 +95,7 @@ a {
 
 @media (min-width: 1200px) {
   .feed {
-    height: 85vh;
+    height: 92vh;
     overflow: auto;
     width: 50%;
   }
