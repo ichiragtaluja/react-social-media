@@ -5,8 +5,10 @@ import { RxDotsHorizontal } from "react-icons/rx";
 import { usePosts } from "../../../../contexts/PostsProvider";
 import { useState } from "react";
 import { useAuth } from "../../../../contexts/AuthProvider";
+import { useUser } from "../../../../contexts/UserProvider";
 
 export const Comment = ({ comment, post }) => {
+  const { userState } = useUser();
   const { _id, avatarURL, username, firstName, lastName, text } = comment;
   const { deleteComment, editComment } = usePosts();
   const [showCommentToolbar, setShowCommentToolbar] = useState(false);
@@ -16,10 +18,18 @@ export const Comment = ({ comment, post }) => {
 
   const [userComment, setUserComment] = useState({ text: text });
 
+  const userDetails = userState?.allUsers?.find(
+    (user) => user?.username === username
+  );
+
   return (
     <div className="comment-card">
       <div>
-        <img className="comment-user-image" src={avatarURL} alt={firstName} />
+        <img
+          className="comment-user-image"
+          src={userDetails?.avatarURL}
+          alt={userDetails?.firstName}
+        />
       </div>
 
       <div className="comment-main-section">
@@ -30,7 +40,8 @@ export const Comment = ({ comment, post }) => {
           <span className="username">@{username}</span>
           {username === auth.username && (
             <div className="comment-toolbar">
-              <div className="edit"
+              <div
+                className="edit"
                 onClick={() => setShowCommentToolbar(!showCommentToolbar)}
               >
                 <RxDotsHorizontal className="three-dots-icon" />

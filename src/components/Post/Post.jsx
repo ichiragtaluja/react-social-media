@@ -118,8 +118,8 @@ export const Post = ({ post }) => {
           onClick={() => {
             navigate(`/profile/${post?.username}`);
           }}
-          src={post?.avatarURL}
-          alt={post?.firstName}
+          src={userDetails?.avatarURL}
+          alt={userDetails?.firstName}
         />
       </div>
       <div className="post-card-content">
