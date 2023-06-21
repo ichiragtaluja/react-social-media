@@ -86,6 +86,10 @@ export const Login = () => {
             </div>
           </div>
           {authError && <div className="error-message">{authError}</div>}
+          <div className="accept-conditions">
+            <input id="confirm" type="checkbox" />
+            <label htmlFor="confirm">Always keep me signed in?</label>
+          </div>
           <div className="btn-container">
             <input value="Login" type="submit" />
             <button

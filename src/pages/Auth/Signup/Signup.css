@@ -1,8 +1,15 @@
-@media (min-width: 768px) {
-  .signup-page-container {
-    display: flex;
-  }
-  .signup-page-container section {
-    width: 50vw;
-  }
+.login-form-container .password-container > div:first-child {
+  margin-bottom: 0.5rem;
 }
+
+.accept-conditions {
+  display: flex;
+  font-size: .8rem;
+  color: grey;
+  margin-bottom: .5rem;
+}
+.accept-conditions > input {
+  margin-right: 0.5rem;
+}
+
+

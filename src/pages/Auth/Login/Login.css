@@ -2,7 +2,7 @@
   padding: 3rem;
   background-color: white;
   position: absolute;
-  width: 70vw;
+  width: 90vw;
   top: 10%;
   left: 0;
   right: 0;
@@ -47,9 +47,9 @@
   margin-bottom: 0.5rem;
 }
 
-.login-form-container .username-container #username {
+.login-form-container #username {
   color: white;
-  padding: 0.8rem 1rem;
+  padding: 0.8rem 1.5rem;
   border: none;
   /* border-radius: 0.5rem; */
   border-radius: 2rem;
@@ -67,7 +67,7 @@
 }
 .login-form-container .password-container input {
   color: white;
-  padding: 0.8rem 1rem;
+  padding: 0.8rem 1.5rem;
   border: none;
   flex-grow: 1;
   background-color: rgb(29, 29, 29);

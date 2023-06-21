@@ -19,8 +19,8 @@ export const Signup = () => {
 
   const [hidePassword, setHidePassword] = useState(true);
   return (
-    <main className="signup-page-container">
-      <section>
+    <main className="login-page-container">
+      <section className="login-video-container">
         <ReactPlayer
           url="https://res.cloudinary.com/darwtgzlk/video/upload/v1686325123/socialMedia/heroVideo/pexels-kampus-production-7800162-2160x3840-25fps_bepbjw.mp4"
           playing
@@ -32,8 +32,8 @@ export const Signup = () => {
           height={"100%"}
         />
       </section>
-      <section className="signup-form-container">
-        <h3>Signup here</h3>
+      <section className="login-form-container">
+        <h3 className="login-heading">Sign-Up</h3>
         <form
           onSubmit={(e) => {
             handleSignup(e, signupForm);
@@ -48,58 +48,58 @@ export const Signup = () => {
           }}
           className="signup-form-body"
         >
-          <div className="firstname-container">
-            <label htmlFor="firstname">First Name *</label>
+          <div className="username-container">
             <input
+              placeholder="First Name"
               type="text"
               required
               onChange={(e) => {
                 setSignupForm({ ...signupForm, firstName: e.target.value });
               }}
-              id="firstname"
+              id="username"
             />
           </div>
 
-          <div className="lastname-container">
-            <label htmlFor="lastname">Last Name *</label>
+          <div className="username-container">
             <input
+              placeholder="Last Name"
               type="text"
               required
               onChange={(e) => {
                 setSignupForm({ ...signupForm, lastName: e.target.value });
               }}
-              id="lastname"
+              id="username"
             />
           </div>
 
-          <div className="email-container">
-            <label htmlFor="email">Email *</label>
+          <div className="username-container">
             <input
+              placeholder="Email"
               type="email"
               required
               onChange={(e) => {
                 setSignupForm({ ...signupForm, email: e.target.value });
               }}
-              id="email"
+              id="username"
             />
           </div>
 
           <div className="username-container">
-            <label htmlFor="signup-username">User Name *</label>
             <input
+              placeholder="Username"
               type="text"
               required
               onChange={(e) => {
                 setSignupForm({ ...signupForm, username: e.target.value });
               }}
-              id="signup-username"
+              id="username"
             />
           </div>
 
           <div className="password-container">
-            <label htmlFor="password">Password *</label>
             <div>
               <input
+                placeholder="Password"
                 type={!hidePassword ? "text" : "password"}
                 required
                 onChange={(e) => {
@@ -108,9 +108,13 @@ export const Signup = () => {
                 id="password"
               />
               {hidePassword ? (
-                <BsEyeSlash onClick={() => setHidePassword(false)} />
+                <BsEyeSlash
+                  className="password-eye"
+                  onClick={() => setHidePassword(false)}
+                />
               ) : (
                 <BsEye
+                  className="password-eye"
                   onClick={() => {
                     setHidePassword(true);
                   }}
@@ -119,10 +123,10 @@ export const Signup = () => {
             </div>
           </div>
 
-          <div className="confirm-password-container">
-            <label htmlFor="confirm-password">Confirm Password *</label>
+          <div className="password-container">
             <div>
               <input
+                placeholder="Confirm Password"
                 type={!hidePassword ? "text" : "password"}
                 required
                 onChange={(e) => {
@@ -131,12 +135,16 @@ export const Signup = () => {
                     confirmPassword: e.target.value,
                   });
                 }}
-                id="confirm-password"
+                id="password"
               />
               {hidePassword ? (
-                <BsEyeSlash onClick={() => setHidePassword(false)} />
+                <BsEyeSlash
+                  className="password-eye"
+                  onClick={() => setHidePassword(false)}
+                />
               ) : (
                 <BsEye
+                  className="password-eye"
                   onClick={() => {
                     setHidePassword(true);
                   }}
@@ -144,14 +152,15 @@ export const Signup = () => {
               )}
             </div>
           </div>
-
-          <input id="confirm" type="checkbox" />
-          <label htmlFor="confirm">I accept all terms and conditions</label>
+          <div className="accept-conditions">
+            <input required id="confirm" type="checkbox" />
+            <label htmlFor="confirm">I accept all terms and conditions</label>
+          </div>
 
           <div className="btn-container">
             <input value="Sign Up" type="submit" />
           </div>
-          <p>
+          <p className="switch-to-signup">
             Already have an account? <Link to="/login">Login</Link>
           </p>
         </form>
