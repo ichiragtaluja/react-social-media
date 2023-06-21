@@ -78,8 +78,8 @@
   align-self: center;
   cursor: pointer;
 }
-.create-new-post-btn:hover{
-  background-color: var(--primary-color-hover)
+.create-new-post-btn:hover {
+  background-color: var(--primary-color-hover);
 }
 
 @media (min-width: 768px) {
@@ -108,7 +108,7 @@
     margin-bottom: 15px;
   }
 
-  .modal-content{
+  .modal-content {
     width: 80%;
   }
 
@@ -165,7 +165,7 @@
     display: inline;
   }
 
-  .modal-content{
+  .modal-content {
     width: 80%;
   }
 

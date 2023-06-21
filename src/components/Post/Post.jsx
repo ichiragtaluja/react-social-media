@@ -56,7 +56,8 @@ export const Post = ({ post }) => {
   const isFollowing = (user) =>
     userDetails?.following?.find(({ username }) => username === user?.username);
 
-  const followUnfollowHandler = (user) => {
+  const followUnfollowHandler = (e, user) => {
+    e.stopPropagation();
     const userFromAllUsers = userState?.allUsers?.find(
       ({ username }) => username === user?.username
     );
@@ -307,7 +308,7 @@ export const Post = ({ post }) => {
                     </div>
                     <div className="follow-container">
                       {user?.username !== auth?.username && (
-                        <button onClick={() => followUnfollowHandler(user)}>
+                        <button onClick={(e) => followUnfollowHandler(e, user)}>
                           {!isFollowing(user) ? "Follow" : "Following"}
                         </button>
                       )}
@@ -351,7 +352,7 @@ export const Post = ({ post }) => {
 
             <div className="all-comments-container">
               {post?.comments
-                .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+                ?.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
                 ?.map((comment) => (
                   <Comment key={comment?._id} comment={comment} post={post} />
                 ))}

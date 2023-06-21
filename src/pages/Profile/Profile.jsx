@@ -55,7 +55,8 @@ export const Profile = () => {
   const isFollowing = (user) =>
     userDetails?.following?.find(({ username }) => username === user?.username);
 
-  const followUnfollowHandler = (user) => {
+  const followUnfollowHandler = (e, user) => {
+    e.stopPropagation();
     const userFromAllUsers = userState?.allUsers?.find(
       ({ username }) => username === user?.username
     );
@@ -74,11 +75,11 @@ export const Profile = () => {
           ) : !loggedInUserState.following?.find(
               (user) => user.username === username
             ) ? (
-            <button onClick={() => followUser(user?._id, auth.token)}>
+            <button onClick={(e) => followUser(user?._id, auth.token)}>
               Follow
             </button>
           ) : (
-            <button onClick={() => unfollowUser(user?._id, auth.token)}>
+            <button onClick={(e) => unfollowUser(user?._id, auth.token)}>
               Following
             </button>
           )}
@@ -152,7 +153,7 @@ export const Profile = () => {
                     </div>
                     <div className="follow-container">
                       {user?.username !== auth?.username && (
-                        <button onClick={() => followUnfollowHandler(user)}>
+                        <button onClick={(e) => followUnfollowHandler(e, user)}>
                           {!isFollowing(user) ? "Follow" : "Following"}
                         </button>
                       )}
@@ -209,7 +210,7 @@ export const Profile = () => {
                     </div>
                     <div className="follow-container">
                       {user?.username !== auth?.username && (
-                        <button onClick={() => followUnfollowHandler(user)}>
+                        <button onClick={(e) => followUnfollowHandler(e, user)}>
                           {!isFollowing(user) ? "Follow" : "Following"}
                         </button>
                       )}

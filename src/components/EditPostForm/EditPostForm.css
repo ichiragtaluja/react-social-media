@@ -6,7 +6,7 @@
 .modal-content .input-container textarea {
   background-color: rgb(36, 36, 36);
   padding: 0.5rem;
-  border-radius: 1rem;
+  border-radius: 0.5rem;
   margin-bottom: 1rem;
   font-size: 1.1rem;
   display: flex;
@@ -44,6 +44,10 @@
 }
 
 .modal-content .input-btn-container .toolbar-container > * {
-  margin-right: 1rem;
+  margin-right: 0.5rem;
   font-size: 1.5rem;
+}
+
+.modal-content .input-btn-container .toolbar-container .smily-emoji {
+  font-size: 1.8rem;
 }

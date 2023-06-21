@@ -38,7 +38,7 @@ export const Comment = ({ comment, post }) => {
             {firstName} {lastName}
           </p>
           <span className="username">@{username}</span>
-          {username === auth.username && (
+          {username === auth?.username && (
             <div className="comment-toolbar">
               <div
                 className="edit"
