@@ -38,7 +38,7 @@ export const Profile = () => {
 
   const postsByUser = allPosts?.filter((post) => post.username === username);
 
-  const user = userState.allUsers?.find(
+  const user = userState?.allUsers?.find(
     ({ username: user }) => user === username
   );
 

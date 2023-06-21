@@ -5,7 +5,7 @@ import { IoMdClose } from "react-icons/io";
 import { AiOutlineFileGif } from "react-icons/ai";
 import { ImFilePicture } from "react-icons/im";
 import { useState, useEffect } from "react";
-import {BsEmojiSmile} from "react-icons/bs"
+import { BsEmojiSmile } from "react-icons/bs";
 
 import "../CreatePostForm/CreatePostForm.css";
 import { useLoggedInUser } from "../../contexts/LoggedInUserProvider";
@@ -24,13 +24,13 @@ export const EditPostForm = ({
 
   const [showEmojiModal, setShowEmojiModal] = useState(false);
 
-  const [postForm, setPostForm] = useState({
+  const [postEditForm, setPostEditForm] = useState({
     content: post?.content,
     mediaUrl: post?.mediaUrl,
     type: "video",
   });
 
-  console.log("form", postForm);
+  console.log("form", postEditForm);
   const emojis = [
     "😀",
     "😁",
@@ -57,14 +57,15 @@ export const EditPostForm = ({
     "🤯",
   ];
 
-  const handleMediaInput = (e) => {
+  const handleEditMediaInput = (e) => {
+    e.preventDefault();
     const file = e.target.files[0];
-    if (file?.type.startsWith("image/") || file.type.startsWith("video/")) {
+    if (file?.type?.startsWith("image/") || file?.type?.startsWith("video/")) {
       if (file.size < 10 * 1024 * 1024) {
-        setPostForm((prev) => ({
+        setPostEditForm((prev) => ({
           ...prev,
           mediaUrl: URL.createObjectURL(file),
-          type: file?.type.startsWith("image/") ? "image" : "video",
+          type: file?.type?.startsWith("image/") ? "image" : "video",
         }));
       } else {
         alert("file must be less than 10mb");
@@ -75,11 +76,11 @@ export const EditPostForm = ({
   };
 
   useEffect(() => {
-    setPostForm((prev) => ({
+    setPostEditForm((prev) => ({
       ...prev,
       content: post?.content,
       mediaUrl: post?.mediaUrl,
-      type: post.type || "video",
+      type: post?.type || "video",
     }));
   }, [loggedInUserState]);
 
@@ -87,8 +88,8 @@ export const EditPostForm = ({
     <>
       <form
         onSubmit={(e) => {
-          editPost(e, post._id, postForm, auth.token);
-          setPostForm({
+          editPost(e, post._id, postEditForm, auth.token);
+          setPostEditForm({
             content: "",
             mediaUrl: "",
           });
@@ -99,17 +100,20 @@ export const EditPostForm = ({
       >
         <div className="img-container">
           <img
-            src={loggedInUserState.avatarURL}
-            alt={loggedInUserState.firstName}
+            src={loggedInUserState?.avatarURL}
+            alt={loggedInUserState?.firstName}
           />
         </div>
         <div className="input-container">
           <div className="text-content-container">
             <textarea
               onChange={(e) =>
-                setPostForm((prev) => ({ ...prev, content: e.target.value }))
+                setPostEditForm((prev) => ({
+                  ...prev,
+                  content: e.target.value,
+                }))
               }
-              value={postForm.content}
+              value={postEditForm.content}
               placeholder="What is happening?!"
             />
             {setIsEditPostClicked && (
@@ -121,25 +125,25 @@ export const EditPostForm = ({
               />
             )}
           </div>
-          {postForm?.mediaUrl && postForm.type !== "image" && (
+          {postEditForm?.mediaUrl && postEditForm?.type !== "image" && (
             <div className="media-container">
               <video muted loop>
-                <source src={postForm?.mediaUrl} />
+                <source src={postEditForm?.mediaUrl} />
               </video>
               <IoMdClose
                 onClick={() => {
-                  setPostForm({ ...postForm, mediaUrl: "" });
+                  setPostEditForm({ ...postEditForm, mediaUrl: "" });
                 }}
                 className="close-media"
               />
             </div>
           )}
-          {postForm?.mediaUrl && postForm.type === "image" && (
+          {postEditForm?.mediaUrl && postEditForm.type === "image" && (
             <div className="media-container">
-              <img src={postForm?.mediaUrl} alt="" />
+              <img src={postEditForm?.mediaUrl} alt="" />
               <IoMdClose
                 onClick={() => {
-                  setPostForm({ ...postForm, mediaUrl: "" });
+                  setPostEditForm({ ...postEditForm, mediaUrl: "" });
                 }}
                 className="close-media"
               />
@@ -151,13 +155,13 @@ export const EditPostForm = ({
                 {" "}
                 <ImFilePicture />
               </label>
-              <input onChange={handleMediaInput} type="file" id="media" />
+              <input onChange={handleEditMediaInput} type="file" id="media" />
 
               <BsEmojiSmile onClick={() => setShowEmojiModal(true)} />
             </div>
             <div className="post-btn-container">
               <input
-                disabled={!postForm.content && !postForm.mediaUrl}
+                disabled={!postEditForm.content && !postEditForm.mediaUrl}
                 type="submit"
                 value="Update"
               />
@@ -179,7 +183,7 @@ export const EditPostForm = ({
                 {emojis.map((emoji) => (
                   <span
                     onClick={(e) => {
-                      setPostForm((prev) => ({
+                      setPostEditForm((prev) => ({
                         ...prev,
                         content: prev.content + e.target.innerText,
                       }));

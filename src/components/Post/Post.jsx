@@ -50,7 +50,7 @@ export const Post = ({ post }) => {
   );
 
   const userDetails = userState?.allUsers?.find(
-    (user) => user?.username === auth?.username
+    (user) => user?.username === post?.username
   );
 
   const isFollowing = (user) =>

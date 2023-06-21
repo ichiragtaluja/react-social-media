@@ -54,6 +54,7 @@ export const CreatePostForm = ({ setIsCreateNewPostClicked, className }) => {
   ];
 
   const handleMediaInput = (e) => {
+    console.log("I entered");
     const file = e.target.files[0];
     if (file?.type.startsWith("image/") || file.type.startsWith("video/")) {
       if (file.size < 10 * 1024 * 1024) {
@@ -77,6 +78,7 @@ export const CreatePostForm = ({ setIsCreateNewPostClicked, className }) => {
     <>
       <form
         onSubmit={(e) => {
+          e.preventDefault()
           createPost(e, postForm, auth.token);
           setPostForm({
             firstName: loggedInUserState?.firstName,
@@ -145,11 +147,11 @@ export const CreatePostForm = ({ setIsCreateNewPostClicked, className }) => {
 
           <div className="input-btn-container">
             <div className="toolbar-container">
-              <label htmlFor="media">
+              <label htmlFor="mediaForCreate">
                 {" "}
-                <ImFilePicture className="file-icon"/>
+                <ImFilePicture className="file-icon" />
               </label>
-              <input onChange={handleMediaInput} type="file" id="media" />
+              <input onChange={handleMediaInput} type="file" id="mediaForCreate" />
 
               <VscSmiley
                 className="smily-emoji"
