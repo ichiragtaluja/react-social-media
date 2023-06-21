@@ -53,7 +53,8 @@ export const Discover = () => {
               </div>
               <div className="follow-container">
                 <button
-                  onClick={() => {
+                  onClick={(e) => {
+                    e.stopPropagation();
                     followUser(user?._id, auth.token);
                   }}
                 >

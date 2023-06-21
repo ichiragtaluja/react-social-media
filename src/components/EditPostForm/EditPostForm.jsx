@@ -153,11 +153,14 @@ export const EditPostForm = ({
             <div className="toolbar-container">
               <label htmlFor="media">
                 {" "}
-                <ImFilePicture />
+                <ImFilePicture className="file-icon" />
               </label>
               <input onChange={handleEditMediaInput} type="file" id="media" />
 
-              <BsEmojiSmile onClick={() => setShowEmojiModal(true)} />
+              <BsEmojiSmile
+                className="smily-emoji "
+                onClick={() => setShowEmojiModal(true)}
+              />
             </div>
             <div className="post-btn-container">
               <input
@@ -182,6 +185,7 @@ export const EditPostForm = ({
               <div clasName="emojis">
                 {emojis.map((emoji) => (
                   <span
+                    className="smily-emoji"
                     onClick={(e) => {
                       setPostEditForm((prev) => ({
                         ...prev,
