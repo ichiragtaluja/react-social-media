@@ -1,8 +1,145 @@
+.login-form-container {
+  padding: 3rem;
+  background-color: white;
+  position: absolute;
+  width: 70vw;
+  top: 10%;
+  left: 0;
+  right: 0;
+  margin: auto;
+  border-radius: 1rem;
+  color: white;
+  background-color: black;
+  display: flex;
+  flex-flow: column;
+  box-shadow: 0px 0px 19px -1px rgb(59, 59, 59);
+}
+.login-form-heading {
+  text-align: center;
+  margin-bottom: 0.5rem;
+  display: none;
+}
+
+.login-heading {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.login-video-container {
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+}
+
+.login-video-container video {
+  object-fit: cover;
+  opacity: 0.2;
+}
+
+.login-form-container form {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 100%;
+  align-self: center;
+}
+.login-form-container .username-container {
+  margin-bottom: 0.5rem;
+}
+
+.login-form-container .username-container #username {
+  color: white;
+  padding: 0.8rem 1rem;
+  border: none;
+  /* border-radius: 0.5rem; */
+  border-radius: 2rem;
+  background-color: rgb(29, 29, 29);
+  width: 100%;
+}
+
+.login-form-container .password-container > div {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background-color: rgb(29, 29, 29);
+  border-radius: 2rem;
+  margin-bottom: 1.5rem;
+}
+.login-form-container .password-container input {
+  color: white;
+  padding: 0.8rem 1rem;
+  border: none;
+  flex-grow: 1;
+  background-color: rgb(29, 29, 29);
+  border-radius: 2rem;
+}
+.login-form-container .error-message {
+  color: rgb(255, 98, 98);
+  font-size: 0.8rem;
+}
+
+.login-form-container .username-container #username,
+.login-form-container .password-container input:focus {
+  outline: none;
+}
+
+.login-form-container .btn-container {
+  display: flex;
+  flex-flow: column;
+  margin-bottom: 1rem;
+}
+.login-form-container .btn-container > * {
+  margin-top: 0.7rem;
+  padding: 0.7rem;
+  font-weight: 700;
+  font-size: 1.2rem;
+  border-radius: 2rem;
+  border: none;
+  cursor: pointer;
+}
+
+.login-form-container .btn-container > input {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.login-form-container .btn-container > input:hover {
+  background-color: var(--primary-color-hover);
+}
+
+.login-form-container .btn-container > button {
+  background-color: rgb(219, 219, 219);
+}
+
+.login-form-container .btn-container > button:hover {
+  background-color: white;
+}
+
+.switch-to-signup {
+  text-align: center;
+}
+.switch-to-signup a {
+  color: var(--primary-color);
+}
+
+.login-form-container .password-eye {
+  margin-left: 1rem;
+  margin-right: 1rem;
+  color: grey;
+}
+
+.login-form-container .password-eye:hover {
+  color: var(--primary-color);
+}
+
+input::placeholder {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+}
+
 @media (min-width: 768px) {
-  .login-page-container {
-    display: flex;
-  }
-  .login-page-container section {
-    width: 50vw;
+  .login-form-container {
+    width: 40%;
   }
 }

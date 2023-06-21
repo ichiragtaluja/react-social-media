@@ -29,8 +29,8 @@ export const Login = () => {
         />
       </section>
       <section className="login-form-container">
-        <h1 className="login-form-heading">Welcome</h1>
-        <h3>Login here</h3>
+        <h1 className="login-form-heading">Welcome to Quack!</h1>
+        <h3 className="login-heading">Login </h3>
         <form
           onSubmit={(e) => {
             handleLogin(e, loginForm.username, loginForm.password);
@@ -39,7 +39,7 @@ export const Login = () => {
           className="login-form-body"
         >
           <div className="username-container">
-            <label htmlFor="username">Username:</label>
+            {/* <label htmlFor="username">Username:</label> */}
             <input
               placeholder="Enter Username"
               value={loginForm.username}
@@ -54,8 +54,8 @@ export const Login = () => {
               type="text"
             />
           </div>
-          <div className="username-container">
-            <label htmlFor="password">Password:</label>
+          <div className="password-container">
+            {/* <label htmlFor="password">Password:</label> */}
             <div>
               <input
                 placeholder="Enter Password"
@@ -71,9 +71,13 @@ export const Login = () => {
                 type={!hidePassword ? "text" : "password"}
               />
               {hidePassword ? (
-                <BsEyeSlash onClick={() => setHidePassword(false)} />
+                <BsEyeSlash
+                  className="password-eye"
+                  onClick={() => setHidePassword(false)}
+                />
               ) : (
                 <BsEye
+                  className="password-eye"
                   onClick={() => {
                     setHidePassword(true);
                   }}
@@ -93,7 +97,7 @@ export const Login = () => {
               Login as a Guest
             </button>
           </div>
-          <p>
+          <p className="switch-to-signup">
             Dont have an account? <Link to="/signup">Sign Up</Link>
           </p>
         </form>
