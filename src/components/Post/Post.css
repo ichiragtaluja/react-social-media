@@ -109,6 +109,7 @@
 }
 .caption-container {
   width: 100%;
+
   /* border: 1px solid rgb(119, 119, 119); */
   padding: 0.2rem 0 0.6rem 0;
 }
@@ -167,7 +168,7 @@
 .name-container .edit {
   position: absolute;
   right: 0;
-  z-index: 3;
+  z-index: 0;
   cursor: pointer;
 }
 
@@ -343,6 +344,20 @@
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   font-size: 1.2rem;
+}
+
+.action-menu-container {
+  padding: 0.5rem 0;
+  box-shadow: 0px 0px 19px -1px rgb(65, 65, 65);
+  border-radius: 1rem;
+  background-color: rgb(13, 13, 13);
+}
+.action-menu-container p {
+  padding: 0.5rem 2rem;
+  background-color: rgb(13, 13, 13);
+}
+.action-menu-container p:hover {
+  background-color: rgb(28, 28, 28);
 }
 
 @media (min-width: 768px) {

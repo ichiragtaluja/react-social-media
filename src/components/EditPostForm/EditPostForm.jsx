@@ -5,6 +5,7 @@ import { IoMdClose } from "react-icons/io";
 import { AiOutlineFileGif } from "react-icons/ai";
 import { ImFilePicture } from "react-icons/im";
 import { useState, useEffect } from "react";
+import {BsEmojiSmile} from "react-icons/bs"
 
 import "../CreatePostForm/CreatePostForm.css";
 import { useLoggedInUser } from "../../contexts/LoggedInUserProvider";
@@ -104,7 +105,7 @@ export const EditPostForm = ({
         </div>
         <div className="input-container">
           <div className="text-content-container">
-            <input
+            <textarea
               onChange={(e) =>
                 setPostForm((prev) => ({ ...prev, content: e.target.value }))
               }
@@ -152,7 +153,7 @@ export const EditPostForm = ({
               </label>
               <input onChange={handleMediaInput} type="file" id="media" />
 
-              <AiOutlineFileGif onClick={() => setShowEmojiModal(true)} />
+              <BsEmojiSmile onClick={() => setShowEmojiModal(true)} />
             </div>
             <div className="post-btn-container">
               <input

@@ -169,6 +169,7 @@ export const Post = ({ post }) => {
               <p
                 onClick={() => {
                   setIsEditPostClicked(!isEditPostClicked);
+                  setActionMenu(false);
                 }}
               >
                 Edit Post
@@ -176,6 +177,7 @@ export const Post = ({ post }) => {
               <p
                 onClick={() => {
                   deletePost(post?._id, auth.token);
+                  setActionMenu(false);
                 }}
               >
                 Delete Post

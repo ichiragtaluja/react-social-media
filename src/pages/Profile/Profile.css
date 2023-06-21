@@ -1,4 +1,4 @@
-.modal-content{
+.modal-content {
   border-radius: 1rem;
 }
 
@@ -102,13 +102,14 @@
 
 @media (min-width: 768px) {
   .modal-content {
+    top: 5%;
     width: 60%;
   }
 }
 
-
 @media (min-width: 1024px) {
   .modal-content {
     width: 40%;
+    margin-top: 2%;
   }
 }

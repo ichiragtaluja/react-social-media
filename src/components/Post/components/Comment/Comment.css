@@ -18,6 +18,11 @@
   width: 100%;
 }
 
+.comment-main-section .username-container .name {
+  font-weight: 600;
+  margin-right: 0.3rem;
+}
+
 .user-comment {
   max-width: 400px;
   height: auto;

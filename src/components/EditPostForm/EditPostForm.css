@@ -1,0 +1,49 @@
+.modal-content .input-container .text-content-container {
+  display: flex;
+  align-items: start;
+}
+
+.modal-content .input-container textarea {
+  background-color: rgb(36, 36, 36);
+  padding: 0.5rem;
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  display: flex;
+}
+
+.modal-content .input-container .close-create-post-modal {
+  cursor: pointer;
+  background-color: rgb(41, 41, 41);
+  color: white;
+  border-radius: 1rem;
+  padding: 0.3rem;
+  font-size: 1.5rem;
+  opacity: 0.9;
+  margin: 0;
+  margin-left: 0.5rem;
+}
+
+.modal-content .close-create-post-modal:hover {
+  background-color: rgb(79, 79, 79);
+}
+
+.modal-content .input-btn-container {
+  margin-top: 1rem;
+}
+
+.modal-content .input-btn-container .post-btn-container input {
+  border: none;
+  padding: 0.6rem 1.5rem;
+  border-radius: 3rem;
+  background-color: var(--primary-color);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--white);
+  cursor: pointer;
+}
+
+.modal-content .input-btn-container .toolbar-container > * {
+  margin-right: 1rem;
+  font-size: 1.5rem;
+}

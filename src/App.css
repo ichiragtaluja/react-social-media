@@ -58,7 +58,7 @@ a {
   }
 
   .feed {
-    height: 92vh;
+    height: 94vh;
     overflow: auto;
     width: 70%;
   }
@@ -73,7 +73,7 @@ a {
 
 @media (min-width: 900px) {
   .feed {
-    height: 92vh;
+    height: 94vh;
     overflow: auto;
     width: 50%;
   }
@@ -95,7 +95,7 @@ a {
 
 @media (min-width: 1200px) {
   .feed {
-    height: 92vh;
+    height: 94vh;
     overflow: auto;
     width: 50%;
   }
