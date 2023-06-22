@@ -34,7 +34,7 @@
 
 .login-video-container video {
   object-fit: cover;
-  opacity: 0.2;
+  opacity: 0.4;
 }
 
 .login-form-container form {
