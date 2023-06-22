@@ -14,7 +14,7 @@ import { IoMdLogOut } from "react-icons/io";
 export const Navbar = () => {
   const [isCreateNewPostClicked, setIsCreateNewPostClicked] = useState(false);
 
-  const { auth } = useAuth();
+  const { auth, handleLogout } = useAuth();
   const getActiveStyle = ({ isActive }) => ({
     color: isActive ? "rgb(29, 155, 240)" : "white",
   });
@@ -50,7 +50,12 @@ export const Navbar = () => {
           </NavLink>
         </li>
         <li>
-          <NavLink className="navlink" style={getActiveStyle} to="/logout">
+          {/* <NavLink className="navlink" style={getActiveStyle} to="/logout">
+            <IoMdLogOut className="navlink-icon" />
+            <p>Logout</p>
+          </NavLink> */}
+
+          <NavLink onClick={handleLogout} className="navlink" style={getActiveStyle} to="/login">
             <IoMdLogOut className="navlink-icon" />
             <p>Logout</p>
           </NavLink>

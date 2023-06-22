@@ -4,6 +4,7 @@ import { useState } from "react";
 import ReactPlayer from "react-player";
 import { Link } from "react-router-dom";
 import { BsEyeSlash, BsEye } from "react-icons/bs";
+import { Fade} from "react-awesome-reveal";
 
 import { useAuth } from "../../../contexts/AuthProvider";
 
@@ -30,7 +31,9 @@ export const Login = () => {
       </section>
       <section className="login-form-container">
         <h1 className="login-form-heading">Welcome to Quack!</h1>
+
         <h3 className="login-heading">Login </h3>
+
         <form
           onSubmit={(e) => {
             handleLogin(e, loginForm.username, loginForm.password);
@@ -54,6 +57,7 @@ export const Login = () => {
               type="text"
             />
           </div>
+
           <div className="password-container">
             {/* <label htmlFor="password">Password:</label> */}
             <div>
@@ -91,14 +95,21 @@ export const Login = () => {
             <label htmlFor="confirm">Always keep me signed in?</label>
           </div>
           <div className="btn-container">
-            <input value="Login" type="submit" />
+            <button type="submit">
+              {" "}
+              <Fade duration={150} cascade>
+                Login
+              </Fade>
+            </button>
             <button
               onClick={(e) => {
                 handleLogin(e, "Neha", "Neha");
                 setLoginForm({ username: "", password: "" });
               }}
             >
-              Login as a Guest
+              <Fade duration={150} cascade>
+                Login as a Guest
+              </Fade>
             </button>
           </div>
           <p className="switch-to-signup">

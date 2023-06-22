@@ -98,12 +98,12 @@
   cursor: pointer;
 }
 
-.login-form-container .btn-container > input {
+.login-form-container .btn-container > button:first-child {
   background-color: var(--primary-color);
   color: white;
 }
 
-.login-form-container .btn-container > input:hover {
+.login-form-container .btn-container > button:first-child:hover {
   background-color: var(--primary-color-hover);
 }
 

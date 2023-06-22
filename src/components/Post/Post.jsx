@@ -16,6 +16,8 @@ import { useUser } from "../../contexts/UserProvider";
 import { RxCross2 } from "react-icons/rx";
 import { Comment } from "./components/Comment/Comment";
 
+import { Slide, Fade, Zoom, Bounce } from "react-awesome-reveal";
+
 export const Post = ({ post }) => {
   const navigate = useNavigate();
 
@@ -114,6 +116,7 @@ export const Post = ({ post }) => {
 
   return (
     <div className="post-card">
+     
       <div className="profile-picture-container">
         <img
           onClick={() => {
@@ -121,8 +124,9 @@ export const Post = ({ post }) => {
           }}
           src={userDetails?.avatarURL}
           alt={userDetails?.firstName}
-        />
+        />{" "}
       </div>
+
       <div className="post-card-content">
         <div className="name-container">
           <div
@@ -131,6 +135,7 @@ export const Post = ({ post }) => {
             }}
             className="username-container"
           >
+            {/* <Slide direction="up"> */}
             <span
               onClick={() => {
                 navigate(`/profile/${post?.username}`);
@@ -144,7 +149,11 @@ export const Post = ({ post }) => {
                 navigate(`/profile/${post?.username}`);
               }}
               className="username"
-            >{`@${post?.username}`}</span>{" "}
+            >
+              {" "}
+              {`@${post?.username}`}
+            </span>
+            {"  "}
             <span
               onClick={() => {
                 navigate(`/profile/${post?.username}`);
@@ -153,38 +162,38 @@ export const Post = ({ post }) => {
             >
               {getTimeDifference(post?.createdAt)}
             </span>
+            {loggedInUserState.username === post?.username && (
+              <div
+                className="edit"
+                onClick={() => {
+                  setActionMenu(!actionMenu);
+                }}
+              >
+                <RxDotsHorizontal className="three-dots-icon" />
+              </div>
+            )}
+            {actionMenu && (
+              <div className="action-menu-container">
+                <p
+                  onClick={() => {
+                    setIsEditPostClicked(!isEditPostClicked);
+                    setActionMenu(false);
+                  }}
+                >
+                  Edit Post
+                </p>
+                <p
+                  onClick={() => {
+                    deletePost(post?._id, auth.token);
+                    setActionMenu(false);
+                  }}
+                >
+                  Delete Post
+                </p>
+              </div>
+            )}
+            {/* </Slide> */}
           </div>
-          {loggedInUserState.username === post?.username && (
-            <div
-              className="edit"
-              onClick={() => {
-                setActionMenu(!actionMenu);
-              }}
-            >
-              <RxDotsHorizontal className="three-dots-icon" />
-            </div>
-          )}
-
-          {actionMenu && (
-            <div className="action-menu-container">
-              <p
-                onClick={() => {
-                  setIsEditPostClicked(!isEditPostClicked);
-                  setActionMenu(false);
-                }}
-              >
-                Edit Post
-              </p>
-              <p
-                onClick={() => {
-                  deletePost(post?._id, auth.token);
-                  setActionMenu(false);
-                }}
-              >
-                Delete Post
-              </p>
-            </div>
-          )}
         </div>
         {isEditPostClicked && (
           <div className="create-post-modal">
@@ -206,7 +215,7 @@ export const Post = ({ post }) => {
           className="media"
         >
           {post?.mediaUrl && post.type !== "image" && (
-            <video muted loop>
+            <video controls autoPlay muted loop>
               <source src={post?.mediaUrl} />
             </video>
           )}
@@ -216,51 +225,65 @@ export const Post = ({ post }) => {
         </div>
 
         <div className="post-actions-container">
-          <div
-            onClick={() => setShowComments(!showComments)}
-            className="comments-container"
+          <Slide
+            fraction="0"
+            duration="350"
+            direction="up"
+            cascade
+            damping={0.3}
           >
-            <FaRegComment className="comment-icon" />
-            <span>{post?.comments?.length}</span>
-          </div>
-          <div className="comments-container">
-            {!isLikedAlready ? (
-              <RiHeart3Line
-                className="like-icon"
-                onClick={() => likePost(post?._id, auth.token)}
-              />
-            ) : (
-              <RiHeart3Fill
-                className="like-icon like-done-icon"
-                onClick={() => dislikePost(post?._id, auth.token)}
-              />
-            )}
-            <span
-              onClick={() => {
-                setShowLikesModal(true);
-              }}
+            <div
+              onClick={() => setShowComments(!showComments)}
+              className="comments-container"
             >
-              {post?.likes?.likeCount}
-            </span>
-          </div>
-          <div className="comments-container">
-            <FiShare2 className="share-icon" onClick={() => {}} />
-            <span>{}</span>
-          </div>
-          <div className="comments-container">
-            {!isBookmarkedAlready ? (
-              <FaRegBookmark
-                className="bookmark-icon"
-                onClick={() => addBookmark(post?._id, auth.token)}
-              />
-            ) : (
-              <FaBookmark
-                className="bookmark-icon bookmark-done-icon"
-                onClick={() => removeBookmark(post?._id, auth.token)}
-              />
-            )}
-            <span>{}</span>
-          </div>
+              {/* <Slide cascade direction="up"> */}
+              <FaRegComment className="comment-icon" />
+              {/* </Slide> */}
+              <span>
+                <Slide direction="up">{post?.comments?.length}</Slide>
+              </span>
+            </div>
+            <div className="comments-container">
+              {/* <Slide direction="up"> */}
+              {!isLikedAlready ? (
+                <RiHeart3Line
+                  className="like-icon"
+                  onClick={() => likePost(post?._id, auth.token)}
+                />
+              ) : (
+                <RiHeart3Fill
+                  className="like-icon like-done-icon"
+                  onClick={() => dislikePost(post?._id, auth.token)}
+                />
+              )}
+              {/* </Slide> */}
+              <span
+                onClick={() => {
+                  setShowLikesModal(true);
+                }}
+              >
+                <Slide direction="up">{post?.likes?.likeCount}</Slide>
+              </span>
+            </div>
+            <div className="comments-container">
+              <FiShare2 className="share-icon" onClick={() => {}} />
+              <span>{}</span>
+            </div>
+            <div className="comments-container">
+              {!isBookmarkedAlready ? (
+                <FaRegBookmark
+                  className="bookmark-icon"
+                  onClick={() => addBookmark(post?._id, auth.token)}
+                />
+              ) : (
+                <FaBookmark
+                  className="bookmark-icon bookmark-done-icon"
+                  onClick={() => removeBookmark(post?._id, auth.token)}
+                />
+              )}
+              <span>{}</span>
+            </div>
+          </Slide>
         </div>
         <div className="likes-details-container">
           {/* <p
@@ -360,6 +383,7 @@ export const Post = ({ post }) => {
           </div>
         )}
       </div>
+  
     </div>
   );
 };

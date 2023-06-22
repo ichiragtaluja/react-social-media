@@ -1,7 +1,8 @@
 import "./Header.css";
 import React from "react";
-import {LuBird} from "react-icons/lu"
+import { LuBird } from "react-icons/lu";
 import { useNavigate } from "react-router-dom";
+
 
 export const Header = () => {
   const navigate = useNavigate();
@@ -12,6 +13,8 @@ export const Header = () => {
         className="header-logo"
         size={25}
       />
+
+      
       <p onClick={() => navigate("/")}>Quack</p>
     </div>
   );

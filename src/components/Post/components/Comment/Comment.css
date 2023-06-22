@@ -21,6 +21,7 @@
 .comment-main-section .username-container .name {
   font-weight: 600;
   margin-right: 0.3rem;
+  cursor: pointer;
 }
 
 .user-comment {
@@ -35,6 +36,7 @@
   border-radius: 25px;
   object-fit: cover;
   margin-right: 0.5rem;
+  cursor: pointer;
   /* border: 1px solid var(--primary-color); */
 }
 

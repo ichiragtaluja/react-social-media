@@ -128,10 +128,9 @@
 }
 
 .post-card .media video {
-  width: 50%;
+  width: 100%;
   border-radius: 1rem;
   /* object-fit: cover; */
-  /* border: 3px solid green; */
 }
 
 .post-actions-container {
@@ -156,7 +155,7 @@
 }
 
 .media > img {
-  width: 50%;
+  width: 100%;
   /* object-fit: cover; */
 
   border-radius: 1rem;
@@ -413,5 +412,10 @@
     font-size: 1rem;
     color: var(--white);
     cursor: pointer;
+  }
+
+  .post-card .media video,
+  .media > img {
+    width: 50%;
   }
 }

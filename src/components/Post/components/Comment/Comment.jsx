@@ -1,4 +1,5 @@
 import "./Comment.css";
+import { useNavigate } from "react-router-dom";
 
 import React from "react";
 import { RxDotsHorizontal } from "react-icons/rx";
@@ -8,6 +9,7 @@ import { useAuth } from "../../../../contexts/AuthProvider";
 import { useUser } from "../../../../contexts/UserProvider";
 
 export const Comment = ({ comment, post }) => {
+  const navigate = useNavigate();
   const { userState } = useUser();
   const { _id, avatarURL, username, firstName, lastName, text } = comment;
   const { deleteComment, editComment } = usePosts();
@@ -26,6 +28,7 @@ export const Comment = ({ comment, post }) => {
     <div className="comment-card">
       <div>
         <img
+          onClick={() => navigate(`/profile/${username}`)}
           className="comment-user-image"
           src={userDetails?.avatarURL}
           alt={userDetails?.firstName}
@@ -34,10 +37,15 @@ export const Comment = ({ comment, post }) => {
 
       <div className="comment-main-section">
         <div className="username-container">
-          <p className="name">
+          <p onClick={() => navigate(`/profile/${username}`)} className="name">
             {firstName} {lastName}
           </p>
-          <span className="username">@{username}</span>
+          <span
+            onClick={() => navigate(`/profile/${username}`)}
+            className="username"
+          >
+            @{username}
+          </span>
           {username === auth?.username && (
             <div className="comment-toolbar">
               <div

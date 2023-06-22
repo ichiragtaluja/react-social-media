@@ -5,6 +5,7 @@ import ReactPlayer from "react-player";
 import { BsEyeSlash, BsEye } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../../contexts/AuthProvider";
+import { Fade } from "react-awesome-reveal";
 
 export const Signup = () => {
   const [signupForm, setSignupForm] = useState({
@@ -158,7 +159,11 @@ export const Signup = () => {
           </div>
 
           <div className="btn-container">
-            <input value="Sign Up" type="submit" />
+            <button type="submit">
+              <Fade cascade duration={150}>
+                Sign-Up
+              </Fade>
+            </button>
           </div>
           <p className="switch-to-signup">
             Already have an account? <Link to="/login">Login</Link>

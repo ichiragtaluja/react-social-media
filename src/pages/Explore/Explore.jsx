@@ -9,7 +9,7 @@ export const Explore = () => {
   return (
     <main className="feed explore-page-container">
       {allPosts?.map((post) => {
-        return <Post key={post?._id} post={post} />;
+        return <Post post={post} />;
       })}
     </main>
   );
