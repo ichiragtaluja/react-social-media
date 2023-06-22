@@ -9,6 +9,7 @@ import { Login } from "../pages/Auth/Login/Login";
 import { Signup } from "../pages/Auth/Signup/Signup";
 import { Logout } from "../pages/Auth/Logout/Logout";
 import { PostDetail } from "../pages/PostDetail/PostDetail";
+import { Error } from "../pages/Error/Error";
 
 export const NavRoutes = () => {
   return (
@@ -21,6 +22,7 @@ export const NavRoutes = () => {
           </RequiresAuth>
         }
       />
+
       <Route
         path="/explore"
         element={
@@ -53,6 +55,7 @@ export const NavRoutes = () => {
           </RequiresAuth>
         }
       />
+      <Route path="*" element={<Error />} />
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/logout" element={<Logout />} />
