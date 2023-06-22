@@ -55,8 +55,14 @@ export const Post = ({ post }) => {
     (user) => user?.username === post?.username
   );
 
+  const loggedInUser = userState?.allUsers?.find(
+    (user) => user?.username === auth?.username
+  );
+
   const isFollowing = (user) =>
-    userDetails?.following?.find(({ username }) => username === user?.username);
+    loggedInUser?.following?.find(
+      ({ username }) => username === user?.username
+    );
 
   const followUnfollowHandler = (e, user) => {
     e.stopPropagation();
@@ -116,7 +122,6 @@ export const Post = ({ post }) => {
 
   return (
     <div className="post-card">
-     
       <div className="profile-picture-container">
         <img
           onClick={() => {
@@ -286,15 +291,6 @@ export const Post = ({ post }) => {
           </Slide>
         </div>
         <div className="likes-details-container">
-          {/* <p
-            className="number-of-likes"
-            onClick={() => {
-              setShowLikesModal(true);
-            }}
-          >
-            {post?.likes?.likeCount}{" "}
-            <span>{`Like${post?.likes?.likeCount === 1 ? "" : "s"}`}</span>
-          </p> */}
           {showLikesModal && (
             <div className="like-modal">
               <div className="likes-content">
@@ -347,8 +343,8 @@ export const Post = ({ post }) => {
             <div className="comments-input-section-container">
               <div className="user-profile-img-container">
                 <img
-                  src={userDetails?.avatarURL}
-                  alt={userDetails?.firstName}
+                  src={loggedInUser?.avatarURL}
+                  alt={loggedInUser?.firstName}
                 />
               </div>
 
@@ -383,7 +379,6 @@ export const Post = ({ post }) => {
           </div>
         )}
       </div>
-  
     </div>
   );
 };
