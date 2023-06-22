@@ -140,7 +140,6 @@ export const Post = ({ post }) => {
             }}
             className="username-container"
           >
-            {/* <Slide direction="up"> */}
             <span
               onClick={() => {
                 navigate(`/profile/${post?.username}`);
@@ -197,7 +196,6 @@ export const Post = ({ post }) => {
                 </p>
               </div>
             )}
-            {/* </Slide> */}
           </div>
         </div>
         {isEditPostClicked && (
