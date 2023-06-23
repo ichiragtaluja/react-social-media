@@ -7,7 +7,6 @@ import { Bookmark } from "../pages/Bookmark/Bookmark";
 import { Profile } from "../pages/Profile/Profile";
 import { Login } from "../pages/Auth/Login/Login";
 import { Signup } from "../pages/Auth/Signup/Signup";
-import { Logout } from "../pages/Auth/Logout/Logout";
 import { PostDetail } from "../pages/PostDetail/PostDetail";
 import { Error } from "../pages/Error/Error";
 
@@ -58,7 +57,6 @@ export const NavRoutes = () => {
       <Route path="*" element={<Error />} />
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
-      <Route path="/logout" element={<Logout />} />
     </Routes>
   );
 };

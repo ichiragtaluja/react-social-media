@@ -54,7 +54,6 @@ export const CreatePostForm = ({ setIsCreateNewPostClicked, className }) => {
   ];
 
   const handleMediaInput = (e) => {
-    console.log("I entered");
     const file = e.target.files[0];
     if (file?.type.startsWith("image/") || file.type.startsWith("video/")) {
       if (file.size < 10 * 1024 * 1024) {

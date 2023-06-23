@@ -13,7 +13,7 @@ export const users = [
     lastName: "Brundage",
     username: "Katherine",
     password: "Katherine",
-    createdAt: formatDate(),
+    createdAt: new Date("January 02 2021 09:09:09"),
     updatedAt: formatDate(),
     avatarURL:
       "https://res.cloudinary.com/darwtgzlk/image/upload/v1686251367/socialMedia/profilePictures/user1_wla0x2.jpg",
@@ -66,7 +66,7 @@ export const users = [
     lastName: "Myles",
     username: "Beverly",
     password: "Beverly",
-    createdAt: formatDate(),
+    createdAt: new Date("January 07 2019 09:09:09"),
     updatedAt: formatDate(),
     avatarURL:
       "https://res.cloudinary.com/darwtgzlk/image/upload/v1686251364/socialMedia/profilePictures/user2_dhebgg.jpg",
@@ -118,7 +118,7 @@ export const users = [
     lastName: "Williams",
     username: "Malik",
     password: "Malik",
-    createdAt: formatDate(),
+    createdAt: new Date("September 10 2018 09:09:09"),
     updatedAt: formatDate(),
     avatarURL:
       "https://res.cloudinary.com/darwtgzlk/image/upload/v1686251368/socialMedia/profilePictures/user3_atvsaj.jpg",
@@ -184,7 +184,7 @@ export const users = [
     lastName: "Dung",
     username: "Neha",
     password: "Neha",
-    createdAt: formatDate(),
+    createdAt: new Date("November 04 2016 09:09:09"),
     updatedAt: formatDate(),
     avatarURL:
       "https://res.cloudinary.com/darwtgzlk/image/upload/v1686251365/socialMedia/profilePictures/user4_yobn9s.jpg",
@@ -259,7 +259,7 @@ export const users = [
     lastName: "Arora",
     username: "Aahmya",
     password: "Aahmya",
-    createdAt: formatDate(),
+    createdAt: new Date("July 04 2017 09:09:09"),
     updatedAt: formatDate(),
     avatarURL:
       "https://res.cloudinary.com/darwtgzlk/image/upload/v1686251367/socialMedia/profilePictures/user5_jxwms5.jpg",
@@ -293,7 +293,7 @@ export const users = [
     lastName: "Chopra",
     username: "Uday",
     password: "Uday",
-    createdAt: formatDate(),
+    createdAt: new Date("August 22 2020 09:09:09"),
     updatedAt: formatDate(),
     avatarURL:
       "https://res.cloudinary.com/darwtgzlk/image/upload/v1686251369/socialMedia/profilePictures/user6_ahdwkm.jpg",
@@ -344,7 +344,7 @@ export const users = [
     lastName: "Brooks",
     username: "Laura",
     password: "Laura",
-    createdAt: formatDate(),
+    createdAt: new Date("March 05 2020 09:09:09"),
     updatedAt: formatDate(),
     avatarURL:
       "https://res.cloudinary.com/darwtgzlk/image/upload/v1686251369/socialMedia/profilePictures/user7_eubrrf.jpg",
@@ -403,7 +403,7 @@ export const users = [
     lastName: "Singh",
     username: "Parmeet",
     password: "Parmeet",
-    createdAt: formatDate(),
+    createdAt: new Date("July 06 2020 09:09:09"),
     updatedAt: formatDate(),
     avatarURL:
       "https://res.cloudinary.com/darwtgzlk/image/upload/v1686251368/socialMedia/profilePictures/user8_mndclq.jpg",
@@ -438,7 +438,7 @@ export const users = [
     lastName: "Liao",
     username: "Hui",
     password: "Hui",
-    createdAt: formatDate(),
+    createdAt: new Date("October 30 2019 09:09:09"),
     updatedAt: formatDate(),
     avatarURL:
       "https://res.cloudinary.com/darwtgzlk/image/upload/v1686251366/socialMedia/profilePictures/user9_txopcr.jpg",
@@ -481,7 +481,7 @@ export const users = [
     lastName: "Tate",
     username: "Josh",
     password: "Josh",
-    createdAt: formatDate(),
+    createdAt: new Date("July 20 2018 09:09:09"),
     updatedAt: formatDate(),
     avatarURL:
       "https://res.cloudinary.com/darwtgzlk/image/upload/v1686251365/socialMedia/profilePictures/user10_dmlsg2.jpg",

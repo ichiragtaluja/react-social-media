@@ -1,6 +1,6 @@
 .modal-content .input-container .text-content-container {
   display: flex;
-  align-items: start;
+  align-items: flex-start;
 }
 
 .modal-content .input-container textarea {
