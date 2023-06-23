@@ -9,10 +9,10 @@
   margin: auto;
   border-radius: 1rem;
   color: white;
-  background-color: black;
+  background-color: rgb(0, 0, 0, 0.4);
   display: flex;
   flex-flow: column;
-  box-shadow: 0px 0px 19px -1px rgb(59, 59, 59);
+  /* box-shadow: 0px 0px 19px -1px rgb(59, 59, 59); */
 }
 .login-form-heading {
   text-align: center;
@@ -53,7 +53,7 @@
   border: none;
   /* border-radius: 0.5rem; */
   border-radius: 2rem;
-  background-color: rgb(29, 29, 29);
+  background-color: rgba(75, 75, 75, 0.7);
   width: 100%;
 }
 
@@ -61,16 +61,17 @@
   width: 100%;
   display: flex;
   align-items: center;
-  background-color: rgb(29, 29, 29);
+  background-color: rgba(75, 75, 75, 0.7);
   border-radius: 2rem;
   margin-bottom: 1.5rem;
 }
+
 .login-form-container .password-container input {
   color: white;
   padding: 0.8rem 1.5rem;
   border: none;
   flex-grow: 1;
-  background-color: rgb(29, 29, 29);
+  background-color: rgb(29, 29, 29, 0);
   border-radius: 2rem;
 }
 .login-form-container .error-message {
