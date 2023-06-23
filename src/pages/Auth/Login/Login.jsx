@@ -42,7 +42,6 @@ export const Login = () => {
           className="login-form-body"
         >
           <div className="username-container">
-            {/* <label htmlFor="username">Username:</label> */}
             <input
               placeholder="Enter Username"
               value={loginForm.username}
@@ -59,7 +58,6 @@ export const Login = () => {
           </div>
 
           <div className="password-container">
-            {/* <label htmlFor="password">Password:</label> */}
             <div>
               <input
                 placeholder="Enter Password"

@@ -50,12 +50,12 @@ export const Navbar = () => {
           </NavLink>
         </li>
         <li>
-          {/* <NavLink className="navlink" style={getActiveStyle} to="/logout">
-            <IoMdLogOut className="navlink-icon" />
-            <p>Logout</p>
-          </NavLink> */}
-
-          <NavLink onClick={handleLogout} className="navlink" style={getActiveStyle} to="/login">
+          <NavLink
+            onClick={handleLogout}
+            className="navlink"
+            style={getActiveStyle}
+            to="/login"
+          >
             <IoMdLogOut className="navlink-icon" />
             <p>Logout</p>
           </NavLink>

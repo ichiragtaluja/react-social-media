@@ -1,16 +1,11 @@
 import "./EditPostForm.css";
-import React from "react";
-
-import { IoMdClose } from "react-icons/io";
-import { AiOutlineFileGif } from "react-icons/ai";
-import { ImFilePicture } from "react-icons/im";
-import { useState, useEffect } from "react";
-import { BsEmojiSmile } from "react-icons/bs";
-
+import React, { useState, useEffect } from "react";
+import { IoMdClose, ImFilePicture, BsEmojiSmile } from "../../utils/icons";
 import "../CreatePostForm/CreatePostForm.css";
 import { useLoggedInUser } from "../../contexts/LoggedInUserProvider";
 import { useAuth } from "../../contexts/AuthProvider";
 import { usePosts } from "../../contexts/PostsProvider";
+import { EmojiModal } from "../EmojiModal/EmojiModal";
 
 export const EditPostForm = ({
   setIsEditPostClicked,
@@ -21,7 +16,6 @@ export const EditPostForm = ({
   const { editPost } = usePosts();
   const { auth } = useAuth();
   const { loggedInUserState } = useLoggedInUser();
-
   const [showEmojiModal, setShowEmojiModal] = useState(false);
 
   const [postEditForm, setPostEditForm] = useState({
@@ -29,33 +23,6 @@ export const EditPostForm = ({
     mediaUrl: post?.mediaUrl,
     type: "video",
   });
-
-  console.log("form", postEditForm);
-  const emojis = [
-    "😀",
-    "😁",
-    "😅",
-    "😂",
-    "😇",
-    "😎",
-    "😍",
-    "🤩",
-    "🥺",
-    "😘",
-    "😛",
-    "🥳",
-    "🤣",
-    "👻",
-    "👍🏻",
-    "😤",
-    "🥶",
-    "🤭",
-    "🫣",
-    "🤬",
-    "🫠",
-    "🫤",
-    "🤯",
-  ];
 
   const handleEditMediaInput = (e) => {
     e.preventDefault();
@@ -172,37 +139,12 @@ export const EditPostForm = ({
           </div>
         </div>
       </form>
-      {showEmojiModal && (
-        <div className="emoji-modal-container">
-          <div className="modal-emoji-body">
-            <div className="emoji-body-container">
-              <IoMdClose
-                onClick={() => {
-                  setShowEmojiModal(false);
-                }}
-                className="close-emoji-model"
-              />
-              <div clasName="emojis">
-                {emojis.map((emoji) => (
-                  <span
-                    className="smily-emoji"
-                    onClick={(e) => {
-                      setPostEditForm((prev) => ({
-                        ...prev,
-                        content: prev.content + e.target.innerText,
-                      }));
-                      setShowEmojiModal(false);
-                    }}
-                    key={emoji}
-                  >
-                    {emoji}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
+      <EmojiModal
+        showEmojiModal={showEmojiModal}
+        setShowEmojiModal={setShowEmojiModal}
+        setPostForm={postEditForm}
+      />
+    
     </>
   );
 };

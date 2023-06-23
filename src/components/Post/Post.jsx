@@ -1,50 +1,37 @@
 import "./Post.css";
-import { FaRegComment } from "react-icons/fa";
-import { RiHeart3Line, RiHeart3Fill } from "react-icons/ri";
-import { FaRegBookmark, FaBookmark } from "react-icons/fa";
-import { FiShare2 } from "react-icons/fi";
-import { useState } from "react";
-import React from "react";
-import { RxDotsHorizontal } from "react-icons/rx";
-
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { Slide } from "react-awesome-reveal";
+import {
+  FaBookmark,
+  RiHeart3Fill,
+  RiHeart3Line,
+  FaRegBookmark,
+  FaRegComment,
+  RxDotsHorizontal,
+  RxCross2,
+  FiShare2,
+} from "../../utils/icons";
 import { useLoggedInUser } from "../../contexts/LoggedInUserProvider";
 import { useAuth } from "../../contexts/AuthProvider";
 import { usePosts } from "../../contexts/PostsProvider";
-import { useNavigate } from "react-router-dom";
 import { EditPostForm } from "../EditPostForm/EditPostForm";
 import { useUser } from "../../contexts/UserProvider";
-import { RxCross2 } from "react-icons/rx";
 import { Comment } from "./components/Comment/Comment";
-
-import { Slide, Fade, Zoom, Bounce } from "react-awesome-reveal";
+import { getTimeDifference } from "../../utils/date";
+import { LikesModal } from "./components/LikesModal/LikesModal";
 
 export const Post = ({ post }) => {
   const navigate = useNavigate();
-
   const [isEditPostClicked, setIsEditPostClicked] = useState(false);
-
   const [showLikesModal, setShowLikesModal] = useState(false);
-
   const [actionMenu, setActionMenu] = useState(false);
-
   const { likePost, dislikePost, deletePost } = usePosts();
-
   const [commentData, setCommentData] = useState({ text: "" });
-
   const [showComments, setShowComments] = useState(false);
-
-  const {
-    addBookmark,
-    removeBookmark,
-    loggedInUserState,
-    followUser,
-    unfollowUser,
-  } = useLoggedInUser();
-
+  const { addBookmark, removeBookmark, loggedInUserState } = useLoggedInUser();
   const { auth } = useAuth();
-
   const { addComment } = usePosts();
-
   const { userState } = useUser();
 
   const isBookmarkedAlready = loggedInUserState.bookmarks?.find(
@@ -64,60 +51,12 @@ export const Post = ({ post }) => {
       ({ username }) => username === user?.username
     );
 
-  const followUnfollowHandler = (e, user) => {
-    e.stopPropagation();
-    const userFromAllUsers = userState?.allUsers?.find(
-      ({ username }) => username === user?.username
-    );
-    !isFollowing(user)
-      ? followUser(userFromAllUsers?._id, auth.token)
-      : unfollowUser(userFromAllUsers?._id, auth.token);
-  };
-
   const isLikedAlready = post?.likes.likedBy.find(
     (user) => user.username === loggedInUserState.username
   );
   //to be done aftr site is hosted
   const copyHandler = (link) => {
     navigator.clipboard.writeText(link);
-  };
-
-  const getTimeDifference = (date) => {
-    const datePosted = new Date(date);
-    const currentTime = new Date();
-    const milliseconds = currentTime - datePosted;
-    const seconds = Math.floor(milliseconds / 1000);
-
-    if (seconds > 59) {
-      const minutes = Math.floor(seconds / 60);
-      if (minutes > 59) {
-        const hours = Math.floor(minutes / 60);
-        if (hours > 23) {
-          const days = Math.floor(hours / 24);
-          if (days > 30) {
-            const months = Math.floor(days / 30);
-            if (months > 11) {
-              const options = {
-                year: "numeric",
-                month: "short",
-                day: "numeric",
-              };
-              return datePosted.toLocaleDateString("en-US", options);
-            } else {
-              return `${months} month${months === 1 ? "" : "s"} ago`;
-            }
-          } else {
-            return `${days} day${days === 1 ? "" : "s"} ago`;
-          }
-        } else {
-          return `${hours} hour${hours === 1 ? "" : "s"} ago`;
-        }
-      } else {
-        return `${minutes} minute${minutes === 1 ? "" : "s"} ago`;
-      }
-    } else {
-      return `${seconds} second${seconds === 1 ? "" : "s"} ago`;
-    }
   };
 
   return (
@@ -169,7 +108,8 @@ export const Post = ({ post }) => {
             {loggedInUserState.username === post?.username && (
               <div
                 className="edit"
-                onClick={() => {
+                onClick={(e) => {
+                  e.stopPropagation();
                   setActionMenu(!actionMenu);
                 }}
               >
@@ -179,7 +119,8 @@ export const Post = ({ post }) => {
             {actionMenu && (
               <div className="action-menu-container">
                 <p
-                  onClick={() => {
+                  onClick={(e) => {
+                    e.stopPropagation();
                     setIsEditPostClicked(!isEditPostClicked);
                     setActionMenu(false);
                   }}
@@ -187,7 +128,8 @@ export const Post = ({ post }) => {
                   Edit Post
                 </p>
                 <p
-                  onClick={() => {
+                  onClick={(e) => {
+                    e.stopPropagation();
                     deletePost(post?._id, auth.token);
                     setActionMenu(false);
                   }}
@@ -301,37 +243,7 @@ export const Post = ({ post }) => {
                     }}
                   />
                 </div>
-                {post?.likes?.likedBy.map((user) => (
-                  <div
-                    onClick={() => {
-                      navigate(`/profile/${user.username}`);
-                    }}
-                    key={user?._id}
-                    className="discover-user-card"
-                  >
-                    <div
-                      onClick={() => {
-                        navigate(`/profile/${user.username}`);
-                      }}
-                      className="discover-user-img-container"
-                    >
-                      <img src={user?.avatarURL} alt={user?.firstName} />
-                    </div>
-                    <div className="user-name-username-container">
-                      <p className="name">
-                        {user?.firstName} {user?.lastName}
-                      </p>
-                      <p className="username">@{user?.username}</p>
-                    </div>
-                    <div className="follow-container">
-                      {user?.username !== auth?.username && (
-                        <button onClick={(e) => followUnfollowHandler(e, user)}>
-                          {!isFollowing(user) ? "Follow" : "Following"}
-                        </button>
-                      )}
-                    </div>
-                  </div>
-                ))}
+                <LikesModal post={post} isFollowing={isFollowing} />
               </div>
             </div>
           )}

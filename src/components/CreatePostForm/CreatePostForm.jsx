@@ -1,21 +1,18 @@
 import "./CreatePostForm.css";
-import React from "react";
-import { useState, useEffect } from "react";
-import { IoMdClose } from "react-icons/io";
-import { VscSmiley } from "react-icons/vsc";
-import { ImFilePicture } from "react-icons/im";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
+import { IoMdClose, VscSmiley, ImFilePicture } from "../../utils/icons";
 import { useLoggedInUser } from "../../contexts/LoggedInUserProvider";
 import { useAuth } from "../../contexts/AuthProvider";
 import { usePosts } from "../../contexts/PostsProvider";
+import { EmojiModal } from "../EmojiModal/EmojiModal";
 
 export const CreatePostForm = ({ setIsCreateNewPostClicked, className }) => {
   const { createPost } = usePosts();
   const { auth } = useAuth();
   const { loggedInUserState } = useLoggedInUser();
   const navigate = useNavigate();
-
   const firstName = loggedInUserState?.firstName;
   const lastName = loggedInUserState?.lastName;
   const [showEmojiModal, setShowEmojiModal] = useState(false);
@@ -26,32 +23,6 @@ export const CreatePostForm = ({ setIsCreateNewPostClicked, className }) => {
     content: "",
     mediaUrl: "",
   });
-
-  const emojis = [
-    "😀",
-    "😁",
-    "😅",
-    "😂",
-    "😇",
-    "😎",
-    "😍",
-    "🤩",
-    "🥺",
-    "😘",
-    "😛",
-    "🥳",
-    "🤣",
-    "👻",
-    "👍🏻",
-    "😤",
-    "🥶",
-    "🤭",
-    "🫣",
-    "🤬",
-    "🫠",
-    "🫤",
-    "🤯",
-  ];
 
   const handleMediaInput = (e) => {
     const file = e.target.files[0];
@@ -77,7 +48,7 @@ export const CreatePostForm = ({ setIsCreateNewPostClicked, className }) => {
     <>
       <form
         onSubmit={(e) => {
-          e.preventDefault()
+          e.preventDefault();
           createPost(e, postForm, auth.token);
           setPostForm({
             firstName: loggedInUserState?.firstName,
@@ -150,7 +121,11 @@ export const CreatePostForm = ({ setIsCreateNewPostClicked, className }) => {
                 {" "}
                 <ImFilePicture className="file-icon" />
               </label>
-              <input onChange={handleMediaInput} type="file" id="mediaForCreate" />
+              <input
+                onChange={handleMediaInput}
+                type="file"
+                id="mediaForCreate"
+              />
 
               <VscSmiley
                 className="smily-emoji"
@@ -168,36 +143,11 @@ export const CreatePostForm = ({ setIsCreateNewPostClicked, className }) => {
           </div>
         </div>
       </form>
-      {showEmojiModal && (
-        <div className="emoji-modal-container">
-          <div className="modal-emoji-body">
-            <div className="emoji-body-container">
-              <IoMdClose
-                onClick={() => {
-                  setShowEmojiModal(false);
-                }}
-                className="close-emoji-model"
-              />
-              <div className="emojis">
-                {emojis.map((emoji) => (
-                  <span
-                    onClick={(e) => {
-                      setPostForm((prev) => ({
-                        ...prev,
-                        content: prev.content + e.target.innerText,
-                      }));
-                      setShowEmojiModal(false);
-                    }}
-                    key={emoji}
-                  >
-                    {emoji}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
+      <EmojiModal
+        showEmojiModal={showEmojiModal}
+        setShowEmojiModal={setShowEmojiModal}
+        setPostForm={setPostForm}
+      />
     </>
   );
 };
