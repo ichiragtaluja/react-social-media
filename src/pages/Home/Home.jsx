@@ -6,6 +6,13 @@ import { usePosts } from "../../contexts/PostsProvider";
 import { Post } from "../../components/Post/Post";
 import { useLoggedInUser } from "../../contexts/LoggedInUserProvider";
 import { CreatePostForm } from "../../components/CreatePostForm/CreatePostForm";
+import {
+  Zoom,
+  Slide,
+  Roll,
+  Hinge,
+  AttentionSeeker,
+} from "react-awesome-reveal";
 
 export const Home = () => {
   const { setSortBy, sortBy, allPosts } = usePosts();
@@ -57,16 +64,18 @@ export const Home = () => {
           <div className="dropdown-list-container">
             <ul>
               {sortTypes.map((type) => (
-                <li
-                  className={type === sortBy ? "isActive" : ""}
-                  onClick={() => {
-                    setSortBy(type);
-                    setIsAdjustmentOn(!isAjustmentOn);
-                  }}
-                  key={type}
-                >
-                  {type}
-                </li>
+                <AttentionSeeker duration={1000} effect="headShake">
+                  <li
+                    className={type === sortBy ? "isActive" : ""}
+                    onClick={() => {
+                      setSortBy(type);
+                      setIsAdjustmentOn(!isAjustmentOn);
+                    }}
+                    key={type}
+                  >
+                    {type}
+                  </li>{" "}
+                </AttentionSeeker>
               ))}
             </ul>
           </div>

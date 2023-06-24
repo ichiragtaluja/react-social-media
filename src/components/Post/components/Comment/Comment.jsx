@@ -7,6 +7,7 @@ import { usePosts } from "../../../../contexts/PostsProvider";
 import { useState } from "react";
 import { useAuth } from "../../../../contexts/AuthProvider";
 import { useUser } from "../../../../contexts/UserProvider";
+import { Slide, Rotate, Flip } from "react-awesome-reveal";
 
 export const Comment = ({ comment, post }) => {
   const navigate = useNavigate();
@@ -76,6 +77,7 @@ export const Comment = ({ comment, post }) => {
             </div>
           )}
         </div>
+
         {!isEditComment ? (
           <div className="user-comment">{text}</div>
         ) : (

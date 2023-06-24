@@ -85,11 +85,24 @@
   font-size: 1.1rem;
 }
 
+.comments-container .comment-icon {
+  font-size: 1.25rem;
+}
+
+.comments-container .comment-icon {
+  margin-top: 0.5px;
+}
+.comments-container .share-icon {
+  margin-top: 0.8px;
+}
+
+.comments-container .bookmark-icon,
+.comments-container .number-of-comments {
+  margin-top: 1.5px;
+}
+
 .comments-container .like-icon {
   font-size: 1.3rem;
-}
-.comments-container .bookmark-icon {
-  font-size: 1rem;
 }
 
 .bookmark-done-icon,
@@ -380,6 +393,10 @@
   .comments-container .share-icon,
   .comments-container .bookmark-icon {
     font-size: 1.2rem;
+  }
+
+  .comments-container .comment-icon {
+    font-size: 1.3rem;
   }
 
   .comments-container .like-icon {

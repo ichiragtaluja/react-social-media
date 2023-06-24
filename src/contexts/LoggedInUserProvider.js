@@ -128,6 +128,18 @@ export const LoggedInUserProvider = ({ children }) => {
     }
   };
 
+  const avatars = [
+    {
+      url: "https://res.cloudinary.com/darwtgzlk/image/upload/v1687601406/socialMedia/avatar/avatar-1_yg7arg.png",
+    },
+    {
+      url: "https://res.cloudinary.com/darwtgzlk/image/upload/v1687601402/socialMedia/avatar/avatar2_wxqedh.png",
+    },
+    {
+      url: "https://res.cloudinary.com/darwtgzlk/image/upload/v1687601397/socialMedia/avatar/avatar3_gc9xeu.png",
+    },
+  ];
+
   useEffect(() => {
     if (token) {
       getUser(username);
@@ -144,6 +156,7 @@ export const LoggedInUserProvider = ({ children }) => {
         unfollowUser,
         addBookmark,
         removeBookmark,
+        avatars,
       }}
     >
       {children}

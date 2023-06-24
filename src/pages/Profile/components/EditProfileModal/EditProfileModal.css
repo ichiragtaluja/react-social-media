@@ -107,3 +107,27 @@
     sans-serif;
   font-size: 1rem;
 }
+
+.avatars-section > p {
+  color: grey;
+}
+
+.avatar-img {
+  height: 80px;
+  width: 80px;
+  border-radius: 50px;
+}
+
+.avatar-container {
+  display: flex;
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+.avatar-container > * {
+  margin-right: 0.5rem;
+  cursor: pointer;
+}
+
+.img-border {
+  border: 1px solid white;
+}

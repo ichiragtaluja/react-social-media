@@ -7,6 +7,7 @@ import { useAuth } from "../../contexts/AuthProvider";
 import { usePosts } from "../../contexts/PostsProvider";
 import { EmojiModal } from "../EmojiModal/EmojiModal";
 
+
 export const EditPostForm = ({
   setIsEditPostClicked,
   className,
@@ -139,12 +140,14 @@ export const EditPostForm = ({
           </div>
         </div>
       </form>
-      <EmojiModal
-        showEmojiModal={showEmojiModal}
-        setShowEmojiModal={setShowEmojiModal}
-        setPostForm={postEditForm}
-      />
-    
+
+  
+        <EmojiModal
+          showEmojiModal={showEmojiModal}
+          setShowEmojiModal={setShowEmojiModal}
+          setPostForm={postEditForm}
+        />
+
     </>
   );
 };

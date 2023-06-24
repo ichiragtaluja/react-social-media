@@ -14,6 +14,8 @@ export const UserProvider = ({ children }) => {
     dispatch({ type: "SET_ALL_USERS", payload: response.data.users });
   };
 
+
+
   // const getUser = async (user) => {
   //   try {
   //     const response = await getUserService(user);

@@ -9,7 +9,7 @@ import { useAuth } from "../../../../contexts/AuthProvider";
 import { useUser } from "../../../../contexts/UserProvider";
 
 export const EditProfileModal = ({ setIsEditProfile, className }) => {
-  const { loggedInUserState, editUser } = useLoggedInUser();
+  const { loggedInUserState, editUser, avatars } = useLoggedInUser();
   const { userState } = useUser();
 
   const { auth } = useAuth();
@@ -73,6 +73,28 @@ export const EditProfileModal = ({ setIsEditProfile, className }) => {
             <FiCamera />
             <input onChange={changePictureHandler} type="file" />
           </label>
+        </div>
+        <div className="avatars-section">
+          <p>Choose a picture from your gallary or from existing avatars</p>
+          <div className="avatar-container">
+            {avatars?.map(({ url }) => (
+              <div
+                onClick={() => {
+                  setFormValues((prev) => ({
+                    ...prev,
+                    avatarURL: url,
+                  }));
+                }}
+              >
+                <img
+                  className={`avatar-img ${
+                    url === formValues.avatarURL ? "img-border" : ""
+                  }`}
+                  src={url}
+                />
+              </div>
+            ))}
+          </div>
         </div>
         <div className="username-container">
           <p>

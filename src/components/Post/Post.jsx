@@ -1,7 +1,14 @@
 import "./Post.css";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Slide } from "react-awesome-reveal";
+import {
+  AttentionSeeker,
+  Slide,
+  Flip,
+  Fade,
+  JackInTheBox,
+  Zoom,
+} from "react-awesome-reveal";
 import {
   FaBookmark,
   RiHeart3Fill,
@@ -118,24 +125,26 @@ export const Post = ({ post }) => {
             )}
             {actionMenu && (
               <div className="action-menu-container">
-                <p
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    setIsEditPostClicked(!isEditPostClicked);
-                    setActionMenu(false);
-                  }}
-                >
-                  Edit Post
-                </p>
-                <p
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    deletePost(post?._id, auth.token);
-                    setActionMenu(false);
-                  }}
-                >
-                  Delete Post
-                </p>
+                <AttentionSeeker effect="headShake">
+                  <p
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setIsEditPostClicked(!isEditPostClicked);
+                      setActionMenu(false);
+                    }}
+                  >
+                    Edit Post
+                  </p>
+                  <p
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      deletePost(post?._id, auth.token);
+                      setActionMenu(false);
+                    }}
+                  >
+                    Delete Post
+                  </p>
+                </AttentionSeeker>
               </div>
             )}
           </div>
@@ -184,7 +193,7 @@ export const Post = ({ post }) => {
               {/* <Slide cascade direction="up"> */}
               <FaRegComment className="comment-icon" />
               {/* </Slide> */}
-              <span>
+              <span className="number-of-comments">
                 <Slide direction="up">{post?.comments?.length}</Slide>
               </span>
             </div>
@@ -248,8 +257,10 @@ export const Post = ({ post }) => {
             </div>
           )}
         </div>
+
         {showComments && (
           <div className="comments-section-container">
+            {/* <Slide duration={1000} cascade> */}
             <div className="comments-input-section-container">
               <div className="user-profile-img-container">
                 <img
@@ -286,6 +297,8 @@ export const Post = ({ post }) => {
                   <Comment key={comment?._id} comment={comment} post={post} />
                 ))}
             </div>
+
+            {/* </Slide> */}
           </div>
         )}
       </div>
