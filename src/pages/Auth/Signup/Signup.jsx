@@ -14,6 +14,9 @@ export const Signup = () => {
     email: "",
     username: "",
     password: "",
+    confirmPassword: "",
+    avatarURL:
+      "https://res.cloudinary.com/darwtgzlk/image/upload/v1687674108/socialMedia/avatar/83bc8b88cf6bc4b4e04d153a418cde62_edxivy.jpg",
   });
 
   const { handleSignup } = useAuth();
