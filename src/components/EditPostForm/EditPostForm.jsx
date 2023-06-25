@@ -145,7 +145,7 @@ export const EditPostForm = ({
         <EmojiModal
           showEmojiModal={showEmojiModal}
           setShowEmojiModal={setShowEmojiModal}
-          setPostForm={postEditForm}
+          setPostForm={setPostEditForm}
         />
 
     </>

@@ -24,12 +24,12 @@ export const Home = () => {
 
   const { loggedInUserState } = useLoggedInUser();
 
-  const allPostFromFollowers = allPosts.filter((post) =>
-    loggedInUserState?.following?.some(
-      (following) =>
-        following.username === post.username ||
-        post.username === loggedInUserState.username
-    )
+  const allPostFromFollowers = allPosts.filter(
+    (post) =>
+      post.username === loggedInUserState.username ||
+      loggedInUserState?.following?.some(
+        (following) => following.username === post.username
+      )
   );
 
   const sortedPosts = (sortBy, allPosts) => {
@@ -55,8 +55,6 @@ export const Home = () => {
   const [isAjustmentOn, setIsAdjustmentOn] = useState(false);
   const sortTypes = ["Trending", "Oldest", "Latest"];
 
-  console.log("FF", sortedPosts(sortBy, allPostFromFollowers));
-
   return (
     <>
       {auth.isAuth && <Header />}
@@ -65,35 +63,33 @@ export const Home = () => {
         <main className="feed">
           <CreatePostForm />
 
-          {!sortedPosts(sortBy, allPostFromFollowers).length === 0 && (
-            <div className="sorting-container">
-              <p>{sortBy} Posts</p>
-              <TbAdjustmentsHorizontal
-                onClick={() => setIsAdjustmentOn(!isAjustmentOn)}
-                className="adjustment-btn"
-              />
-              {isAjustmentOn && (
-                <div className="dropdown-list-container">
-                  <ul>
-                    {sortTypes.map((type) => (
-                      <AttentionSeeker duration={1000} effect="headShake">
-                        <li
-                          className={type === sortBy ? "isActive" : ""}
-                          onClick={() => {
-                            setSortBy(type);
-                            setIsAdjustmentOn(!isAjustmentOn);
-                          }}
-                          key={type}
-                        >
-                          {type}
-                        </li>{" "}
-                      </AttentionSeeker>
-                    ))}
-                  </ul>
-                </div>
-              )}
-            </div>
-          )}
+          <div className="sorting-container">
+            <p>{sortBy} Posts</p>
+            <TbAdjustmentsHorizontal
+              onClick={() => setIsAdjustmentOn(!isAjustmentOn)}
+              className="adjustment-btn"
+            />
+            {isAjustmentOn && (
+              <div className="dropdown-list-container">
+                <ul>
+                  {sortTypes.map((type) => (
+                    <AttentionSeeker duration={1000} effect="headShake">
+                      <li
+                        className={type === sortBy ? "isActive" : ""}
+                        onClick={() => {
+                          setSortBy(type);
+                          setIsAdjustmentOn(!isAjustmentOn);
+                        }}
+                        key={type}
+                      >
+                        {type}
+                      </li>{" "}
+                    </AttentionSeeker>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
 
           <div className="post-listing-container">
             {sortedPosts(sortBy, allPostFromFollowers).length ? (

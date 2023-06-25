@@ -61,6 +61,7 @@ export const Login = () => {
             <div>
               <input
                 placeholder="Enter Password"
+                minLength="8"
                 value={loginForm.password}
                 required
                 onChange={(e) =>
@@ -87,11 +88,12 @@ export const Login = () => {
               )}
             </div>
           </div>
-          {authError && <div className="error-message">{authError}</div>}
+         
           <div className="accept-conditions">
             <input id="confirm" type="checkbox" />
             <label htmlFor="confirm">Always keep me signed in?</label>
           </div>
+          {authError && <div className="error-message">{authError}</div>}
           <div className="btn-container">
             <button type="submit">
               {" "}

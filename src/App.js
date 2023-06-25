@@ -5,6 +5,7 @@ import { Navbar } from "./components/Navbar/Navbar";
 import { Discover } from "./components/Discover/Discover";
 import { NavRoutes } from "./Routes/NavRoutes";
 import { Header } from "./components/Header/Header";
+import { ScrollToTop } from "./components/ScrollToTop/ScrollToTop";
 
 function App() {
   const { auth } = useAuth();
@@ -13,7 +14,7 @@ function App() {
       {/* {auth.isAuth && <Header />}
       <div className="app-container">
         {auth.isAuth && <Navbar />} */}
-
+      <ScrollToTop />
       <NavRoutes />
 
       {/* {auth.isAuth && <Discover className="discover" />}

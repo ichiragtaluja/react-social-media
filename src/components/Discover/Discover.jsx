@@ -8,18 +8,16 @@ import { useLoggedInUser } from "../../contexts/LoggedInUserProvider";
 
 export const Discover = () => {
   const { auth } = useAuth();
-
   const { loggedInUserState, followUser } = useLoggedInUser();
-
   const { userState } = useUser();
-
   const navigate = useNavigate();
 
-  const whoToFollow = userState.allUsers?.filter((user) =>
-    loggedInUserState?.following?.every(
-      (following) =>
-        following.username !== user.username && user.username !== auth.username
-    )
+  const whoToFollow = userState?.allUsers?.filter(
+    (user) =>
+      user?.username !== auth?.username &&
+      loggedInUserState?.following?.every(
+        (following) => following?.username !== user?.username
+      )
   );
 
   return (

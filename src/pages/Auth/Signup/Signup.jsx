@@ -103,6 +103,7 @@ export const Signup = () => {
           <div className="password-container">
             <div>
               <input
+                minlength="8"
                 placeholder="Password"
                 type={!hidePassword ? "text" : "password"}
                 required
@@ -130,6 +131,7 @@ export const Signup = () => {
           <div className="password-container">
             <div>
               <input
+                minlength="8"
                 placeholder="Confirm Password"
                 type={!hidePassword ? "text" : "password"}
                 required

@@ -7,10 +7,15 @@
   color: white;
   border-radius: 1rem;
   padding: 1.2rem 0rem;
+  max-height: 80vh;
+}
+
+.discover-body {
+  overflow-y: auto;
 }
 
 .discover-header {
-  padding: .5rem 1rem 1rem 1rem;
+  padding: 0.5rem 1rem 1rem 1rem;
   font-weight: 800;
   font-size: 1.4rem;
 }

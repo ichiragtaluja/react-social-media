@@ -11,6 +11,10 @@ import { useAuth } from "../../contexts/AuthProvider";
 export const Explore = () => {
   const { allPosts } = usePosts();
   const {auth} = useAuth()
+
+  const allPostsSortedByLatest = allPosts?.sort(
+    (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+  );
   return (
     <>
       {" "}
@@ -19,7 +23,7 @@ export const Explore = () => {
         {auth.isAuth && <Navbar />}
 
         <main className="feed explore-page-container">
-          {allPosts?.map((post) => {
+          {allPostsSortedByLatest?.map((post) => {
             return <Post post={post} />;
           })}
         </main>
