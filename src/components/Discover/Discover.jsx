@@ -29,40 +29,44 @@ export const Discover = () => {
           <p>Who to follow?</p>
         </div>
         <div className="discover-body">
-          {whoToFollow?.map((user) => (
-            <div
-              onClick={() => {
-                navigate(`/profile/${user.username}`);
-              }}
-              key={user?._id}
-              className="discover-user-card"
-            >
+          {whoToFollow?.length ? (
+            whoToFollow?.map((user) => (
               <div
                 onClick={() => {
                   navigate(`/profile/${user.username}`);
                 }}
-                className="discover-user-img-container"
+                key={user?._id}
+                className="discover-user-card"
               >
-                <img src={user?.avatarURL} alt={user.firstName} />
-              </div>
-              <div className="user-name-username-container">
-                <p className="name">
-                  {user?.firstName} {user?.lastName}
-                </p>
-                <p className="username">@{user?.username}</p>
-              </div>
-              <div className="follow-container">
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    followUser(user?._id, auth.token);
+                <div
+                  onClick={() => {
+                    navigate(`/profile/${user.username}`);
                   }}
+                  className="discover-user-img-container"
                 >
-                  Follow
-                </button>
+                  <img src={user?.avatarURL} alt={user.firstName} />
+                </div>
+                <div className="user-name-username-container">
+                  <p className="name">
+                    {user?.firstName} {user?.lastName}
+                  </p>
+                  <p className="username">@{user?.username}</p>
+                </div>
+                <div className="follow-container">
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      followUser(user?._id, auth.token);
+                    }}
+                  >
+                    Follow
+                  </button>
+                </div>
               </div>
-            </div>
-          ))}
+            ))
+          ) : (
+            <p className="no-bookmarks">No more suggestions!</p>
+          )}
         </div>
       </div>
     </main>

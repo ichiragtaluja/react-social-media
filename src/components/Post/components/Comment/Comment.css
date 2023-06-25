@@ -85,14 +85,17 @@
 }
 .comment-toolbar-menu-container {
   position: absolute;
-  right: 20px;
-  top: 20px;
+  right: 40px;
+  top: 0px;
   display: flex;
   flex-flow: column nowrap;
   justify-content: flex-start;
   border-radius: 1rem;
   box-shadow: 0px 0px 19px -1px rgb(69, 69, 69);
   width: 150px;
+  background-color: black;
+  opacity: 1;
+  /* z-index: 1; */
 }
 
 .comment-toolbar-menu-container p {
@@ -122,6 +125,16 @@
   display: flex;
 }
 
+.comment-main-section .username-container .date {
+  color: grey;
+  margin-left: 0.5rem;
+  display: inline-block;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100px;
+  overflow: hidden;
+}
+
 @media (min-width: 768px) {
   .user-comment {
     max-width: 400px;
@@ -133,5 +146,9 @@
   .user-comment {
     max-width: 500px;
     height: auto;
+  }
+
+  .comment-main-section .username-container .date {
+    max-width: 100px;
   }
 }

@@ -10,14 +10,14 @@ function App() {
   const { auth } = useAuth();
   return (
     <div className="App">
-      {auth.isAuth && <Header />}
+      {/* {auth.isAuth && <Header />}
       <div className="app-container">
-        {auth.isAuth && <Navbar />}
+        {auth.isAuth && <Navbar />} */}
 
-        <NavRoutes />
+      <NavRoutes />
 
-        {auth.isAuth && <Discover className="discover" />}
-      </div>
+      {/* {auth.isAuth && <Discover className="discover" />}
+      </div> */}
     </div>
   );
 }

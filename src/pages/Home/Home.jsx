@@ -13,9 +13,14 @@ import {
   Hinge,
   AttentionSeeker,
 } from "react-awesome-reveal";
+import { useAuth } from "../../contexts/AuthProvider";
+import { Navbar } from "../../components/Navbar/Navbar";
+import { Header } from "../../components/Header/Header";
+import { Discover } from "../../components/Discover/Discover";
 
 export const Home = () => {
   const { setSortBy, sortBy, allPosts } = usePosts();
+  const { auth } = useAuth();
 
   const { loggedInUserState } = useLoggedInUser();
 
@@ -50,43 +55,60 @@ export const Home = () => {
   const [isAjustmentOn, setIsAdjustmentOn] = useState(false);
   const sortTypes = ["Trending", "Oldest", "Latest"];
 
+  console.log("FF", sortedPosts(sortBy, allPostFromFollowers));
+
   return (
-    <main className="feed">
-      <CreatePostForm />
+    <>
+      {auth.isAuth && <Header />}
+      <div className="app-container">
+        {auth.isAuth && <Navbar />}
+        <main className="feed">
+          <CreatePostForm />
 
-      <div className="sorting-container">
-        <p>{sortBy} Posts</p>
-        <TbAdjustmentsHorizontal
-          onClick={() => setIsAdjustmentOn(!isAjustmentOn)}
-          className="adjustment-btn"
-        />
-        {isAjustmentOn && (
-          <div className="dropdown-list-container">
-            <ul>
-              {sortTypes.map((type) => (
-                <AttentionSeeker duration={1000} effect="headShake">
-                  <li
-                    className={type === sortBy ? "isActive" : ""}
-                    onClick={() => {
-                      setSortBy(type);
-                      setIsAdjustmentOn(!isAjustmentOn);
-                    }}
-                    key={type}
-                  >
-                    {type}
-                  </li>{" "}
-                </AttentionSeeker>
-              ))}
-            </ul>
+          {!sortedPosts(sortBy, allPostFromFollowers).length === 0 && (
+            <div className="sorting-container">
+              <p>{sortBy} Posts</p>
+              <TbAdjustmentsHorizontal
+                onClick={() => setIsAdjustmentOn(!isAjustmentOn)}
+                className="adjustment-btn"
+              />
+              {isAjustmentOn && (
+                <div className="dropdown-list-container">
+                  <ul>
+                    {sortTypes.map((type) => (
+                      <AttentionSeeker duration={1000} effect="headShake">
+                        <li
+                          className={type === sortBy ? "isActive" : ""}
+                          onClick={() => {
+                            setSortBy(type);
+                            setIsAdjustmentOn(!isAjustmentOn);
+                          }}
+                          key={type}
+                        >
+                          {type}
+                        </li>{" "}
+                      </AttentionSeeker>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
+          )}
+
+          <div className="post-listing-container">
+            {sortedPosts(sortBy, allPostFromFollowers).length ? (
+              sortedPosts(sortBy, allPostFromFollowers)?.map((post) => {
+                return <Post key={post?._id} post={post} />;
+              })
+            ) : (
+              <p className="no-bookmarks">
+                Sorry, there no posts to show! Follow people to see their posts.
+              </p>
+            )}
           </div>
-        )}
+        </main>
+        {auth.isAuth && <Discover className="discover" />}
       </div>
-
-      <div className="post-listing-container">
-        {sortedPosts(sortBy, allPostFromFollowers)?.map((post) => {
-          return <Post key={post?._id} post={post} />;
-        })}
-      </div>
-    </main>
+    </>
   );
 };

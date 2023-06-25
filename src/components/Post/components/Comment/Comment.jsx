@@ -8,11 +8,13 @@ import { useState } from "react";
 import { useAuth } from "../../../../contexts/AuthProvider";
 import { useUser } from "../../../../contexts/UserProvider";
 import { Slide, Rotate, Flip } from "react-awesome-reveal";
+import { getTimeDifference } from "../../../../utils/date";
 
 export const Comment = ({ comment, post }) => {
   const navigate = useNavigate();
   const { userState } = useUser();
-  const { _id, avatarURL, username, firstName, lastName, text } = comment;
+  const { _id, avatarURL, username, firstName, lastName, text, createdAt } =
+    comment;
   const { deleteComment, editComment } = usePosts();
   const [showCommentToolbar, setShowCommentToolbar] = useState(false);
 
@@ -46,7 +48,8 @@ export const Comment = ({ comment, post }) => {
             className="username"
           >
             @{username}
-          </span>
+          </span>{" "}
+          <span className="date"> {getTimeDifference(createdAt)}</span>
           {username === auth?.username && (
             <div className="comment-toolbar">
               <div

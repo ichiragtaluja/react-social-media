@@ -201,7 +201,7 @@
   position: fixed;
   inset: 0;
   width: 100%;
-  background-color: rgb(0, 0, 0, 0.8);
+  background-color: rgb(25, 25, 25, 0.9);
   margin: auto;
 }
 
@@ -210,7 +210,7 @@
   position: fixed;
   inset: 0;
   width: 100%;
-  background-color: rgb(0, 0, 0, 0.8);
+  background-color: rgb(25, 25, 25, 0.9);
   margin: auto;
 }
 
@@ -235,7 +235,7 @@
   position: fixed;
   z-index: 11;
   background-color: rgb(0, 0, 0);
-  box-shadow: 0px 0px 19px -1px rgb(89, 89, 89);
+  /* box-shadow: 0px 0px 19px -1px rgb(89, 89, 89); */
   padding: 1rem 0;
   border-radius: 1rem;
 }
