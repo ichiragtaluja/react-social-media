@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import { useLoggedInUser } from "./LoggedInUserProvider";
 import { useUser } from "./UserProvider";
+import { toast } from "react-hot-toast";
 
 const AuthContext = createContext();
 
@@ -14,6 +15,7 @@ export const AuthProvider = ({ children }) => {
   const username = localStorage.getItem("username");
 
   const [authError, setAuthError] = useState("");
+  const [authSignupError, setAuthSignupError] = useState("");
 
   const navigate = useNavigate();
 
@@ -32,29 +34,34 @@ export const AuthProvider = ({ children }) => {
   const handleSignup = async (e, formValues) => {
     try {
       e.preventDefault();
-      const response = await signupService(formValues);
-      if (response.status === 201) {
-        const token = response.data.encodedToken;
-        const username = response.data.createdUser.username;
-        localStorage.setItem("token", token);
-        localStorage.setItem("username", username);
-        setAuth({
-          isAuth: true,
-          token,
-          username: response.data.createdUser.username,
-        });
+      if (formValues.password === formValues.confirmPassword) {
+        const response = await signupService(formValues);
+        if (response.status === 201) {
+          const token = response.data.encodedToken;
+          const username = response.data.createdUser.username;
+          localStorage.setItem("token", token);
+          localStorage.setItem("username", username);
+          setAuth({
+            isAuth: true,
+            token,
+            username: response.data.createdUser.username,
+          });
 
-        dispatch({
-          type: "SET_ALL_USERS",
-          payload: [...userState.allUsers, { ...response.data.createdUser }],
-        });
-        loggedInUserDispatch({
-          type: "SET_USER",
-          payload: { ...response.data.createdUser },
-        });
-        navigate(location?.state?.from?.pathname || "/");
+          dispatch({
+            type: "SET_ALL_USERS",
+            payload: [...userState.allUsers, { ...response.data.createdUser }],
+          });
+          loggedInUserDispatch({
+            type: "SET_USER",
+            payload: { ...response.data.createdUser },
+          });
+          navigate(location?.state?.from?.pathname || "/");
+        }
+      } else {
+        setAuthSignupError("Password and confirm-password do not match");
       }
     } catch (error) {
+      setAuthSignupError(error.response.data.errors[0]);
       console.error(error);
     }
   };
@@ -95,7 +102,14 @@ export const AuthProvider = ({ children }) => {
 
   return (
     <AuthContext.Provider
-      value={{ auth, handleLogin, handleLogout, handleSignup, authError }}
+      value={{
+        auth,
+        handleLogin,
+        handleLogout,
+        handleSignup,
+        authError,
+        authSignupError,
+      }}
     >
       {children}
     </AuthContext.Provider>

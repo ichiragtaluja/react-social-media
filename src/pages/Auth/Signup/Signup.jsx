@@ -6,6 +6,7 @@ import { BsEyeSlash, BsEye } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../../contexts/AuthProvider";
 import { Fade } from "react-awesome-reveal";
+import toast from "react-hot-toast";
 
 export const Signup = () => {
   const [signupForm, setSignupForm] = useState({
@@ -19,7 +20,7 @@ export const Signup = () => {
       "https://res.cloudinary.com/darwtgzlk/image/upload/v1687674108/socialMedia/avatar/83bc8b88cf6bc4b4e04d153a418cde62_edxivy.jpg",
   });
 
-  const { handleSignup } = useAuth();
+  const { handleSignup, authSignupError, setAuthSignupError } = useAuth();
 
   const [hidePassword, setHidePassword] = useState(true);
   return (
@@ -40,6 +41,7 @@ export const Signup = () => {
         <h3 className="login-heading">Sign-Up</h3>
         <form
           onSubmit={(e) => {
+            // if (signupForm.confirmPassword === signupForm.password) {
             handleSignup(e, signupForm);
             setSignupForm({
               firstName: "",
@@ -49,6 +51,9 @@ export const Signup = () => {
               password: "",
               confirmPassword: "",
             });
+            // } else {
+            // toast.error("Password and Confirm Password are not the same")
+            // }
           }}
           className="signup-form-body"
         >
@@ -162,7 +167,9 @@ export const Signup = () => {
             <input required id="confirm" type="checkbox" />
             <label htmlFor="confirm">I accept all terms and conditions</label>
           </div>
-
+          {authSignupError && (
+            <div className="error-message">{authSignupError}</div>
+          )}
           <div className="btn-container">
             <button type="submit">
               <Fade cascade duration={150}>
