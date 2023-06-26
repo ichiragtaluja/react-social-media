@@ -14,7 +14,7 @@ import { Navbar } from "../../components/Navbar/Navbar";
 export const Profile = () => {
   const [isEditProfile, setIsEditProfile] = useState(false);
 
-  const { allPosts } = usePosts();
+  const { allPosts, postLoading } = usePosts();
   const { username } = useParams();
   const { auth } = useAuth();
 
@@ -33,11 +33,12 @@ export const Profile = () => {
             postsByUser={postsByUser}
           />
           <div className="user-posts-container">
-            {postsByUser.length ? (
-              postsByUser.map((post) => <Post key={post._id} post={post} />)
-            ) : (
-              <p className="no-bookmarks">You have not added any posts!</p>
-            )}
+            {!postLoading &&
+              (postsByUser.length ? (
+                postsByUser.map((post) => <Post key={post._id} post={post} />)
+              ) : (
+                <p className="no-bookmarks">You have not added any posts!</p>
+              ))}
           </div>
           {isEditProfile && (
             <div className="create-post-modal">

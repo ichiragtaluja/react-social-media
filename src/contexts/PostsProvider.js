@@ -1,5 +1,4 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
-import { TbTopologyFullHierarchy } from "react-icons/tb";
 import {
   getAllPostService,
   likePostService,
@@ -18,16 +17,22 @@ const PostsContext = createContext();
 export const PostsProvider = ({ children }) => {
   const [allPosts, setAllPosts] = useState([]);
 
+  const [postLoading, setPostLoading] = useState(false);
   const [sortBy, setSortBy] = useState("Latest");
 
   const getAllPosts = async () => {
     try {
+      setPostLoading(true);
       const response = await getAllPostService();
       if (response.status === 200) {
+        setPostLoading(false);
         setAllPosts(response.data.posts);
       }
     } catch (error) {
+      setPostLoading(false);
       console.error(error);
+    } finally {
+      setPostLoading(false);
     }
   };
 
@@ -35,10 +40,12 @@ export const PostsProvider = ({ children }) => {
     try {
       const response = await likePostService(postId, token);
       if (response.status === 201) {
+        setPostLoading(false);
         setAllPosts([...response.data.posts]);
       }
     } catch (error) {
       console.error(error);
+    } finally {
     }
   };
 
@@ -50,6 +57,7 @@ export const PostsProvider = ({ children }) => {
       }
     } catch (error) {
       console.error(error);
+    } finally {
     }
   };
 
@@ -61,6 +69,7 @@ export const PostsProvider = ({ children }) => {
       }
     } catch (error) {
       console.error(error);
+    } finally {
     }
   };
 
@@ -73,6 +82,7 @@ export const PostsProvider = ({ children }) => {
       }
     } catch (error) {
       console.error(error);
+    } finally {
     }
   };
 
@@ -85,6 +95,7 @@ export const PostsProvider = ({ children }) => {
       }
     } catch (error) {
       console.error(error);
+    } finally {
     }
   };
 
@@ -96,6 +107,7 @@ export const PostsProvider = ({ children }) => {
       }
     } catch (error) {
       console.error(error);
+    } finally {
     }
   };
 
@@ -107,6 +119,7 @@ export const PostsProvider = ({ children }) => {
       }
     } catch (error) {
       console.error(error);
+    } finally {
     }
   };
 
@@ -120,6 +133,7 @@ export const PostsProvider = ({ children }) => {
       console.error(error);
     }
   };
+
   const editComment = async (postId, commentId, commentData, token) => {
     try {
       const response = await editCommentService(
@@ -133,6 +147,7 @@ export const PostsProvider = ({ children }) => {
       }
     } catch (error) {
       console.error(error);
+    } finally {
     }
   };
 
@@ -154,6 +169,7 @@ export const PostsProvider = ({ children }) => {
         editComment,
         deleteComment,
         getComments,
+        postLoading,
       }}
     >
       {children}

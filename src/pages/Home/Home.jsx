@@ -19,7 +19,7 @@ import { Header } from "../../components/Header/Header";
 import { Discover } from "../../components/Discover/Discover";
 
 export const Home = () => {
-  const { setSortBy, sortBy, allPosts } = usePosts();
+  const { setSortBy, sortBy, allPosts, postLoading } = usePosts();
   const { auth } = useAuth();
 
   const { loggedInUserState } = useLoggedInUser();
@@ -60,6 +60,7 @@ export const Home = () => {
       {auth.isAuth && <Header />}
       <div className="app-container">
         {auth.isAuth && <Navbar />}
+
         <main className="feed">
           <CreatePostForm />
 
@@ -91,18 +92,22 @@ export const Home = () => {
             )}
           </div>
 
-          <div className="post-listing-container">
-            {sortedPosts(sortBy, allPostFromFollowers).length ? (
-              sortedPosts(sortBy, allPostFromFollowers)?.map((post) => {
-                return <Post key={post?._id} post={post} />;
-              })
-            ) : (
-              <p className="no-bookmarks">
-                Sorry, there no posts to show! Follow people to see their posts.
-              </p>
-            )}
-          </div>
+          {!postLoading && (
+            <div className="post-listing-container">
+              {sortedPosts(sortBy, allPostFromFollowers).length ? (
+                sortedPosts(sortBy, allPostFromFollowers)?.map((post) => {
+                  return <Post key={post?._id} post={post} />;
+                })
+              ) : (
+                <p className="no-bookmarks">
+                  Sorry, there no posts to show! Follow people to see their
+                  posts.
+                </p>
+              )}
+            </div>
+          )}
         </main>
+
         {auth.isAuth && <Discover className="discover" />}
       </div>
     </>

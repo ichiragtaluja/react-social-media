@@ -9,7 +9,7 @@ import { Navbar } from "../../components/Navbar/Navbar";
 import { useAuth } from "../../contexts/AuthProvider";
 
 export const Bookmark = () => {
-  const { allPosts } = usePosts();
+  const { allPosts, postLoading } = usePosts();
   const { auth } = useAuth();
 
   const { loggedInUserState } = useLoggedInUser();
@@ -25,13 +25,14 @@ export const Bookmark = () => {
         {auth.isAuth && <Navbar />}
 
         <main className="feed bookmark-container">
-          {allBookmarkedPosts.length ? (
-            allBookmarkedPosts?.map((post) => (
-              <Post post={post} key={post?._id} />
-            ))
-          ) : (
-            <p className="no-bookmarks">You have not added any Bookmarks!</p>
-          )}
+          {!postLoading &&
+            (allBookmarkedPosts.length ? (
+              allBookmarkedPosts?.map((post) => (
+                <Post post={post} key={post?._id} />
+              ))
+            ) : (
+              <p className="no-bookmarks">You have not added any Bookmarks!</p>
+            ))}
         </main>
 
         {auth.isAuth && <Discover className="discover" />}

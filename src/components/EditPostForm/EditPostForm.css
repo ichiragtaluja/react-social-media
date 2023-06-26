@@ -8,11 +8,11 @@
   padding: 0.5rem 0.8rem;
   border-radius: 0.5rem;
   margin-bottom: 1rem;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   display: flex;
 }
 .modal-content .input-container textarea::placeholder {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 }
 
 .modal-content .input-container .close-create-post-modal {

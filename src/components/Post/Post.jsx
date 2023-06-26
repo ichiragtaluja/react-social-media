@@ -27,6 +27,7 @@ import { useUser } from "../../contexts/UserProvider";
 import { Comment } from "./components/Comment/Comment";
 import { getTimeDifference } from "../../utils/date";
 import { LikesModal } from "./components/LikesModal/LikesModal";
+import { toast } from "react-hot-toast";
 
 export const Post = ({ post }) => {
   const navigate = useNavigate();
@@ -61,9 +62,10 @@ export const Post = ({ post }) => {
   const isLikedAlready = post?.likes.likedBy.find(
     (user) => user.username === loggedInUserState.username
   );
-  //to be done aftr site is hosted
+
   const copyHandler = (link) => {
     navigator.clipboard.writeText(link);
+    toast.success("Link successfully copied");
   };
 
   return (
@@ -220,7 +222,14 @@ export const Post = ({ post }) => {
               </span>
             </div>
             <div className="comments-container">
-              <FiShare2 className="share-icon" onClick={() => {}} />
+              <FiShare2
+                className="share-icon"
+                onClick={() =>
+                  copyHandler(
+                    `https://quackalot.netlify.app/post-detail/${post?.id}`
+                  )
+                }
+              />
               <span>{}</span>
             </div>
             <div className="comments-container">

@@ -11,7 +11,7 @@ import { Discover } from "../../components/Discover/Discover";
 
 export const PostDetail = () => {
   const { postId } = useParams();
-  const { allPosts } = usePosts();
+  const { allPosts, postLoading } = usePosts();
   const { auth } = useAuth();
 
   const post = allPosts?.find((post) => post?.id === postId);
@@ -22,9 +22,7 @@ export const PostDetail = () => {
       <div className="app-container">
         {auth.isAuth && <Navbar />}
 
-        <main className="feed">
-          <Post post={post} />
-        </main>
+        <main className="feed">{!postLoading && <Post post={post} />}</main>
 
         {auth.isAuth && <Discover className="discover" />}
       </div>

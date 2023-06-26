@@ -1,15 +1,14 @@
 import "./App.css";
-
 import { useAuth } from "./contexts/AuthProvider";
-import { Navbar } from "./components/Navbar/Navbar";
-import { Discover } from "./components/Discover/Discover";
 import { NavRoutes } from "./Routes/NavRoutes";
-import { Header } from "./components/Header/Header";
 import { ScrollToTop } from "./components/ScrollToTop/ScrollToTop";
 import { Toaster } from "react-hot-toast";
+import { usePosts } from "./contexts/PostsProvider";
+import { Loader } from "./components/Loader/Loader";
 
 function App() {
   const { auth } = useAuth();
+  const { postLoading } = usePosts();
   return (
     <div className="App">
       {/* {auth.isAuth && <Header />}
@@ -17,8 +16,9 @@ function App() {
         {auth.isAuth && <Navbar />} */}
       <ScrollToTop />
       <NavRoutes />
+      {postLoading && <Loader />}
       <Toaster
-        position="top-right"
+        position="top-center"
         reverseOrder={false}
         toastOptions={{
           success: { duration: 1500 },

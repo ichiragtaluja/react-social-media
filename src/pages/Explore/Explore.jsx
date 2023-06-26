@@ -9,8 +9,8 @@ import { Discover } from "../../components/Discover/Discover";
 import { useAuth } from "../../contexts/AuthProvider";
 
 export const Explore = () => {
-  const { allPosts } = usePosts();
-  const {auth} = useAuth()
+  const { allPosts, postLoading } = usePosts();
+  const { auth } = useAuth();
 
   const allPostsSortedByLatest = allPosts?.sort(
     (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
@@ -22,11 +22,14 @@ export const Explore = () => {
       <div className="app-container">
         {auth.isAuth && <Navbar />}
 
-        <main className="feed explore-page-container">
-          {allPostsSortedByLatest?.map((post) => {
-            return <Post post={post} />;
-          })}
-        </main>
+        {
+          <main className="feed explore-page-container">
+            {!postLoading &&
+              allPostsSortedByLatest?.map((post) => {
+                return <Post post={post} />;
+              })}
+          </main>
+        }
 
         {auth.isAuth && <Discover className="discover" />}
       </div>
