@@ -11,9 +11,6 @@ function App() {
   const { postLoading } = usePosts();
   return (
     <div className="App">
-      {/* {auth.isAuth && <Header />}
-      <div className="app-container">
-        {auth.isAuth && <Navbar />} */}
       <ScrollToTop />
       <NavRoutes />
       {postLoading && <Loader />}
@@ -22,15 +19,12 @@ function App() {
         reverseOrder={false}
         toastOptions={{
           success: { duration: 1500 },
-          error: { duration: 4000 },
+          error: { duration: 1500 },
         }}
         containerStyle={{
           top: "6rem",
         }}
       />
-
-      {/* {auth.isAuth && <Discover className="discover" />}
-      </div> */}
     </div>
   );
 }

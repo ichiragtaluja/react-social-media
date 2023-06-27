@@ -6,7 +6,7 @@ import { useLoggedInUser } from "../../contexts/LoggedInUserProvider";
 import { useAuth } from "../../contexts/AuthProvider";
 import { usePosts } from "../../contexts/PostsProvider";
 import { EmojiModal } from "../EmojiModal/EmojiModal";
-
+import { toast } from "react-hot-toast";
 
 export const EditPostForm = ({
   setIsEditPostClicked,
@@ -29,17 +29,17 @@ export const EditPostForm = ({
     e.preventDefault();
     const file = e.target.files[0];
     if (file?.type?.startsWith("image/") || file?.type?.startsWith("video/")) {
-      if (file.size < 10 * 1024 * 1024) {
+      if (file.size < 20 * 1024 * 1024) {
         setPostEditForm((prev) => ({
           ...prev,
           mediaUrl: URL.createObjectURL(file),
           type: file?.type?.startsWith("image/") ? "image" : "video",
         }));
       } else {
-        alert("file must be less than 10mb");
+        toast.error("file must be less than 20mb");
       }
     } else {
-      alert("file must be a Video (MP4/MOV) or an Image (JPEG/PNG)");
+      toast.error("file must be a Video (MP4/MOV) or an Image (JPEG/PNG)");
     }
   };
 
@@ -141,13 +141,11 @@ export const EditPostForm = ({
         </div>
       </form>
 
-  
-        <EmojiModal
-          showEmojiModal={showEmojiModal}
-          setShowEmojiModal={setShowEmojiModal}
-          setPostForm={setPostEditForm}
-        />
-
+      <EmojiModal
+        showEmojiModal={showEmojiModal}
+        setShowEmojiModal={setShowEmojiModal}
+        setPostForm={setPostEditForm}
+      />
     </>
   );
 };
