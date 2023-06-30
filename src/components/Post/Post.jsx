@@ -1,14 +1,9 @@
 import "./Post.css";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import {
-  AttentionSeeker,
-  Slide,
-  Flip,
-  Fade,
-  JackInTheBox,
-  Zoom,
-} from "react-awesome-reveal";
+import { AttentionSeeker, Slide } from "react-awesome-reveal";
+import { toast } from "react-hot-toast";
+
 import {
   FaBookmark,
   RiHeart3Fill,
@@ -27,7 +22,6 @@ import { useUser } from "../../contexts/UserProvider";
 import { Comment } from "./components/Comment/Comment";
 import { getTimeDifference } from "../../utils/date";
 import { LikesModal } from "./components/LikesModal/LikesModal";
-import { toast } from "react-hot-toast";
 
 export const Post = ({ post }) => {
   const navigate = useNavigate();

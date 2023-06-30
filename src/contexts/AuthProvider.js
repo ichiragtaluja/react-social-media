@@ -1,35 +1,28 @@
-import React, { createContext, useContext, useEffect, useState } from "react";
+import React, { createContext, useContext, useState } from "react";
 
 import { loginService, signupService } from "../services/AuthService";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import { useLoggedInUser } from "./LoggedInUserProvider";
 import { useUser } from "./UserProvider";
-import { toast } from "react-hot-toast";
 
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const token = localStorage.getItem("token");
-
   const username = localStorage.getItem("username");
-
   const [authError, setAuthError] = useState("");
   const [authSignupError, setAuthSignupError] = useState("");
-
   const navigate = useNavigate();
-
   const location = useLocation();
-
   const { userState, dispatch } = useUser();
+  const { loggedInUserDispatch } = useLoggedInUser();
 
   const [auth, setAuth] = useState(
     token && username
       ? { isAuth: true, token, username }
       : { isAuth: false, token: "", username: "" }
   );
-
-  const { loggedInUserDispatch } = useLoggedInUser();
 
   const handleSignup = async (e, formValues) => {
     try {

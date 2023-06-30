@@ -37,7 +37,6 @@
   object-fit: cover;
   margin-right: 0.5rem;
   cursor: pointer;
-  /* border: 1px solid var(--primary-color); */
 }
 
 .comment-toolbar .edit {
@@ -95,7 +94,6 @@
   width: 150px;
   background-color: black;
   opacity: 1;
-  /* z-index: 1; */
 }
 
 .comment-toolbar-menu-container p {

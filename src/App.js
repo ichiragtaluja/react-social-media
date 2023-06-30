@@ -7,7 +7,6 @@ import { usePosts } from "./contexts/PostsProvider";
 import { Loader } from "./components/Loader/Loader";
 
 function App() {
-  const { auth } = useAuth();
   const { postLoading } = usePosts();
   return (
     <div className="App">

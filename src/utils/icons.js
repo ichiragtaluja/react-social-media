@@ -10,6 +10,12 @@ import { ImFilePicture } from "react-icons/im";
 import { BsEmojiSmile } from "react-icons/bs";
 import { VscSmiley } from "react-icons/vsc";
 
+import { RiHomeWifiLine } from "react-icons/ri";
+import { BiSearch } from "react-icons/bi";
+import { HiOutlineBookmark } from "react-icons/hi";
+import { CgProfile } from "react-icons/cg";
+import { IoMdLogOut } from "react-icons/io";
+import { FaFeather } from "react-icons/fa";
 
 export {
   RxCross2,
@@ -21,6 +27,14 @@ export {
   FaRegComment,
   FiShare2,
   RxDotsHorizontal,
-  IoMdClose,ImFilePicture,BsEmojiSmile,
-  VscSmiley
+  IoMdClose,
+  ImFilePicture,
+  BsEmojiSmile,
+  VscSmiley,
+  RiHomeWifiLine,
+  BiSearch,
+  HiOutlineBookmark,
+  CgProfile,
+  IoMdLogOut,
+  FaFeather
 };

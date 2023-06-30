@@ -4,15 +4,13 @@ import { useState } from "react";
 import ReactPlayer from "react-player";
 import { Link } from "react-router-dom";
 import { BsEyeSlash, BsEye } from "react-icons/bs";
-import { Fade} from "react-awesome-reveal";
+import { Fade } from "react-awesome-reveal";
 
 import { useAuth } from "../../../contexts/AuthProvider";
 
 export const Login = () => {
   const [hidePassword, setHidePassword] = useState(true);
-
   const { handleLogin, authError } = useAuth();
-
   const [loginForm, setLoginForm] = useState({ username: "", password: "" });
 
   return (
@@ -88,7 +86,7 @@ export const Login = () => {
               )}
             </div>
           </div>
-         
+
           <div className="accept-conditions">
             <input id="confirm" type="checkbox" />
             <label htmlFor="confirm">Always keep me signed in?</label>

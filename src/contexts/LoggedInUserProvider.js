@@ -1,26 +1,21 @@
 import React, { createContext, useContext } from "react";
+import { useReducer, useEffect } from "react";
 import { loggedInUserReducer, initial } from "../reducers/loggedInUserReducer";
 import {
   editUserService,
   followUserService,
   unfollowUserService,
   getUserService,
-  getAllBookmarksService,
   addBookmarkService,
   removeBookmarkService,
 } from "../services/UserService";
-import { useReducer } from "react";
-import { useEffect } from "react";
 import { useUser } from "./UserProvider";
-import { ImCoinDollar } from "react-icons/im";
 
 const LoggedInUserContext = createContext();
 
 export const LoggedInUserProvider = ({ children }) => {
   const token = localStorage.getItem("token");
-
   const username = localStorage.getItem("username");
-
   const { userState, dispatch } = useUser();
 
   const [loggedInUserState, loggedInUserDispatch] = useReducer(
@@ -99,11 +94,6 @@ export const LoggedInUserProvider = ({ children }) => {
     } catch (error) {
       console.error(error);
     }
-  };
-
-  const getAllBookmarks = async (token) => {
-    const response = await getAllBookmarksService(token);
-    // console.log("bookmark", response);
   };
 
   const addBookmark = async (postId, token) => {

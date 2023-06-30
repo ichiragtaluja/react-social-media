@@ -6,11 +6,9 @@ import React from "react";
 import { useLoggedInUser } from "../../../../contexts/LoggedInUserProvider";
 import { useEffect, useState } from "react";
 import { useAuth } from "../../../../contexts/AuthProvider";
-import { useUser } from "../../../../contexts/UserProvider";
 
 export const EditProfileModal = ({ setIsEditProfile, className }) => {
   const { loggedInUserState, editUser, avatars } = useLoggedInUser();
-  const { userState } = useUser();
 
   const { auth } = useAuth();
   const [formValues, setFormValues] = useState({

@@ -1,13 +1,11 @@
 import "./Comment.css";
 import { useNavigate } from "react-router-dom";
-
-import React from "react";
+import React, { useState } from "react";
 import { RxDotsHorizontal } from "react-icons/rx";
+
 import { usePosts } from "../../../../contexts/PostsProvider";
-import { useState } from "react";
 import { useAuth } from "../../../../contexts/AuthProvider";
 import { useUser } from "../../../../contexts/UserProvider";
-import { Slide, Rotate, Flip } from "react-awesome-reveal";
 import { getTimeDifference } from "../../../../utils/date";
 
 export const Comment = ({ comment, post }) => {

@@ -1,11 +1,10 @@
 .sorting-container {
   padding: 0.7rem 1rem;
-  /* border: 1px solid var(--border-color); */
   display: flex;
   align-items: center;
   justify-content: space-between;
   position: relative;
-  margin: .4rem;
+  margin: 0.4rem;
   border-radius: 2rem;
 }
 
@@ -62,7 +61,7 @@
 
 @media (min-width: 768px) {
   .sorting-container {
-    margin: .5rem 0;
+    margin: 0.5rem 0;
   }
 
   .dropdown-list-container {

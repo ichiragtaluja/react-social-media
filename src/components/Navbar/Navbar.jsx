@@ -3,13 +3,16 @@ import { NavLink } from "react-router-dom";
 import { useState } from "react";
 import React from "react";
 import { useAuth } from "../../contexts/AuthProvider";
-import { FaFeather } from "react-icons/fa";
+
 import { CreatePostForm } from "../CreatePostForm/CreatePostForm";
-import { RiHomeWifiLine } from "react-icons/ri";
-import { BiSearch } from "react-icons/bi";
-import { HiOutlineBookmark } from "react-icons/hi";
-import { CgProfile } from "react-icons/cg";
-import { IoMdLogOut } from "react-icons/io";
+import {
+  RiHomeWifiLine,
+  BiSearch,
+  HiOutlineBookmark,
+  CgProfile,
+  IoMdLogOut,
+  FaFeather,
+} from "../../utils/icons";
 
 export const Navbar = () => {
   const [isCreateNewPostClicked, setIsCreateNewPostClicked] = useState(false);

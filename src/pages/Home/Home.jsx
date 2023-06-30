@@ -1,18 +1,13 @@
 import "./Home.css";
 import React from "react";
 import { useState } from "react";
+import { AttentionSeeker } from "react-awesome-reveal";
 import { TbAdjustmentsHorizontal } from "react-icons/tb";
+
 import { usePosts } from "../../contexts/PostsProvider";
 import { Post } from "../../components/Post/Post";
 import { useLoggedInUser } from "../../contexts/LoggedInUserProvider";
 import { CreatePostForm } from "../../components/CreatePostForm/CreatePostForm";
-import {
-  Zoom,
-  Slide,
-  Roll,
-  Hinge,
-  AttentionSeeker,
-} from "react-awesome-reveal";
 import { useAuth } from "../../contexts/AuthProvider";
 import { Navbar } from "../../components/Navbar/Navbar";
 import { Header } from "../../components/Header/Header";
@@ -21,7 +16,6 @@ import { Discover } from "../../components/Discover/Discover";
 export const Home = () => {
   const { setSortBy, sortBy, allPosts, postLoading } = usePosts();
   const { auth } = useAuth();
-
   const { loggedInUserState } = useLoggedInUser();
 
   const allPostFromFollowers = allPosts.filter(

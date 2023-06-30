@@ -2,6 +2,7 @@ import "./PostDetail.css";
 
 import React from "react";
 import { useParams } from "react-router-dom";
+
 import { usePosts } from "../../contexts/PostsProvider";
 import { Post } from "../../components/Post/Post";
 import { useAuth } from "../../contexts/AuthProvider";

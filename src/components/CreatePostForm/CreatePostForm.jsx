@@ -1,13 +1,14 @@
 import "./CreatePostForm.css";
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-hot-toast";
 
 import { IoMdClose, VscSmiley, ImFilePicture } from "../../utils/icons";
 import { useLoggedInUser } from "../../contexts/LoggedInUserProvider";
 import { useAuth } from "../../contexts/AuthProvider";
 import { usePosts } from "../../contexts/PostsProvider";
 import { EmojiModal } from "../EmojiModal/EmojiModal";
-import { toast } from "react-hot-toast";
+
 
 export const CreatePostForm = ({ setIsCreateNewPostClicked, className }) => {
   const { createPost } = usePosts();
