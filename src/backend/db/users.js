@@ -16,7 +16,7 @@ export const users = [
     createdAt: new Date("January 02 2021 09:09:09"),
     updatedAt: formatDate(),
     avatarURL:
-      "https://res.cloudinary.com/darwtgzlk/image/upload/v1686251367/socialMedia/profilePictures/user1_wla0x2.jpg",
+      "https://res.cloudinary.com/darwtgzlk/image/upload/w_400,f_auto,q_auto/v1686251367/socialMedia/profilePictures/user1_wla0x2.jpg",
     bio: "Proud cat lover. Meow aficionado. 🐱😻",
     bookmarks: [],
     website: "https://dadsneakers.netlify.app/",
@@ -27,7 +27,7 @@ export const users = [
         lastName: "Dung",
         username: "Neha",
         avatarURL:
-          "https://res.cloudinary.com/darwtgzlk/image/upload/v1686251365/socialMedia/profilePictures/user4_yobn9s.jpg",
+          "https://res.cloudinary.com/darwtgzlk/image/upload/w_400,f_auto,q_auto/v1686251365/socialMedia/profilePictures/user4_yobn9s.jpg",
       },
       {
         _id: uuid(),
@@ -35,7 +35,7 @@ export const users = [
         lastName: "Tate",
         username: "Josh",
         avatarURL:
-          "https://res.cloudinary.com/darwtgzlk/image/upload/v1686251365/socialMedia/profilePictures/user10_dmlsg2.jpg",
+          "https://res.cloudinary.com/darwtgzlk/image/upload/w_400,f_auto,q_auto/v1686251365/socialMedia/profilePictures/user10_dmlsg2.jpg",
       },
     ],
 
@@ -46,7 +46,7 @@ export const users = [
         lastName: "Dung",
         username: "Neha",
         avatarURL:
-          "https://res.cloudinary.com/darwtgzlk/image/upload/v1686251365/socialMedia/profilePictures/user4_yobn9s.jpg",
+          "https://res.cloudinary.com/darwtgzlk/image/upload/w_400,f_auto,q_auto/v1686251365/socialMedia/profilePictures/user4_yobn9s.jpg",
       },
       {
         _id: uuid(),
@@ -54,7 +54,7 @@ export const users = [
         lastName: "Tate",
         username: "Josh",
         avatarURL:
-          "https://res.cloudinary.com/darwtgzlk/image/upload/v1686251365/socialMedia/profilePictures/user10_dmlsg2.jpg",
+          "https://res.cloudinary.com/darwtgzlk/image/upload/w_400,f_auto,q_auto/v1686251365/socialMedia/profilePictures/user10_dmlsg2.jpg",
       },
     ],
   },
@@ -69,7 +69,7 @@ export const users = [
     createdAt: new Date("January 07 2019 09:09:09"),
     updatedAt: formatDate(),
     avatarURL:
-      "https://res.cloudinary.com/darwtgzlk/image/upload/v1686251364/socialMedia/profilePictures/user2_dhebgg.jpg",
+      "https://res.cloudinary.com/darwtgzlk/image/upload/w_400,f_auto,q_auto/v1686251364/socialMedia/profilePictures/user2_dhebgg.jpg",
     bio: "Makeup enthusiast with a passion for enhancing natural beauty. Let's paint the world with color and confidence! 💄🎨 #MakeupLover",
     bookmarks: [],
     website: "https://dadsneakers.netlify.app/",
@@ -80,7 +80,7 @@ export const users = [
         lastName: "Williams",
         username: "Malik",
         avatarURL:
-          "https://res.cloudinary.com/darwtgzlk/image/upload/v1686251368/socialMedia/profilePictures/user3_atvsaj.jpg",
+          "https://res.cloudinary.com/darwtgzlk/image/upload/w_400,f_auto,q_auto/v1686251368/socialMedia/profilePictures/user3_atvsaj.jpg",
       },
       {
         _id: uuid(),
@@ -88,7 +88,7 @@ export const users = [
         lastName: "Dung",
         username: "Neha",
         avatarURL:
-          "https://res.cloudinary.com/darwtgzlk/image/upload/v1686251365/socialMedia/profilePictures/user4_yobn9s.jpg",
+          "https://res.cloudinary.com/darwtgzlk/image/upload/w_400,f_auto,q_auto/v1686251365/socialMedia/profilePictures/user4_yobn9s.jpg",
       },
     ],
     followers: [
@@ -98,7 +98,7 @@ export const users = [
         lastName: "Williams",
         username: "Malik",
         avatarURL:
-          "https://res.cloudinary.com/darwtgzlk/image/upload/v1686251368/socialMedia/profilePictures/user3_atvsaj.jpg",
+          "https://res.cloudinary.com/darwtgzlk/image/upload/w_400,f_auto,q_auto/v1686251368/socialMedia/profilePictures/user3_atvsaj.jpg",
       },
       {
         _id: uuid(),
@@ -106,7 +106,7 @@ export const users = [
         lastName: "Dung",
         username: "Neha",
         avatarURL:
-          "https://res.cloudinary.com/darwtgzlk/image/upload/v1686251365/socialMedia/profilePictures/user4_yobn9s.jpg",
+          "https://res.cloudinary.com/darwtgzlk/image/upload/w_400,f_auto,q_auto/v1686251365/socialMedia/profilePictures/user4_yobn9s.jpg",
       },
     ],
   },
@@ -121,7 +121,7 @@ export const users = [
     createdAt: new Date("September 10 2018 09:09:09"),
     updatedAt: formatDate(),
     avatarURL:
-      "https://res.cloudinary.com/darwtgzlk/image/upload/v1686251368/socialMedia/profilePictures/user3_atvsaj.jpg",
+      "https://res.cloudinary.com/darwtgzlk/image/upload/w_400,f_auto,q_auto/v1686251368/socialMedia/profilePictures/user3_atvsaj.jpg",
     bio: "Sports fanatic, fueled by adrenaline and a relentless competitive spirit. 🏆⚽🏀",
     bookmarks: [],
     website: "https://dadsneakers.netlify.app/",
@@ -132,7 +132,7 @@ export const users = [
         lastName: "Chopra",
         username: "Uday",
         avatarURL:
-          "https://res.cloudinary.com/darwtgzlk/image/upload/v1686251369/socialMedia/profilePictures/user6_ahdwkm.jpg",
+          "https://res.cloudinary.com/darwtgzlk/image/upload/w_400,f_auto,q_auto/v1686251369/socialMedia/profilePictures/user6_ahdwkm.jpg",
       },
       {
         _id: uuid(),
@@ -143,7 +143,7 @@ export const users = [
         createdAt: formatDate(),
         updatedAt: formatDate(),
         avatarURL:
-          "https://res.cloudinary.com/darwtgzlk/image/upload/v1686251369/socialMedia/profilePictures/user7_eubrrf.jpg",
+          "https://res.cloudinary.com/darwtgzlk/image/upload/w_400,f_auto,q_auto/v1686251369/socialMedia/profilePictures/user7_eubrrf.jpg",
       },
       {
         _id: uuid(),
@@ -151,7 +151,7 @@ export const users = [
         lastName: "Dung",
         username: "Neha",
         avatarURL:
-          "https://res.cloudinary.com/darwtgzlk/image/upload/v1686251365/socialMedia/profilePictures/user4_yobn9s.jpg",
+          "https://res.cloudinary.com/darwtgzlk/image/upload/w_400,f_auto,q_auto/v1686251365/socialMedia/profilePictures/user4_yobn9s.jpg",
       },
     ],
     followers: [
@@ -161,7 +161,7 @@ export const users = [
         lastName: "Chopra",
         username: "Uday",
         avatarURL:
-          "https://res.cloudinary.com/darwtgzlk/image/upload/v1686251369/socialMedia/profilePictures/user6_ahdwkm.jpg",
+          "https://res.cloudinary.com/darwtgzlk/image/upload/w_400,f_auto,q_auto/v1686251369/socialMedia/profilePictures/user6_ahdwkm.jpg",
       },
       {
         _id: uuid(),
@@ -172,7 +172,7 @@ export const users = [
         createdAt: formatDate(),
         updatedAt: formatDate(),
         avatarURL:
-          "https://res.cloudinary.com/darwtgzlk/image/upload/v1686251369/socialMedia/profilePictures/user7_eubrrf.jpg",
+          "https://res.cloudinary.com/darwtgzlk/image/upload/w_400,f_auto,q_auto/v1686251369/socialMedia/profilePictures/user7_eubrrf.jpg",
       },
     ],
   },
@@ -187,7 +187,7 @@ export const users = [
     createdAt: new Date("November 04 2016 09:09:09"),
     updatedAt: formatDate(),
     avatarURL:
-      "https://res.cloudinary.com/darwtgzlk/image/upload/v1686251365/socialMedia/profilePictures/user4_yobn9s.jpg",
+      "https://res.cloudinary.com/darwtgzlk/image/upload/w_400,f_auto,q_auto/v1686251365/socialMedia/profilePictures/user4_yobn9s.jpg",
     bio: "Dancing soul with rhythm in my veins. Embracing melodies through movement. 🎶💃 #DanceLover",
     bookmarks: [],
     website: "https://dadsneakers.netlify.app/",
@@ -198,7 +198,7 @@ export const users = [
         lastName: "Brooks",
         username: "Laura",
         avatarURL:
-          "https://res.cloudinary.com/darwtgzlk/image/upload/v1686251369/socialMedia/profilePictures/user7_eubrrf.jpg",
+          "https://res.cloudinary.com/darwtgzlk/image/upload/w_400,f_auto,q_auto/v1686251369/socialMedia/profilePictures/user7_eubrrf.jpg",
       },
       {
         _id: uuid(),
@@ -206,7 +206,7 @@ export const users = [
         lastName: "Singh",
         username: "Parmeet",
         avatarURL:
-          "https://res.cloudinary.com/darwtgzlk/image/upload/v1686251368/socialMedia/profilePictures/user8_mndclq.jpg",
+          "https://res.cloudinary.com/darwtgzlk/image/upload/w_400,f_auto,q_auto/v1686251368/socialMedia/profilePictures/user8_mndclq.jpg",
       },
       {
         _id: uuid(),
@@ -214,7 +214,7 @@ export const users = [
         lastName: "Tate",
         username: "Josh",
         avatarURL:
-          "https://res.cloudinary.com/darwtgzlk/image/upload/v1686251365/socialMedia/profilePictures/user10_dmlsg2.jpg",
+          "https://res.cloudinary.com/darwtgzlk/image/upload/w_400,f_auto,q_auto/v1686251365/socialMedia/profilePictures/user10_dmlsg2.jpg",
       },
       {
         _id: uuid(),
@@ -222,7 +222,7 @@ export const users = [
         lastName: "Myles",
         username: "Beverly",
         avatarURL:
-          "https://res.cloudinary.com/darwtgzlk/image/upload/v1686251364/socialMedia/profilePictures/user2_dhebgg.jpg",
+          "https://res.cloudinary.com/darwtgzlk/image/upload/w_400,f_auto,q_auto/v1686251364/socialMedia/profilePictures/user2_dhebgg.jpg",
       },
     ],
     followers: [
@@ -232,7 +232,7 @@ export const users = [
         lastName: "Brooks",
         username: "Laura",
         avatarURL:
-          "https://res.cloudinary.com/darwtgzlk/image/upload/v1686251369/socialMedia/profilePictures/user7_eubrrf.jpg",
+          "https://res.cloudinary.com/darwtgzlk/image/upload/w_400,f_auto,q_auto/v1686251369/socialMedia/profilePictures/user7_eubrrf.jpg",
       },
       {
         _id: uuid(),
@@ -240,7 +240,7 @@ export const users = [
         lastName: "Singh",
         username: "Parmeet",
         avatarURL:
-          "https://res.cloudinary.com/darwtgzlk/image/upload/v1686251368/socialMedia/profilePictures/user8_mndclq.jpg",
+          "https://res.cloudinary.com/darwtgzlk/image/upload/w_400,f_auto,q_auto/v1686251368/socialMedia/profilePictures/user8_mndclq.jpg",
       },
       {
         _id: uuid(),
@@ -248,7 +248,7 @@ export const users = [
         lastName: "Arora",
         username: "Aahmya",
         avatarURL:
-          "https://res.cloudinary.com/darwtgzlk/image/upload/v1686251367/socialMedia/profilePictures/user5_jxwms5.jpg",
+          "https://res.cloudinary.com/darwtgzlk/image/upload/w_400,f_auto,q_auto/v1686251367/socialMedia/profilePictures/user5_jxwms5.jpg",
       },
     ],
   },
@@ -262,7 +262,7 @@ export const users = [
     createdAt: new Date("July 04 2017 09:09:09"),
     updatedAt: formatDate(),
     avatarURL:
-      "https://res.cloudinary.com/darwtgzlk/image/upload/v1686251367/socialMedia/profilePictures/user5_jxwms5.jpg",
+      "https://res.cloudinary.com/darwtgzlk/image/upload/w_400,f_auto,q_auto/v1686251367/socialMedia/profilePictures/user5_jxwms5.jpg",
     bio: "Yoga enthusiast seeking balance and serenity through mindful movement and inner harmony. 🧘‍♀️✨",
     bookmarks: [],
     website: "https://dadsneakers.netlify.app/",
@@ -274,7 +274,7 @@ export const users = [
         lastName: "Chopra",
         username: "Uday",
         avatarURL:
-          "https://res.cloudinary.com/darwtgzlk/image/upload/v1686251369/socialMedia/profilePictures/user6_ahdwkm.jpg",
+          "https://res.cloudinary.com/darwtgzlk/image/upload/w_400,f_auto,q_auto/v1686251369/socialMedia/profilePictures/user6_ahdwkm.jpg",
       },
       {
         _id: uuid(),
@@ -282,7 +282,7 @@ export const users = [
         lastName: "Myles",
         username: "Beverly",
         avatarURL:
-          "https://res.cloudinary.com/darwtgzlk/image/upload/v1686251364/socialMedia/profilePictures/user2_dhebgg.jpg",
+          "https://res.cloudinary.com/darwtgzlk/image/upload/w_400,f_auto,q_auto/v1686251364/socialMedia/profilePictures/user2_dhebgg.jpg",
       },
     ],
   },
@@ -296,7 +296,7 @@ export const users = [
     createdAt: new Date("August 22 2020 09:09:09"),
     updatedAt: formatDate(),
     avatarURL:
-      "https://res.cloudinary.com/darwtgzlk/image/upload/v1686251369/socialMedia/profilePictures/user6_ahdwkm.jpg",
+      "https://res.cloudinary.com/darwtgzlk/image/upload/w_400,f_auto,q_auto/v1686251369/socialMedia/profilePictures/user6_ahdwkm.jpg",
     bio: "Gym addict, fueled by iron and determination. Chasing gains and pushing limits. 💪🏋️‍♀️ #FitnessJunkie",
     bookmarks: [],
     website: "https://dadsneakers.netlify.app/",
@@ -307,7 +307,7 @@ export const users = [
         lastName: "Liao",
         username: "Hui",
         avatarURL:
-          "https://res.cloudinary.com/darwtgzlk/image/upload/v1686251366/socialMedia/profilePictures/user9_txopcr.jpg",
+          "https://res.cloudinary.com/darwtgzlk/image/upload/w_400,f_auto,q_auto/v1686251366/socialMedia/profilePictures/user9_txopcr.jpg",
       },
       {
         _id: uuid(),
@@ -315,7 +315,7 @@ export const users = [
         lastName: "Brundage",
         username: "Katherine",
         avatarURL:
-          "https://res.cloudinary.com/darwtgzlk/image/upload/v1686251367/socialMedia/profilePictures/user1_wla0x2.jpg",
+          "https://res.cloudinary.com/darwtgzlk/image/upload/w_400,f_auto,q_auto/v1686251367/socialMedia/profilePictures/user1_wla0x2.jpg",
       },
     ],
     followers: [
@@ -325,7 +325,7 @@ export const users = [
         lastName: "Liao",
         username: "Hui",
         avatarURL:
-          "https://res.cloudinary.com/darwtgzlk/image/upload/v1686251366/socialMedia/profilePictures/user9_txopcr.jpg",
+          "https://res.cloudinary.com/darwtgzlk/image/upload/w_400,f_auto,q_auto/v1686251366/socialMedia/profilePictures/user9_txopcr.jpg",
       },
       {
         _id: uuid(),
@@ -333,7 +333,7 @@ export const users = [
         lastName: "Brundage",
         username: "Katherine",
         avatarURL:
-          "https://res.cloudinary.com/darwtgzlk/image/upload/v1686251367/socialMedia/profilePictures/user1_wla0x2.jpg",
+          "https://res.cloudinary.com/darwtgzlk/image/upload/w_400,f_auto,q_auto/v1686251367/socialMedia/profilePictures/user1_wla0x2.jpg",
       },
     ],
   },
@@ -347,7 +347,7 @@ export const users = [
     createdAt: new Date("March 05 2020 09:09:09"),
     updatedAt: formatDate(),
     avatarURL:
-      "https://res.cloudinary.com/darwtgzlk/image/upload/v1686251369/socialMedia/profilePictures/user7_eubrrf.jpg",
+      "https://res.cloudinary.com/darwtgzlk/image/upload/w_400,f_auto,q_auto/v1686251369/socialMedia/profilePictures/user7_eubrrf.jpg",
     bio: "Nature lover, finding solace in the wilderness. Exploring, preserving, and cherishing Earth's beauty. 🌿🌍 #NatureEnthusiast",
     bookmarks: [],
     website: "https://dadsneakers.netlify.app/",
@@ -358,7 +358,7 @@ export const users = [
         lastName: "Tate",
         username: "Josh",
         avatarURL:
-          "https://res.cloudinary.com/darwtgzlk/image/upload/v1686251365/socialMedia/profilePictures/user10_dmlsg2.jpg",
+          "https://res.cloudinary.com/darwtgzlk/image/upload/w_400,f_auto,q_auto/v1686251365/socialMedia/profilePictures/user10_dmlsg2.jpg",
       },
       {
         _id: uuid(),
@@ -366,7 +366,7 @@ export const users = [
         lastName: "Williams",
         username: "Malik",
         avatarURL:
-          "https://res.cloudinary.com/darwtgzlk/image/upload/v1686251368/socialMedia/profilePictures/user3_atvsaj.jpg",
+          "https://res.cloudinary.com/darwtgzlk/image/upload/w_400,f_auto,q_auto/v1686251368/socialMedia/profilePictures/user3_atvsaj.jpg",
       },
       {
         _id: uuid(),
@@ -374,7 +374,7 @@ export const users = [
         lastName: "Brundage",
         username: "Katherine",
         avatarURL:
-          "https://res.cloudinary.com/darwtgzlk/image/upload/v1686251367/socialMedia/profilePictures/user1_wla0x2.jpg",
+          "https://res.cloudinary.com/darwtgzlk/image/upload/w_400,f_auto,q_auto/v1686251367/socialMedia/profilePictures/user1_wla0x2.jpg",
       },
     ],
     followers: [
@@ -384,7 +384,7 @@ export const users = [
         lastName: "Tate",
         username: "Josh",
         avatarURL:
-          "https://res.cloudinary.com/darwtgzlk/image/upload/v1686251365/socialMedia/profilePictures/user10_dmlsg2.jpg",
+          "https://res.cloudinary.com/darwtgzlk/image/upload/w_400,f_auto,q_auto/v1686251365/socialMedia/profilePictures/user10_dmlsg2.jpg",
       },
       {
         _id: uuid(),
@@ -392,7 +392,7 @@ export const users = [
         lastName: "Williams",
         username: "Malik",
         avatarURL:
-          "https://res.cloudinary.com/darwtgzlk/image/upload/v1686251368/socialMedia/profilePictures/user3_atvsaj.jpg",
+          "https://res.cloudinary.com/darwtgzlk/image/upload/w_400,f_auto,q_auto/v1686251368/socialMedia/profilePictures/user3_atvsaj.jpg",
       },
     ],
   },
@@ -406,7 +406,7 @@ export const users = [
     createdAt: new Date("July 06 2020 09:09:09"),
     updatedAt: formatDate(),
     avatarURL:
-      "https://res.cloudinary.com/darwtgzlk/image/upload/v1686251368/socialMedia/profilePictures/user8_mndclq.jpg",
+      "https://res.cloudinary.com/darwtgzlk/image/upload/w_400,f_auto,q_auto/v1686251368/socialMedia/profilePictures/user8_mndclq.jpg",
     bio: "Foodie at heart, savoring flavors from around the world. Culinary adventures and gastronomic delights. 🍽️🌍 #FoodLover",
     bookmarks: [],
     website: "https://dadsneakers.netlify.app/",
@@ -417,7 +417,7 @@ export const users = [
         lastName: "Brooks",
         username: "Laura",
         avatarURL:
-          "https://res.cloudinary.com/darwtgzlk/image/upload/v1686251369/socialMedia/profilePictures/user7_eubrrf.jpg",
+          "https://res.cloudinary.com/darwtgzlk/image/upload/w_400,f_auto,q_auto/v1686251369/socialMedia/profilePictures/user7_eubrrf.jpg",
       },
     ],
     followers: [
@@ -427,7 +427,7 @@ export const users = [
         lastName: "Brooks",
         username: "Laura",
         avatarURL:
-          "https://res.cloudinary.com/darwtgzlk/image/upload/v1686251369/socialMedia/profilePictures/user7_eubrrf.jpg",
+          "https://res.cloudinary.com/darwtgzlk/image/upload/w_400,f_auto,q_auto/v1686251369/socialMedia/profilePictures/user7_eubrrf.jpg",
       },
     ],
   },
@@ -441,7 +441,7 @@ export const users = [
     createdAt: new Date("October 30 2019 09:09:09"),
     updatedAt: formatDate(),
     avatarURL:
-      "https://res.cloudinary.com/darwtgzlk/image/upload/v1686251366/socialMedia/profilePictures/user9_txopcr.jpg",
+      "https://res.cloudinary.com/darwtgzlk/image/upload/w_400,f_auto,q_auto/v1686251366/socialMedia/profilePictures/user9_txopcr.jpg",
     bio: "Soulful seeker, spreading light and love.",
     bookmarks: [],
     website: "https://dadsneakers.netlify.app/",
@@ -452,7 +452,7 @@ export const users = [
         lastName: "Brundage",
         username: "Katherine",
         avatarURL:
-          "https://res.cloudinary.com/darwtgzlk/image/upload/v1686251367/socialMedia/profilePictures/user1_wla0x2.jpg",
+          "https://res.cloudinary.com/darwtgzlk/image/upload/w_400,f_auto,q_auto/v1686251367/socialMedia/profilePictures/user1_wla0x2.jpg",
       },
     ],
     followers: [
@@ -462,7 +462,7 @@ export const users = [
         lastName: "Brundage",
         username: "Katherine",
         avatarURL:
-          "https://res.cloudinary.com/darwtgzlk/image/upload/v1686251367/socialMedia/profilePictures/user1_wla0x2.jpg",
+          "https://res.cloudinary.com/darwtgzlk/image/upload/w_400,f_auto,q_auto/v1686251367/socialMedia/profilePictures/user1_wla0x2.jpg",
       },
       {
         _id: uuid(),
@@ -470,7 +470,7 @@ export const users = [
         lastName: "Williams",
         username: "Malik",
         avatarURL:
-          "https://res.cloudinary.com/darwtgzlk/image/upload/v1686251368/socialMedia/profilePictures/user3_atvsaj.jpg",
+          "https://res.cloudinary.com/darwtgzlk/image/upload/w_400,f_auto,q_auto/v1686251368/socialMedia/profilePictures/user3_atvsaj.jpg",
       },
     ],
   },
@@ -484,7 +484,7 @@ export const users = [
     createdAt: new Date("July 20 2018 09:09:09"),
     updatedAt: formatDate(),
     avatarURL:
-      "https://res.cloudinary.com/darwtgzlk/image/upload/v1686251365/socialMedia/profilePictures/user10_dmlsg2.jpg",
+      "https://res.cloudinary.com/darwtgzlk/image/upload/w_400,f_auto,q_auto/v1686251365/socialMedia/profilePictures/user10_dmlsg2.jpg",
     bio: "Adventurer. Risk-taker. Embracing life's wild journey.",
     bookmarks: [],
     website: "https://dadsneakers.netlify.app/",
@@ -495,7 +495,7 @@ export const users = [
         lastName: "Williams",
         username: "Malik",
         avatarURL:
-          "https://res.cloudinary.com/darwtgzlk/image/upload/v1686251368/socialMedia/profilePictures/user3_atvsaj.jpg",
+          "https://res.cloudinary.com/darwtgzlk/image/upload/w_400,f_auto,q_auto/v1686251368/socialMedia/profilePictures/user3_atvsaj.jpg",
       },
     ],
     followers: [
@@ -505,7 +505,7 @@ export const users = [
         lastName: "Williams",
         username: "Malik",
         avatarURL:
-          "https://res.cloudinary.com/darwtgzlk/image/upload/v1686251368/socialMedia/profilePictures/user3_atvsaj.jpg",
+          "https://res.cloudinary.com/darwtgzlk/image/upload/w_400,f_auto,q_auto/v1686251368/socialMedia/profilePictures/user3_atvsaj.jpg",
       },
 
       {
@@ -514,7 +514,7 @@ export const users = [
         lastName: "Chopra",
         username: "Uday",
         avatarURL:
-          "https://res.cloudinary.com/darwtgzlk/image/upload/v1686251369/socialMedia/profilePictures/user6_ahdwkm.jpg",
+          "https://res.cloudinary.com/darwtgzlk/image/upload/w_400,f_auto,q_auto/v1686251369/socialMedia/profilePictures/user6_ahdwkm.jpg",
       },
       {
         _id: uuid(),
@@ -522,7 +522,7 @@ export const users = [
         lastName: "Brundage",
         username: "Katherine",
         avatarURL:
-          "https://res.cloudinary.com/darwtgzlk/image/upload/v1686251367/socialMedia/profilePictures/user1_wla0x2.jpg",
+          "https://res.cloudinary.com/darwtgzlk/image/upload/w_400,f_auto,q_auto/v1686251367/socialMedia/profilePictures/user1_wla0x2.jpg",
       },
     ],
   },
