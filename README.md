@@ -1,70 +1,84 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Quack
 
-## Available Scripts
+Social Media App "Quack" built in ReactJs. 
 
-In the project directory, you can run:
+## Screenshots
 
-### `npm start`
+<img width="1410" alt="Screenshot 2023-06-30 at 1 32 12 PM" src="https://github.com/ichiragtaluja/react-social-media/assets/114881862/1c1d6f7c-3b95-4121-bc2d-be2853285f4e">
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<img width="1425" alt="Screenshot 2023-06-30 at 1 29 32 PM" src="https://github.com/ichiragtaluja/react-social-media/assets/114881862/05f5a663-f08d-4941-8e01-a8b238d2039a">
 
-### `npm test`
+## Demo
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+https://www.loom.com/share/d0c4da90d41448e9a1fcb3b185954aa1
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Tech Stack
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Frontend: React.js, HTML, CSS
+- Backend: MockBee
+- Deployment: Netlify
+- Other Libraries and Tools: React Router, Axios, JWT, etc.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+## Features
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- Authentication
+  - Login
+  - Logout
+  - Signup
+- User Feed
+  - List all user posts
+  - Sort by Date & Trending
+- Create a Post
+- Like a post
+- Edit & Delete Post
+- User Profile
+  - Add Avatar
+  - Add Bio
+  - Add Portfolio URL
+- Follow/Unfollow
+- Explore Feed
+- Bookmark Post
+- Responsive
+- Upload Images & Videos while creating a post
+- Add Emoji & Gifs while creating a post
+- Edit User Profile Photo
+- Infinite Scroll Feed
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Run Locally
 
-## Learn More
+Clone the project
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+  git clone https://github.com/ichiragtaluja/react-social-media.git
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Go to the project directory
 
-### Code Splitting
+```bash
+  cd react-social-media
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Install dependencies
 
-### Analyzing the Bundle Size
+```bash
+  npm install
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Start the server
 
-### Making a Progressive Web App
+```bash
+  npm run start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
+## Authors
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- [@chiragtaluja](https://www.github.com/ichiragtaluja)
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
