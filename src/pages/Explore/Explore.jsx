@@ -63,7 +63,7 @@ export const Explore = () => {
             <main className="feed explore-page-container">
               {!postLoading &&
                 displayedPosts?.map((post) => {
-                  return <Post post={post} />;
+                  return <Post post={post} key={post?._id} />;
                 })}
 
               {displayedPosts.length > 0 && pageNum !== totalPages && (

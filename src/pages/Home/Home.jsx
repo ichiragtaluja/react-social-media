@@ -68,7 +68,11 @@ export const Home = () => {
               <div className="dropdown-list-container">
                 <ul>
                   {sortTypes.map((type) => (
-                    <AttentionSeeker duration={1000} effect="headShake">
+                    <AttentionSeeker
+                      key={type}
+                      duration={1000}
+                      effect="headShake"
+                    >
                       <li
                         className={type === sortBy ? "isActive" : ""}
                         onClick={() => {
