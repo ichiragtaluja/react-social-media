@@ -59,7 +59,6 @@ export const Login = () => {
             <div>
               <input
                 placeholder="Enter Password"
-                minLength="8"
                 value={loginForm.password}
                 required
                 onChange={(e) =>
